@@ -283,6 +283,21 @@ $ P(I > sqrt(100.333)) = 1 - P(I < sqrt(100.333)) = 1 - (sqrt(100.333) - 9)(2) =
 
 == Ejercicio 9
 
+La variable aleatoria continua $X$ tiene una funcion densidad de probabilidad tal que:
+$ f_X(x) = cases(
+  x + 1 && x in (-1, 0),
+  1 - x && x in (0, 1),
+  0 & "elsewhere"
+) $
+
+1. Obtener $Y = X^2$
+2. Determinar $E[Y], "Var"[Y]$
+
+- Procedemos como siempre:
+Tenemos una VAC conocida:
+
+
+
 
 
 
