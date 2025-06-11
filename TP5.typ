@@ -290,12 +290,18 @@ $ f_X(x) = cases(
   0 & "elsewhere"
 ) $
 
-1. Obtener $Y = X^2$
+1. Obtener las funciones de distribucion y probabilidad de: $Y = X^2$
 2. Determinar $E[Y], "Var"[Y]$
 
 - Procedemos como siempre:
-Tenemos una VAC conocida:
 
+Tenemos una VAC conocida $X$, luego escribimos la conocida en funcion de la desconocida y derivamos
+
+$ X = sqrt(Y) => (d X)/(d Y) = g(y) = 1/(2 sqrt(y)) $
+
+Luego notemos que $Y > 0$, de otra forma no estaria definida la funcion en $RR$
+
+$ f_Y(y) = f_X(sqrt(y)) / abs(g(y)) = 1 - sqrt(y)/(2 sqrt(y)) = 1/2 II _(\(0, 1\)) $
 
 
 
