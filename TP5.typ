@@ -293,16 +293,28 @@ $ f_X(x) = cases(
 1. Obtener las funciones de distribucion y probabilidad de: $Y = X^2$
 2. Determinar $E[Y], "Var"[Y]$
 
-- Procedemos como siempre:
+En este caso la funcion $|X| = g(Y) = sqrt(Y)$ _no es monotona_ ya que es una *funcion par*
 
-Tenemos una VAC conocida $X$, luego escribimos la conocida en funcion de la desconocida y derivamos
+Su raiz esta en $Y = 0$, las ramas de la funcion seran:
 
-$ X = sqrt(Y) => (d X)/(d Y) = g(y) = 1/(2 sqrt(y)) $
+$ x = plus.minus sqrt(y) $
 
-Luego notemos que $Y > 0$, de otra forma no estaria definida la funcion en $RR$
+Entonces vamos a usar el *teorema general* que acepta monotonia por partes:
 
-$ f_Y(y) = f_X(sqrt(y)) / abs(g(y)) = 1 - sqrt(y)/(2 sqrt(y)) = 1/2 II _(\(0, 1\)) $
+Tenemos que usar
+$ f_Y(y) = f_X(sqrt(y))/(2 sqrt(y)) + f_X(-sqrt(y))/(2 sqrt(y)) $
+$ f_Y(y) = (1 - sqrt(y))/(2 sqrt(y)) + (1 + sqrt(y))/(2 sqrt(y)) $
+$ f_Y(y) = ((1 - sqrt(y)) + (1 - sqrt(y))) /(2 sqrt(y)) $
 
+
+_El siguiente renglon es INCORRECTO_. Pues cuando usamos el *teorema general* no hay que evaluar la densidad conocida en las raices sino que en las preimagenes, de esta forma siempre *quedara algebraico*
+$ f_Y(y) = f_X(+0)/abs(g'(y)) + f_X(-0)/abs(-g'(y)) $
+
+
+2. Si usamos la densidad que les da a ellos
+$ f_Y(y) = (1/sqrt(y) - 1) II_(\(0, 1\)) (y) $
+
+$ E[Y] = E[X^2] $
 
 
 
