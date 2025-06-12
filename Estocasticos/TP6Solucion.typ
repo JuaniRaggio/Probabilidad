@@ -103,6 +103,18 @@ $ P(Z_i = 1) = p, P(Z_i = -1) = 1 - p $
 
 $ X_n = sum _(k = 0)^n Z_i = "Igual al anterior (la probabilidad no afecta el recorrido)" $
 
+Lo que si va a cambiar es la distribucion, como las probabilidades cambian, ahora la Binomial que representa a $x$ va a ser otra
+
+Siendo $k$ la cantidad de victorias:
+
+$ K tilde.op "Binomial"(n, p) $
+
+Entonces la distribucion de $X_n$ nos quedaria:
+
+$ X_n = 2k - n => K = (X_n + n) /2 $
+
+$ P(X_n = x) = "BinomPDF"(x = k, n, p) $
+
 2. Calcular la esperanza y la varianza
 
 Esto es sencillo, _igual que siempre_:
@@ -111,8 +123,7 @@ Tener en cuenta que es la suma de las esperanzas de cada uno de los experimentos
 
 $ E[Z_i] = (+1) p + (-1) (1 - p) = 2p - 1 => E[X_n] = n E[Z_i] = n(2p - 1) $
 
-$ V[Z_i] = p + 1 - p + (2p - 1)^2 => V[X_n] = n V[Z_i] =  $
-
+$ V[Z_i] = p + 1 - p + (2p - 1)^2 => V[X_n] = n V[Z_i] = n(4p^2 - 4p) = 4n p(p - 1) $
 
 
 
