@@ -65,6 +65,7 @@ $ sum pi_i = 1 $
 _Nota_ a $pi$ se lo llama "autovector" a izquierda porque multiplica a la matriz desde la izquierda y "a 1" porque en ese calculo $lambda = 1$ (deberia estar multiplicando a $pi$)
 
 - *Estados de una cadena de Markov* <estados>
+_Hacer grafo de estados para este ejercicio_
   - *Accesible*: Existe camino de un estado al otro
   - *Irreducible*: Todos se comunican (_comunicar_: Si puedo llegar de A a B entonces puedo llegar de B a A)
   - *Recurrente*: Vuelve seguro
@@ -72,6 +73,27 @@ _Nota_ a $pi$ se lo llama "autovector" a izquierda porque multiplica a la matriz
   - *Periodico/Aperiodico*
   - *Regular*: Algun $P^n$ tiene todas sus entradas positivas
 
+
+== Random Walk (Caminata aleatoria)
+
+- $X_n = sum_(k=1)^n Z_k$
+- Los $Z_k$ son va. i.i.d.
+- Si $Z_k in {-1, 1}$, es el caso simple:
+  - $E[Z_k] = 0, V[Z_k] = 1$
+  - $E[X_n] = 0, V[X_n] = n$
+- Si $Z_k$ generalizado, calcular $E[Z_k], V[Z_k]$, y luego:
+  - $E[X_n] = n E[Z_k]$
+  - $V[X_n] = n V[Z_k]$
+
+Posibles recorridos de random walks:
+
+*IMPORTANTE*: _tener en cuenta que cuando la caminata es binaria no puedo moverme 0 pasos, si o si +1 o -1_
+
+  - Binaria($plus.minus 1$): $R_(X_n) = \{ -n, -n + 2, -n + 4, ..., n - 2, n \}$
+  - Multivaluada(los pasos pueden ser de mayor modulo que 1): $"Todas las sumas posibles de n incrementos"$
+
+=== Random walk continua
+Gaussiana: $X_n tilde.op N(n mu, n sigma^2)$ ( su recorrido es $RR$)
 
 == Procesos de Poisson
 
@@ -103,6 +125,7 @@ $ P = mat(
 $ M = (I - Q)^(-1) $
 
 - *Probabilidades de absorcion* $G = M F$ 
+
 
 
 
