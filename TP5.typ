@@ -393,7 +393,62 @@ En esta ocacion como $Y$ es continua, es mas complicado
 Tenemos que encontrar su funcion de densidad con la misma estrategia que veniamos usando antes, el *teorema de la transformacion*
 
 
+== Ejercicio 13
 
+Se representa la distribucion de probabilidades conjunta $p_(X,Y)(x,y)$. Calcule todas las distribuciones *marginales* y *condicionales*
+
+
+#table(columns: 7)[$y slash.big x$][1][2][3][4][5][Probabilidades marginales de Y][1][0.10][0.10][0.05][0.15][0.10][$P(Y = 1) = 0.5$][2][0.05][0.05][0.05][0.15][0.00][$P(Y = 2) = 0.3$][3][0.05][0.05][0.00][0.10][0.00][$P(Y = 3) = 0.2$][PMs de X][0.2][0.2][0.1][0.4][0.1][$sum_x sum_y P(X = x, Y = y) = 1$]
+
+_Nota_: Las probabilidades marginales de cierta $X$ son: Fijar una x y hacer la suma de todas las probabilidades *conjuntas* (interseccion) con todas las probabilidades $x, y_i$
+Entonces tiene sentido que para el caso continuo vayan a ser integrales dobles las que tengamos que calcular ya que serian densidades de area
+
+- Probabilidades marginales de variables aleatorias bidimensionales:
+En el caso discreto son:
+$ P(X = x) = sum _y P(X = x, Y = y) $
+
+Donde necesitamos usar la *formula fundamentel*:
+
+$ P(Y = y|X = x) = P(X = x, Y = y)/P(X = x) $
+
+_Notemos que combinando fundamental con Bayes_:
+
+$ P(X = x, Y = y) = P(X = x inter Y = y) $
+
+En terminos practicos...
+La *probabilidad marginal* representa *la probabilidad total de que ocurra un determinado valor de X, sin importar Y*, sabiendo que X e Y estan relacionados obviamente
+Ejemplo corto:
+$X = "cantidad de cafes vendidos"$
+$Y = "clima"$
+$ P(X = 2) = "La probabilidad de vender 2 cafes" $
+
+_Notemos que_ estan relacionadas las variables pues si llueve podria entenderse que la gente sale menos a la calle. entonces:
+
+Si tenemos los siguientes datos:
+
+$ P(X = 2, Y = "sol") = 0.1 $
+$ P(X = 2, Y = "nube") = 0.2 $
+$ P(X = 2, Y = "lluvia") = 0.1 $
+
+Para hallar $P(X = 2)$:
+
+$ P(X = 2) = 0.1 + 0.2 + 0.1 = 0.4 $
+
+_Nos sirve para extraer informacion mas concreta de los datos que ya tenemos_
+
+
+- Probabilidades condicionales de variables aleatorias bidimensionales:
+
+Es hacer:
+$P(X = x_i|Y = y_j) = P(X = x_i, Y = y_j)/P(Y = y_j) -> "Todas las condicionales"$
+
+== Ejercicio 14
+
+
+== Ejercicio 19
+
+
+== Ejercicio 23
 
 
 

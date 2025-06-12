@@ -36,3 +36,19 @@ Notemos que en este caso hay varias cosas que cambian:
 - Se multiplica en vez de dividir
 - Restriccion mayor: _Monotonia estricta_
 
+
+== Variables aleatorias bidimensionales
+
+=== Discretas
+
+Las probabilidades marginales de cierta $X$ son: Fijar una x y hacer la suma de todas las probabilidades *conjuntas* (interseccion) con todas las probabilidades $x, y_i$
+
+$ P(X = x) = sum _y P(X = x, Y = y) $
+
+- Teorema fundamental:
+
+$ P(Y = y|X = x) = P(X = x, Y = y)/P(X = x) $
+
+_Conclusion:_ La *probabilidad marginal* representa *la probabilidad total de que ocurra un determinado valor de X, sin importar Y*, sabiendo que X e Y estan relacionados obviamente
+
+
