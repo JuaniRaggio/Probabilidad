@@ -10,6 +10,7 @@ _Para hallar la densidad de Y_...
 
 $ f_Y(y) = sum _(x_i in g^(-1)(y)) (f_X(x_i))/abs(g'(x_i)) $
 
+- *ATENTO* los $x_i$ son las preimagenes de las ramas, *no las raices*
 - $g'(x_i) != 0 =>$ Los puntos donde la funcion es localmente invertible
 - La sumatoria recorre todas las partes en donde la funcion es monotona (localmente invertible)
 
