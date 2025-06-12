@@ -39,10 +39,79 @@ Es un proceso de Markov pues las probabilidades son i.i.d. Por lo tanto la plata
 
 Entonces los posibles valores de $X_n$ son:
 
-$ X_n = (+1) . k + (-1) . (n - k) = 2k - n $
+#align(center)[#table[$ X_n = (+1) . k + (-1) . (n - k) = 2k - n, k in NN_0 $]]
 
-$ \{ -n, -n + 2, -n + 4, ..., n \} $
+El recorrido:
 
+#align(center)[#table[$ R_(X_n) = \{ -n, -n + 2, -n + 4, ..., n \} $]]
+
+_Duda que tuve: porque se le suman k pares? no podria terminar en n + 1?_
+
+Notemos con un ejemplo rapido:
+
+Si parto en 0 y tengo que si o si hacer 3 jugadas, _no tengo forma de volver a_ 0 entonces tiene sentido que la paridad sea la misma que la cantidad de jugadas (si se le suma 2k a un numero mantiene su paridad)
+
+Por lo tanto si partimos en 0 y queremos saber la probabilidad de volver a 0, y se hacen 3 jugadas va a ser 0 esa probabilidad
+
+2. Obtener la distribucion de probabilidades de $X_n$
+
+Como mencionamos anteriormente en caso de querer volver a un valor que no mantiene la paridad de $n$ (cantidad de jugadas), la probabilidad de llegar a ese punto va a ser 0
+
+Ademas de esto solo nos interesa el paso anterior ya que como son eventos i.i.d., no nos interesa toda la historia
+
+
+$ P(X_n = x_n | X_(n - 1) = x_(n - 1)) = cases(
+  1/2 & "si" x_n = x_(n - 1) plus.minus 1,
+  0 & "si no" 
+) $
+
+
+Luego la distribucion de $X_n$ la obtenemos usando que $X_n = 2k - n$
+
+Como k es la cantidad de exitos, podemos deducir la distribucion ya que su probabilidad es $0.5$
+
+$ K tilde.op "Binomial"("Trials" = n, p = 0.5) $
+
+$ P(X_n = x_n) = P(2K - n = x_n) = P(K = (x_n + n)/2) = "BinomialPDF"(x = K, n = n, 0.5) $
+
+$ k in \{ -n, 2 - n, 4 - n, ..., n \} $
+  
+3. Expresar la variable $X_n$ como suma de variables iid
+
+Esto es sencillo, de hecho lo habiamos escrito asi anteriormente:
+
+$ X_n = sum _(k = 1)^n Z_k $
+
+4. Calcular $E[X_n], V[X_n]$
+
+$ E[X_n] = n E[Z_i] = n(0.5(-1) + 0.5(1)) = n 0 = 0 $
+$ V[Z_i] = E[Z_i ^2] - E^2[Z_i] => E[X_n ^2] = n(0.5(-1)^2 + 0.5(1)^2) = n 1 = n $
+
+
+== Ejercicio 2
+*Caminata aleatoria general*
+
+Extiende al ejercicio anterior, pero esta vez asumiendo que la moneda puede estar _cargada_, osea que la probabilidad de que salga cara es $p in (0, 1)$
+
+1. Obtener la distribucion de probabilidades de $X_n$
+
+$ Z_i in {-1, 1} $
+
+Pero esta vez:
+
+$ P(Z_i = 1) = p, P(Z_i = -1) = 1 - p $
+
+$ X_n = sum _(k = 0)^n Z_i = "Igual al anterior (la probabilidad no afecta el recorrido)" $
+
+2. Calcular la esperanza y la varianza
+
+Esto es sencillo, _igual que siempre_:
+
+Tener en cuenta que es la suma de las esperanzas de cada uno de los experimentos
+
+$ E[Z_i] = (+1) p + (-1) (1 - p) = 2p - 1 => E[X_n] = n E[Z_i] = n(2p - 1) $
+
+$ V[Z_i] = p + 1 - p + (2p - 1)^2 => V[X_n] = n V[Z_i] =  $
 
 
 
