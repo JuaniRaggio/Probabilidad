@@ -364,13 +364,15 @@ Entonces para formar la funcion, sabiendo que depende de una uniforme(0, 1):
 La acumulada de la $"uniforme"(0, 1) = x$, por lo tanto setear los limites deberia ser trivial:
 
 *ATENTO*: A los limites en funciones partidas. Me habia olvidado en este caso de _sumarle lo acumulado hasta el anterior_
-#square(height: relative)[$w(X) = cases(
+
+
+$w(X) = cases(
   0 "  " 0 <= x <= 0.125,
   1 "  " 0.125 < x <= 0.5,
   2 "  " 0.5 < x <= 0.875,
   3 "  " 0.875 < x <= 1
   &
-)$]
+)$
 
 
 == Ejercicio 12
