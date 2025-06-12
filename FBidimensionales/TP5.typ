@@ -445,10 +445,40 @@ $P(X = x_i|Y = y_j) = P(X = x_i, Y = y_j)/P(Y = y_j) -> "Todas las condicionales
 == Ejercicio 14
 
 
+1. Las distribuciones de probabilidad marginales
+
+#table()[]
+
+2. La distribucion de probabilidades de $X + Y, X Y$
+
+3. El valor esperado y la varianza de $X + Y, X Y$
+
+4. La covarianza $"Cov"[X, Y]$
+
+
 == Ejercicio 19
+
+Cierto supermercado tiene una caja de atención común y otra caja rápida. Supongamos que X es el número de clientes que están en espera en la caja común en un momento particular del día, y que Y es el número de clientes que están en espera en la caja rápida al mismo tiempo. La distribución de probabilidades conjunta de (X,Y) se resume en la
+siguente tabla:
+
+#table(columns: 5)[$x slash.big y$][0][1][2][3][0][0.08][0.07][0.04][0.00][1][0.06][0.15][0.05][0.04][2][0.05][0.04][0.1][0.06][3][0.00][0.03][0.04][0.07][4][0.00][0.01][0.05][0.06]
+
+1. La probab de que haya 1 cliente en cada linea (exactamente)
+2. Prob de que la cantidad de clientes en cada cola sea la misma
+3. Prob de que haya por lo menos dos clientes mas en una cola de espera que en la otra
+4. Prob de que la cantidad de clientes en ambas colas sea exactamente 4
+5. Valor esperado del numero de clientes en cada caja
+6. Son $X, Y$ independientes?
 
 
 == Ejercicio 23
+
+
+== Ejercicio 25
+
+
+== Ejercicio 31
+
 
 
 
