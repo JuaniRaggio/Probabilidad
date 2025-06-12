@@ -352,5 +352,46 @@ $ V[Y] = E[Y^2] - E^2[Y] = E[Y^2] = 0.3 + 0.3 = 0.6 $
 
 Sea $X tilde.op "Uniforme(0, 1)"$, encontrar una funcion $w:[0,1] -> RR slash.big Y = w(X) tilde.op "Binomial"(3, 0.5)$
 
+En este caso el recorrido de $R_Y = \{ 0, 1, 2, 3 \}$ pues se pide que sea una Binomial de 3 trials
+
+$P(Y = 0) = "Bipdf"(0) = 0.125$
+$P(Y = 1) = "Bipdf"(1) = 0.375$
+$P(Y = 2) = "Bipdf"(2) = 0.375$
+$P(Y = 3) = "Bipdf"(3) = 0.125$
+
+
+Entonces para formar la funcion, sabiendo que depende de una uniforme(0, 1):
+La acumulada de la $"uniforme"(0, 1) = x$, por lo tanto setear los limites deberia ser trivial:
+
+*ATENTO*: A los limites en funciones partidas. Me habia olvidado en este caso de _sumarle lo acumulado hasta el anterior_
+#square(height: relative)[$w(X) = cases(
+  0 "  " 0 <= x <= 0.125,
+  1 "  " 0.125 < x <= 0.5,
+  2 "  " 0.5 < x <= 0.875,
+  3 "  " 0.875 < x <= 1
+  &
+)$]
+
+
+== Ejercicio 12
+
+Sean $X tilde.op "Unif"(0, 1)$ e $Y = w(X)$, donde $w:[0, 1] -> RR$ viene dada por:
+
+$ w(x) = cases(
+  0 & x <= 0.5,
+  x - 0.5 & x > 0.5
+) $
+
+1. $Y$ es una variable aleatoria discreta o continua?
+En este caso si es continua porque cuando $x > 0.5$, la funcion $w$ es una recta en $RR$ por lo que en este caso si. Aunque la preimagen sigue siendo distenta de la imagen
+
+2. Calcular $E[Y], V[Y]$
+
+En esta ocacion como $Y$ es continua, es mas complicado
+Tenemos que encontrar su funcion de densidad con la misma estrategia que veniamos usando antes, el *teorema de la transformacion*
+
+
+
+
 
 
