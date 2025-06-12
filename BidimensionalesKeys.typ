@@ -1,7 +1,7 @@
 = Procedimientos para ejercicios de Bidimensionales
 
 == Teorema transformacion general
-_Nota: Este metodo solo se aplica si la funcion $g(X)$ es diferenciable por partes_
+_Nota: Este metodo solo se aplica si la funcion $g(X)$ es monotona por partes_
 
 - Sea $Y, X$ vac, donde conocemos la denisdad de $X$
 - Sea $Y = g(X)$, no estrictamente monotona (no inyectiva)

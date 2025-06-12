@@ -6,9 +6,6 @@ El radio *R* de una esfera se considera una variable aleatoria continua. Suponga
 - Sabemos que el _volumen de una esfera_ esta dado por:
 $ V = 4/3 pi r^3 $
 
-// $ P(V = v) = P (4/3 pi R^3 = v) = P(R^3 = 3/(4 pi) v) = P(R = (3/(4 pi) v)^(1/3)) $
-
-
 - Sabemos que el _area_ esta dada por:
 $ A = 4 pi r^2 $
 
@@ -118,9 +115,6 @@ $ f_B(b) = ()/() $
 
 3. Obtenes el parametro a usar para la funcion de densidad conocida
 4. Evaluas con ese parametro a la densidad conocida y multplicas la funcion evaluada por la derivada encontrada
-
-
-
 
 3. Obtener la funcion de distribucion de B
 
@@ -305,24 +299,58 @@ Tenemos que usar
 $ f_Y(y) = f_X(sqrt(y))/(2 sqrt(y)) + f_X(-sqrt(y))/(2 sqrt(y)) $
 $ f_Y(y) = (1 - sqrt(y))/(2 sqrt(y)) + (1 + sqrt(y))/(2 sqrt(y)) $
 $ f_Y(y) = ((1 - sqrt(y)) + (1 - sqrt(y))) /(2 sqrt(y)) $
+$ f_Y(y) = (2 - 2 sqrt(y))/(2 sqrt(y)) = (1/sqrt(y) - 1) II_(\(0, 1\))(y) $
 
 
 _El siguiente renglon es INCORRECTO_. Pues cuando usamos el *teorema general* no hay que evaluar la densidad conocida en las raices sino que en las preimagenes, de esta forma siempre *quedara algebraico*
-$ f_Y(y) = f_X(+0)/abs(g'(y)) + f_X(-0)/abs(-g'(y)) $
+
+MAL: $f_Y(y) = f_X(+0)/abs(g'(y)) + f_X(-0)/abs(-g'(y))$
 
 
-2. Si usamos la densidad que les da a ellos
+2. Determinar $mu_y, sigma^2_y$
 $ f_Y(y) = (1/sqrt(y) - 1) II_(\(0, 1\)) (y) $
 
-$ E[Y] = E[X^2] $
+$ E[Y] = mu_y = integral_(-infinity)^(infinity) y f_Y(y) d y $
+$ mu_y = integral_0^1 y f_Y(y) d y $
+$ mu_y = integral_0^1 y/sqrt(y) - y d y = integral_0^1 sqrt(y) d y - integral_0^1 y d y = 0.1667 $
+
+Por otro lado:
+$ sigma_y^2 = underbrace(E[Y^2], "simil" E[Y]) - underbrace(E^2[Y], mu_y^2 = 0.1667^2) = E[Y^2] - 0.0277 $
+$ E[Y^2] = integral _0^1 y^2f_Y(y) d y = integral _0^1 y^2/sqrt(y) - y^2 d y = 0.0666 $
+En conclusion:
+- $f_Y(y) = (1/sqrt(y) - 1) II_(\(0, 1\))(y)$
+- $mu_y = 0.16667$
+- $V[Y] = 0.03896$
 
 
+== Ejercicio 10
+Sean $X tilde.op "Unif"(0, 1)$ y $Y = w(X)$, donde $w :[0,1] -> RR$ 
 
+$ w(x) = cases(
+  -1 & x <= 0.3,
+  +0 & 0.3 < x <= 0.7,
+  +1 & x > 0.7
+) $
 
+1. $Y$, es una variable aleatoria discreta o continua?
 
+El recorrido es discreto: $R_Y = \{-1, +0, +1\}$, por lo tanto entiendo que es una discreta
 
+A pesar de que $X$ es continua, $w$ la "discretiza", aunque la "imagen" que en realidad no es la imagen, es la *preimagen* sean $RR$, no quiere decir que la imagen sea $RR$, de hecho los unicos posibles valores son los mencionados anteriormente
 
+2. Determine la funcion de masa de probabilidad o la funcion de densidad de probabilidad de $Y$, segun corresponda
 
+$ P(Y = -1) = P(X <= 0.3) = "Unifcdf"(0, 1, x = 0.3) = 0.3 $
+$ P(Y = 0+) = P(0.3 < X <= 0.7) = P(X <= 0.7) - P(X < 0.3) = 0.4 $
+$ P(Y = 1) = P(0.7 < X) = 1 - P(X <= 0.7) = 1 - "Unifcdf"(0, 1, x = 0.7) = 0.3 $
+
+3. Calcular $E[Y], V[Y]$
+$ E[Y] = -0.3 + 0.3 = 0 $
+$ V[Y] = E[Y^2] - E^2[Y] = E[Y^2] = 0.3 + 0.3 = 0.6 $
+
+== Ejercicio 11
+
+Sea $X tilde.op "Uniforme(0, 1)"$, encontrar una funcion $w:[0,1] -> RR slash.big Y = w(X) tilde.op "Binomial"(3, 0.5)$
 
 
 
