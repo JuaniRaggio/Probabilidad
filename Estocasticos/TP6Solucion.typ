@@ -249,16 +249,85 @@ Suponga que en cierto banco se atiende, en promedio durante una parte del dia, a
 
 *Muy importante*: Recordar que en los _procesos de Poisson_, $lambda$ representa eventos por unidad de tiempo, por lo que en este caso:
 
-$ 4 "Clientes" / 6 "minutos" => 4/6 "Clientes por unidad de tiempo (mins)" $
+$ 4 "Clientes cada" 6 "minutos" => 4/6 "Clientes por unidad de tiempo (mins)" $
 
 Luego una vez tenemos $lambda$ por unidad de tiempo, podemos decir que $T tilde.op "Exponencial"(lambda)$, siendo $T$ la unidad de tiempo (minuto)
 
 Definimos: $C: "Cantidad de clientes atendidos"$
 
-$ P(C(t) <= 6) = "Poiscdf"(lambda times 6) => P(C(t) > 6) = 1 - "Poiscdf"(lambda times 6) = 0.21486 $
+#align(center)[#table()[$ P(C(t) <= 6) = "Poiscdf"(lambda times 6) => P(C(t) > 6) = 1 - "Poiscdf"(lambda times 6) = 0.21486 $]]
+
+Retomamos $T$, nos piden la probabilidad de que se empleen mas de 3 minutos en atender a 1 cliente, quiere decir que la distancia en tiempo entre eventos sea mayor a 3 unidades de minutos:
+
+#align(center)[#table()[$ P(T > 3) = 1 - P(T <= 3) = 1 - "ExpoCDF"(lambda) = 0.13532 $]]
+
+Luego me piden el tiempo de atencion a un cliente este entre dos y cuatro minutos, en este caso volvemos a usar la misma distribucion $T$ pues es la que nos indica la distancia en tiempo entre dos eventos
+
+$ P(2 < T < 4) = P(T < 4) - P(T < 2) = "ExpoCDF"(x=4, lambda) - "ExpoCDF"(x=2, lambda)$
+
+$ P(2 < T < 4) = 0.9305258126197583 - 0.7364204344410559 = 0.1941053 $
+
+$ #align(center)[#table()[P(2 < T < 4) = 0.1941]] $
+
+Me piden que el tiempo que insuma atender 10 clientes sea menor a 10 minutos.
+
+*Ojo* porque cuando piden muchos eventos en un tiempo determinado, tenemos que usar Poisson
+
+*Esto esta mal*:
+$ P(T = 1) = "ExpoPDF"(x = 1, lambda) = 0.3422 $
+
+*Esto es lo que corresponde hacer:*
+
+Como piden el tiempo que insuma atender 10 clientes sea _menor a 10 minutos_ hay que tener en cuenta el caso en el que atienden a MAS de 10 clientes:
+
+$ P(T_(10) <= 10) = P(C(t) >= 10) = 1 - P(C(t) < 10) = 1 - P(C(t) <= 9) $
+$ 1 - "PoisCDF"(lambda times 10) = 0.13737 $
+#align(center)[#table()[ $P(T_(10) <= 10) = 0.13737 $]]
 
 
+== Ejercicio 13
 
+Tres supermercados $S_1, S_2, S_3$ compiten por los clientes. Una investigacion determina que al comenzar el mes de agosto los tres supermercados tienen igual cantidad de clientes. Al finalizar el mes se observa que:
+
+1. $S_1$ conserva el $80%$ de sus clientes y gana el $10%$ y el $2%$ de los clientes de $S_2, S_3$
+1. $S_2$ conserva el $70%$ de sus clientes y gana el $14%$ y el $8%$ de los clientes de $S_1, S_3$
+1. $S_3$ conserva el $90%$ de sus clientes y gana el $6%$ y el $20%$ de los clientes de $S_1, S_2$
+
+Sea $PP$ la matriz cuadrada de elementos $p_(i j)$, donde $p_(i j)$ es la probabilidad de que un cliente del supermercado $S_i$ se pase al supermercado $S_j$ al cabo de un mes.
+
+1. Construir la matriz de transicion $PP$, con los datos del problema
+
+*Esto es incorrecto*:
+$ mat(
+  0.8, 0.1, 0.02;
+  0.14, 0.7, 0.08;
+  0.06, 0.2, 0.9
+) $
+
+Lo que estoy haciendo aca es que la columna dice el origen, mientras que la fila es el destino pero es la revez:
+
+$ mat(
+  0.8, 0.14, 0.06;
+  0.1, 0.7, 0.2;
+  0.02, 0.08, 0.9
+) $
+
+
+2. Si $PP^(n)$ es la matriz cuyo elemento de la posicion $i, j$ indica la proporcion de clientes que se pasaron de $S_i$ a $S_j$ al cabo de $n$ meses, determine que porcentaje de clientes se pasaron de $S_2 -> S_3$ al cabo de 2 meses
+
+Nos queda, haciendo la potencia en la calculadora y obteniendo la posicion $(2, 3)$:
+
+$ "El porcentaje de clientes que" S_2 -> S_3 " al cabo de 2 meses" = 0.326 $
+
+3. Sea $arrow(p) (0) = (1/3 1/3 1/3)$ el vector fila cuyos elementos indican la proporcion de clientes que tenia inicialmente cada supermercado. El producto $A PP^n$ indica la proporcion de clientes de cada supermercado al cabo de $n$ meses.
+
+Por codigo obtenemos:
+
+- 1 año: $arrow(p) (12) = (0.19056464217402852, 0.24282981204838205, 0.5666055457775896) $
+- 2 años: $arrow(p) (24) = (0.17863451653371634, 0.23889188846628787, 0.5824735949999964) $
+- 3 años: $arrow(p) (36) = (0.17773767147277136, 0.238602152570176, 0.5836601759570534) $
+
+Notemos que a largo plazo va a converger la proporcion de clientes de cada supermercado
 
 
 
