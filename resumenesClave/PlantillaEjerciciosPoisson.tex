@@ -1,64 +1,107 @@
 \documentclass{article}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{geometry}
+\usepackage{amsmath, amssymb, geometry}
 \geometry{a4paper, margin=1in}
-
 \begin{document}
 
-\section{Plantilla de resolucion --- Procesos de Poisson (TP6)}
+\section{Plantillas de resolucion para Segundo Parcial}
 
-\subsection{Definicion general}
+\subsection{1. Caminata Aleatoria Discreta}
 
-Un proceso de Poisson es un proceso estocastico que modela la ocurrencia de eventos aleatorios en el tiempo.
+\textbf{Definicion:} $X_n = \sum_{i=1}^n Z_i$, donde $Z_i \in \{-1, 1\}$ (simetrica) o $Z_i$ discreto general.
 
-\begin{itemize}
-  \item Tasa de ocurrencia: $\lambda$ (eventos por unidad de tiempo).
-  \item Variable de conteo: $N(t)$: cantidad de eventos hasta el tiempo $t$.
-  \item Espacio de estados: $\{0, 1, 2, 3, \dots\}$.
-\end{itemize}
+\textbf{Recorrido:} $R_{X_n} = \{-n, -n+2, \dots, n\}$.
 
-\subsection*{Propiedades fundamentales}
-
-\begin{itemize}
-  \item \textbf{Incrementos independientes:} los eventos en intervalos disjuntos son independientes.
-  \item \textbf{Incrementos estacionarios:} la distribucion depende solo de la longitud del intervalo.
-  \item \textbf{Aproximacion en intervalos pequenos:}
-  \[
-  P(\text{1 evento en } \Delta t) \approx \lambda \Delta t
-  \]
-  \[
-  P(\text{2 o mas eventos en } \Delta t) \approx 0
-  \]
-\end{itemize}
-
-\subsection*{Distribuci\'on de $N(t)$}
-
-La cantidad de eventos en un intervalo de longitud $t$ sigue una distribuci\'on de Poisson:
-
+\textbf{Distribucion:}
 \[
-P(N(t) = k) = \frac{(\lambda t)^k}{k!} e^{-\lambda t}
+P(X_n = x) = \binom{n}{\frac{x+n}{2}} p^{\frac{x+n}{2}} (1-p)^{\frac{n-x}{2}} \quad \text{si } \frac{x+n}{2} \in \mathbb{Z}.
 \]
 
-o bien:
-
+\textbf{Esperanza y varianza:}
 \[
-N(t) \sim \text{Poisson}(\lambda t)
+E[X_n] = n (2p - 1), \quad \text{Var}(X_n) = 4n p(1-p).
 \]
 
-\subsection*{Distribucion de los tiempos entre eventos}
+\subsection{2. Caminata Aleatoria Gaussiana}
 
-Los tiempos entre eventos consecutivos ($T_i$) son variables aleatorias independientes con distribucion exponencial:
+\textbf{Definicion:} $Z_i \sim \mathcal{N}(\mu, \sigma^2)$ i.i.d.
 
+\textbf{Resultado:}
 \[
-T_i \sim \text{Exponencial}(\lambda)
+X_n \sim \mathcal{N}(n\mu, n\sigma^2).
 \]
 
-\subsection*{Esperanza y varianza}
+\textbf{Recorrido:} $\mathbb{R}$ (continuo).
 
+\subsection{3. Markov Puro}
+
+\textbf{Definicion:} Proceso con memoria de un paso:
+\[
+P(X_{n+1} = j \mid X_n = i).
+\]
+
+\textbf{Matriz de transicion:}
+\[
+P = \begin{bmatrix}
+  p_{11} & p_{12} & \dots & p_{1m} \\
+  p_{21} & p_{22} & \dots & p_{2m} \\
+  \vdots & \vdots & \ddots & \vdots \\
+  p_{m1} & p_{m2} & \dots & p_{mm}
+\end{bmatrix}.
+\]
+
+\textbf{Evolucion:}
+\[
+\vec{p}(n) = \vec{p}(0) \cdot P^n.
+\]
+
+\textbf{Estado estacionario:}
+\[
+\pi = \pi P, \quad \sum \pi_i = 1.
+\]
+
+\subsection{4. Procesos de Poisson}
+
+\textbf{Definicion:}
 \begin{itemize}
-  \item Esperanza: $E[N(t)] = \lambda t$
-  \item Varianza: $\text{Var}[N(t)] = \lambda t$
+  \item $\lambda$: tasa de ocurrencia.
+  \item $N(t)$: numero de eventos en $[0,t]$.
 \end{itemize}
+
+\textbf{Distribucion:}
+\[
+P(N(t) = k) = \frac{(\lambda t)^k}{k!} e^{-\lambda t}.
+\]
+
+\textbf{Esperanza y varianza:}
+\[
+E[N(t)] = \lambda t, \quad \text{Var}[N(t)] = \lambda t.
+\]
+
+\textbf{Tiempos entre eventos:}
+\[
+T_i \sim \text{Exponencial}(\lambda).
+\]
+
+\subsection{5. Estimacion de parametros}
+
+\textbf{Intervalo de confianza para la media ($\sigma$ conocida):}
+\[
+\left( \bar{X} - z_{\alpha/2} \frac{\sigma}{\sqrt{n}}, \; \bar{X} + z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \right).
+\]
+
+\textbf{Intervalo de confianza para la media ($\sigma$ desconocida):}
+\[
+\left( \bar{X} - t_{\alpha/2, n-1} \frac{S}{\sqrt{n}}, \; \bar{X} + t_{\alpha/2, n-1} \frac{S}{\sqrt{n}} \right).
+\]
+
+\textbf{Intervalo para proporciones:}
+\[
+\left( \hat{p} - z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}, \; \hat{p} + z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \right).
+\]
+
+\textbf{Tamano de muestra:}
+\[
+n = \left( \frac{z_{\alpha/2} \cdot \sigma}{E} \right)^2.
+\]
 
 \end{document}
