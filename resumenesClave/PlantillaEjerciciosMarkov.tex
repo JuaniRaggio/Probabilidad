@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\begin{document}
+
+\section*{Plantilla de resoluci\'on --- Markov puro (modo TP6)}
+
+\subsection*{Enunciado}
+
+\begin{itemize}
+  \item Estados: $\{ s_1, s_2, \dots, s_m \}$
+  \item Matriz de transici\'on $P$:
+  \[
+  P =
+  \begin{bmatrix}
+  p_{11} & p_{12} & \dots & p_{1m} \\
+  p_{21} & p_{22} & \dots & p_{2m} \\
+  \vdots & \vdots & \ddots & \vdots \\
+  p_{m1} & p_{m2} & \dots & p_{mm}
+  \end{bmatrix}
+  \]
+  \item Vector inicial de probabilidades:
+  \[
+  \vec{p}(0) = \left[ p_1(0),\ p_2(0),\ \dots,\ p_m(0) \right]
+  \]
+\end{itemize}
+
+\subsection*{Paso 1: Evoluci\'on de la cadena}
+
+Se calcula la distribuci\'on al paso $n$ como:
+\[
+\vec{p}(n) = \vec{p}(0) \cdot P^n
+\]
+
+\subsection*{Paso 2: Estado estacionario}
+
+Se resuelve el sistema:
+\[
+\pi = \pi P
+\]
+con la condici\'on de normalizaci\'on:
+\[
+\sum_{i=1}^{m} \pi_i = 1
+\]
+
+El sistema completo:
+\[
+\begin{cases}
+\pi_1 = \pi_1 p_{11} + \pi_2 p_{21} + \dots + \pi_m p_{m1} \\
+\pi_2 = \pi_1 p_{12} + \pi_2 p_{22} + \dots + \pi_m p_{m2} \\
+\vdots \\
+\pi_m = \pi_1 p_{1m} + \pi_2 p_{2m} + \dots + \pi_m p_{mm} \\
+\sum_{i=1}^m \pi_i = 1
+\end{cases}
+\]
+
+\subsection*{Paso 3: Clasificaci\'on de estados}
+
+Para cada estado analizar:
+
+\begin{itemize}
+  \item Accesibilidad
+  \item Recurrencia o transitoriedad
+  \item Periodicidad o aperiocidad
+  \item Irreducibilidad
+  \item Regularidad (si existe alg\'un $P^n$ con todas las entradas positivas)
+\end{itemize}
+
+\end{document}
