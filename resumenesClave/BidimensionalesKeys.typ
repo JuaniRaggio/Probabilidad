@@ -54,11 +54,11 @@ Es razonable pensar las siguientes equivalencias entre caso discreto vs continuo
 
 La correlacion es comun para ambos casos. Nos dice como se relacionan linealmente dos variables
 
-$ ro_(X, Y) = "Cov"(X, Y)/(sigma_X sigma_Y) $
-$ -1 <= ro_(X, Y) <= 1 $
-$ ro_(X, Y) = -1 -> "negativa perfecta" -> "aumentan y disminuyen al mismo ritmo pero en sentido opuesto" $
-$ ro_(X, Y) = 0 -> "no existe correlacion lineal" $
-$ ro_(X, Y) = 1 -> "positiva perfecta" -> "aumentan y disminuyen al mismo ritmo y en mismo sentido" $
+$ rho_(X, Y) = "Cov"(X, Y)/(sigma_X sigma_Y) $
+$ -1 <= rho_(X, Y) <= 1 $
+$ rho_(X, Y) = -1 -> "negativa perfecta" -> "aumentan y disminuyen al mismo ritmo pero en sentido opuesto" $
+$ rho_(X, Y) = 0 -> "no existe correlacion lineal" $
+$ rho_(X, Y) = 1 -> "positiva perfecta" -> "aumentan y disminuyen al mismo ritmo y en mismo sentido" $
 
 === Discretas
 

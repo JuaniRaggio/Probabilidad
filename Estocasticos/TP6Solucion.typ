@@ -126,6 +126,43 @@ $ E[Z_i] = (+1) p + (-1) (1 - p) = 2p - 1 => E[X_n] = n E[Z_i] = n(2p - 1) $
 $ V[Z_i] = p + 1 - p + (2p - 1)^2 => V[X_n] = n V[Z_i] = n(4p^2 - 4p) = 4n p(p - 1) $
 
 
+== Ejercicio 3
+
+Suponga un proceso estocastico en tiempo discreto con espacio de eestados discreto definido de la siguiente manera:
+
+$ X_(n + 1) = X_n + Z_n $
+
+Para $n$ tomando los valores 0, 1, 2, ..., y con $X_0 = 0$. Las variables aleatorias $Z_n$ se suponen iid con recorrido: $\{-2, -1, 0, 1, 2\}$ con funcion de probabilidad $p_Z (z) = P(Z = z); p_Z (-2) = p_Z (2) = 0.1; p_Z (1) = p_Z (-1) = 0.25; p_Z (0) = 0.3$
+
+1. Obtener la distribucion de probabilidades de $X_n$ para $n$ tomando los valores 1, 2 y 3.
+
+Usando el dato:
+
+- $n = 1$:
+
+$ X_(0+1) = X_0 + Z_0 = Z_0 => X_1 = Z_0 $
+
+- $n = 2$
+
+$ X_2 = X_1 + Z_1 = Z_0 + Z_1 $
+$  $
+
+- $n = 3$
+
+$ X_3 = X_2 + Z_2 = Z_0 + Z_1 + Z_2 $
+
+Luego ver calculo de distribucion en programa que nos da literalmente todos los casos
+
+Si queremos escribir como suma de las $Z_i$ hariamos:
+
+$ X_i = sum _(k = 0)^(n - 1) Z_k $
+
+2. Calcular $E[X_n], V[X_n]$
+
+
+
+
+
 
 
 
