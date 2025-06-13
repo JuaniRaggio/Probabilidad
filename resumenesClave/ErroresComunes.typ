@@ -25,5 +25,11 @@
 + Los *subindices de X son el numero de estado*, si entre los subindices hay una diferencia de $k$ pasos, se puede calcular la matriz de transicion con las probabilidades usando $PP^k$ y se ve la celda que interesa
 
 
+= Intervalos de confianza
+
++ Cuando me piden un $n$ tal que el error sea un numero entero $k$, si no se puede obtener ese valor, vamos a querer obtener el menor error posible. Entonces
+
+$ "El " n " siempre se redondea para arriba" $
+
 
 
