@@ -8,6 +8,8 @@ _Ver codigo_
 
 #align(center)[#table(columns: 2)[Situacion][Intervalo][Media, $sigma$ conocida][$overline(X) plus.minus z sigma/sqrt(n)$][Media, $sigma$ desconocida][$overline(X) plus.minus t SS/sqrt(n)$][Proporcion][$hat(p) plus.minus z sqrt((hat(p)(1 - hat(p)))/n)$]]
 
+_Margen de error:_ lo que se suma o resta en la estimacion de intervalos
+
 = Tamaño muestral:
 
 #align(center)[#table(columns: 2)[Caso][Formula][Media, $sigma$ conocida][$overline(X) plus.minus z sigma/sqrt(n)$][Media][$n = ((z sigma)/E)^2$][Proporcion][$n = ((z 0.5)/E)^2$]]
