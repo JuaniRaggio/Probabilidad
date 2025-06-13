@@ -238,7 +238,24 @@ $ E[X_n] = mu = 0 $
 $ V[X_n] = n $
 
 
+== Ejercicio 8 - Procesos de Poisson
 
+Suponga que en cierto banco se atiende, en promedio durante una parte del dia, a cuatro clientes cada seis minutos segun un proceso de Poisson. Calcular la probabilidad de que:
+
+1. Puedan atenderse a seis o mas clientes en seis minutos
+2. Se empleen mas de tres minutos en atender a un cliente
+3. El tiempo de atencio a un cliente este comprendido entre dos y cuatro minutos
+4. El tiempo que insuma atender 10 clientes sea menor a 10 minutos
+
+*Muy importante*: Recordar que en los _procesos de Poisson_, $lambda$ representa eventos por unidad de tiempo, por lo que en este caso:
+
+$ 4 "Clientes" / 6 "minutos" => 4/6 "Clientes por unidad de tiempo (mins)" $
+
+Luego una vez tenemos $lambda$ por unidad de tiempo, podemos decir que $T tilde.op "Exponencial"(lambda)$, siendo $T$ la unidad de tiempo (minuto)
+
+Definimos: $C: "Cantidad de clientes atendidos"$
+
+$ P(C(t) <= 6) = "Poiscdf"(lambda times 6) => P(C(t) > 6) = 1 - "Poiscdf"(lambda times 6) = 0.21486 $
 
 
 

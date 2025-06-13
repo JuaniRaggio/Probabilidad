@@ -99,7 +99,7 @@ Gaussiana: $X_n tilde.op N(n mu, n sigma^2)$ ( su recorrido es $RR$)
 
 - *Proceso estocastico* uso:$->$ arribos, fallas, particulas
 
-$ lambda: "Eventos por unidad de tiempo" => T_i tilde.op "Exponencial"(lambda) $
+$ lambda: "Eventos por unidad de tiempo" => "Tiempo entre eventos sucesivos" T_i tilde.op "Exponencial"(lambda) $
 
 Cumple con...
 + *Incrementos independientes*
@@ -109,6 +109,7 @@ Cumple con...
 
 - *Distribucion*:
 $ P(N(t) = k) = (lambda t)^k/k! e^(- lambda t) $
+$ N(t) tilde.op "Pois"(lambda t) $
 
 - Los tiempos entre eventos son exponenciales con parametro $lambda$
 
