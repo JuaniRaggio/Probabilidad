@@ -31,7 +31,7 @@ Sabemos que cada paso notemoslos $i$, si la moneda no esta cargada y asumiendo q
 
 $ P(Z_i = "Gana") = 0.5 => "son" i.i.d. $
 
-$ Z_i = \{"Gana" -> 1, "Pierde" -> -1} $
+$ Z_i = \{"Gana" -> 1, "Pierde" -> -1\} $
 
 En palabras esto seria que todas las tiradas de moneda tienen una probabilidad de ganar de $0.5$, por lo que el valor esperado de $n$ tiradas, viene dado por:
 
@@ -153,11 +153,91 @@ $ X_3 = X_2 + Z_2 = Z_0 + Z_1 + Z_2 $
 
 Luego ver calculo de distribucion en programa que nos da literalmente todos los casos
 
+```py
+
+Z_vals = [-2, -1, 0, 1, 2]
+
+# Probabilidades
+Z_probs = [0.1, 0.25, 0.3, 0.25, 0.1]
+
+def inicializar_Z():
+    dist = {}
+    for i in range(len(Z_vals)):
+        dist[Z_vals[i]] = Z_probs[i]
+    return dist
+
+def convolve(dist1, dist2):
+    result = {}
+    for val1 in dist1:
+        for val2 in dist2:
+            suma = val1 + val2
+            prob = dist1[val1] * dist2[val2]
+            if suma in result:
+                result[suma] += prob
+            else:
+                result[suma] = prob
+    return result
+
+def calcular_Xn(Z_dist, n):
+    dist = Z_dist
+    for _ in range(n-1):
+        dist = convolve(dist, Z_dist)
+    return dist
+
+Z_dist = inicializar_Z()
+
+n = int(input("Ingrese n: "))
+
+Xn = calcular_Xn(Z_dist, n)
+
+def mostrar(dist, nombre):
+    print("Distribución de", nombre)
+    for k in sorted(dist.keys()):
+        print("X =", k, "-> P =", round(dist[k], 4))
+    print("")
+
+mostrar(Xn, f"X{n}")
+
+```
+
 Si queremos escribir como suma de las $Z_i$ hariamos:
 
 $ X_i = sum _(k = 0)^(n - 1) Z_k $
 
 2. Calcular $E[X_n], V[X_n]$
+
+Como las $Z_i$ son i.i.d., la varianza de la suma va a ser la suma de las varianzas, es decir que todas las variables aleatorias van a tener la misma varianza y la misma esperanza
+
+$ E[X_n] = E[sum _(k = 0)^(n - 1) Z_k] = sum_(k = 0)^(n - 1) underbrace([Z_k], 0) = 0 $
+
+$ V[X_n] = V[sum _(k = 0)^(n - 1) Z_k] = sum _(k = 0)^(n - 1) V[Z_0] = sum _(k = 0)^(n - 1) V[Z_0] = n V[Z_0] = n E[Z_0 ^2] = n (4 (0.2) + 1 (0.5)) = 1.3n $
+
+
+== Ejercicio 4 - Caminata aleatoria Gaussiana
+Otra extension de los ejercicios anteriores es cuando la cantidad perdida o ganada en cada jugada es una variable aleatoria continua. En particular, supongamos que la cantidad ganada en la jugada k-esima es una VA $G_k tilde.op N(0,1)$. Mas aun, asuma que las $G_k$ son i.i.d.. Se define el proceso estocastico $X_n : n in NN$ donde $X_n$ es el dinero que tiene el jugador al cabo de $n$ jugadas (se supone $X_0 = 0$)
+
+1. Recorrido de $X_n$ y el espacio de estados del proceso
+
+- En este caso los pasos son variables aleatorias pero continuas, por lo tanto usamos las formulas cerradas, no necesitamos usar Convolucion
+
+$ X_n tilde.op N(0, n) $
+
+$ R_X_n = RR -> "Pues puede tomar cualquier valor" $
+
+
+2. Obtener la distribucion de probabilidades de $X_n$
+
+Esta mencionada anteriormente, _pero_ si queremos escribir la funcion acumulada, seria:
+
+$ P(X_n <= n) = Phi (x/sqrt(n)) -> "Acordarse 'x menos la media dividido el desvio'" $
+
+3. Calcular $E[X_n], V[X_n]$
+
+$ E[X_n] = mu = 0 $
+
+$ V[X_n] = n $
+
+
 
 
 
