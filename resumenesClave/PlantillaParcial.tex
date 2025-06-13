@@ -13,12 +13,12 @@
 
 \textbf{Distribucion:}
 \[
-P(X_n = x) = \binom{n}{\frac{x+n}{2}} p^{\frac{x+n}{2}} (1-p)^{\frac{n-x}{2}} \quad \text{si } \frac{x+n}{2} \in \mathbb{Z}.
+  P(X_n = x) = \binom{n}{\frac{x+n}{2}} p^{\frac{x+n}{2}} (1-p)^{\frac{n-x}{2}} \quad \text{si } \frac{x+n}{2} \in \mathbb{Z}.
 \]
 
 \textbf{Esperanza y varianza:}
 \[
-E[X_n] = n (2p - 1), \quad \text{Var}(X_n) = 4n p(1-p).
+  E[X_n] = n (2p - 1), \quad \text{Var}(X_n) = 4n p(1-p).
 \]
 
 \subsection{Caminata Aleatoria Gaussiana}
@@ -27,7 +27,7 @@ E[X_n] = n (2p - 1), \quad \text{Var}(X_n) = 4n p(1-p).
 
 \textbf{Resultado:}
 \[
-X_n \sim \mathcal{N}(n\mu, n\sigma^2).
+  X_n \sim \mathcal{N}(n\mu, n\sigma^2).
 \]
 
 \textbf{Recorrido:} $\mathbb{R}$ (continuo).
@@ -36,27 +36,27 @@ X_n \sim \mathcal{N}(n\mu, n\sigma^2).
 
 \textbf{Definicion:} Proceso con memoria de un paso:
 \[
-P(X_{n+1} = j \mid X_n = i).
+  P(X_{n+1} = j \mid X_n = i).
 \]
 
 \textbf{Matriz de transicion:}
 \[
-P = \begin{bmatrix}
-  p_{11} & p_{12} & \dots & p_{1m} \\
-  p_{21} & p_{22} & \dots & p_{2m} \\
-  \vdots & \vdots & \ddots & \vdots \\
-  p_{m1} & p_{m2} & \dots & p_{mm}
-\end{bmatrix}.
+  P = \begin{bmatrix}
+    p_{11} & p_{12} & \dots & p_{1m} \\
+    p_{21} & p_{22} & \dots & p_{2m} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    p_{m1} & p_{m2} & \dots & p_{mm}
+  \end{bmatrix}.
 \]
 
 \textbf{Evolucion:}
 \[
-\vec{p}(n) = \vec{p}(0) \cdot P^n.
+  \vec{p}(n) = \vec{p}(0) \cdot P^n.
 \]
 
 \textbf{Estado estacionario:}
 \[
-\pi = \pi P, \quad \sum \pi_i = 1.
+  \pi = \pi P, \quad \sum \pi_i = 1.
 \]
 
 \subsection{Procesos de Poisson}
@@ -69,39 +69,39 @@ P = \begin{bmatrix}
 
 \textbf{Distribucion:}
 \[
-P(N(t) = k) = \frac{(\lambda t)^k}{k!} e^{-\lambda t}.
+  P(N(t) = k) = \frac{(\lambda t)^k}{k!} e^{-\lambda t}.
 \]
 
 \textbf{Esperanza y varianza:}
 \[
-E[N(t)] = \lambda t, \quad \text{Var}[N(t)] = \lambda t.
+  E[N(t)] = \lambda t, \quad \text{Var}[N(t)] = \lambda t.
 \]
 
 \textbf{Tiempos entre eventos:}
 \[
-T_i \sim \text{Exponencial}(\lambda).
+  T_i \sim \text{Exponencial}(\lambda).
 \]
 
 \subsection{Estimacion de parametros}
 
 \textbf{Intervalo de confianza para la media ($\sigma$ conocida):}
 \[
-\left( \bar{X} - z_{\alpha/2} \frac{\sigma}{\sqrt{n}}, \; \bar{X} + z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \right).
+  \left( \bar{X} - z_{\alpha/2} \frac{\sigma}{\sqrt{n}}, \; \bar{X} + z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \right).
 \]
 
 \textbf{Intervalo de confianza para la media ($\sigma$ desconocida):}
 \[
-\left( \bar{X} - t_{\alpha/2, n-1} \frac{S}{\sqrt{n}}, \; \bar{X} + t_{\alpha/2, n-1} \frac{S}{\sqrt{n}} \right).
+  \left( \bar{X} - t_{\alpha/2, n-1} \frac{S}{\sqrt{n}}, \; \bar{X} + t_{\alpha/2, n-1} \frac{S}{\sqrt{n}} \right).
 \]
 
 \textbf{Intervalo para proporciones:}
 \[
-\left( \hat{p} - z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}, \; \hat{p} + z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \right).
+  \left( \hat{p} - z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}, \; \hat{p} + z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \right).
 \]
 
 \textbf{Tamano de muestra:}
 \[
-n = \left( \frac{z_{\alpha/2} \cdot \sigma}{E} \right)^2.
+  n = \left( \frac{z_{\alpha/2} \cdot \sigma}{E} \right)^2.
 \]
 
 \end{document}
