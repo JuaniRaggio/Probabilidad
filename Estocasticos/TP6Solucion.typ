@@ -329,7 +329,62 @@ Por codigo obtenemos:
 
 Notemos que a largo plazo va a converger la proporcion de clientes de cada supermercado
 
+== Ejercicio 17
+
+Considere una cadena de Markov con espacio de estados $EE = \{a, b, c\}$ y matriz de transicion de probabilidades dada por:
+
+$ PP = mat(
+  0.3, 0.4, 0.3;
+  1, 0, 0;
+  0, 0.3, 0.7;
+) $
+
+1. Calcular $P(X_2 = a|X_1 = b, X_0 = c)$
+
+Como es una cadena de Markov, la probabilidad de $X_2$ solo depende del paso anterior, por lo tanto:
+
+$ P(X_2 = a|X_1 = b, X_0 = c) = P(X_2 = a|X_1 = b) $
+
+Esta probabilidad es "La probabilidad de $X_2 = a$ sabiendo que $X_1 = b$" entonces sale facilmente con la matriz de transicion de probabilidades. Como el espacio de estados es $EE = \{a, b, c\}$ entonces las "filas" y las "columnas" de las matrices representan esas transiciones
+
+$ P(X_2 = a|X_1 = b) = P(X_n+1 = a | X_n = b) = "Origen: b" -> "Destino: a" = PP[1][0] = 1 $
+
+2. Calcular $P(X_35 = a|X_33 = a)$
+
+$ P(X_35 = a| X_33 = a) => "Haces dos pasos y terminas en el mismo lugar" $
+
+El "Hacer dos pasos" quiere decir que si elevo la matriz al cuadrado, voy a obtener esas probabilidades
+
+$ PP^2[a][a] = PP^2[0][0] underbrace(=, "por codigo") 0.49 $
+
+3. Estimar $P(X_200 = a| X_0 = b)$
+
+$ PP^200 [b][a] = 0.3704 $
 
 
+== Ejercicio 25
 
+Cada materia que cursa un alumno en una universidad tiene tres oportunidades para dar el examen final. Suponga que la *probabilidad de aprobar el examen final es siempre p*. Sea $X_n$ la variable aleatoria que da el *número de oportunidades* que tiene el alumno en el período *n*. El recorrido de $X_n$ es el conjunto {0,1,2,3} siendo el valor cero el estado que se alcanza cuando se aprueba el examen final (claramente un estado absorbente). El *estado 3* corresponde al que se tiene una vez *aprobada la cursada*. Cuando no se aprueba en la última de las instancias se produce una transición del estado 1 al 3 (la materia se recursa)
+
+
+1. Modelar la evolucion de este proceso como una cadena de Markov obteniendo la matriz de probabilidades de transicion de un paso
+
+- Entonces se empieza en 3 $=> X_0 = 3$
+
+- Con probabilidad $p$ se pasa directo a 0 en todos los estados, con probabilidad $p-1$ se pasa al estado $n - 1$
+
+- En la ultima de las instancias, si desaprobas, pasas a 3 denuevo
+
+- Si ya estas en cero, no tenes chance de irte a otro lado
+
+$ PP = mat(
+  1, 0, 0, 0;
+  p, 0, 0, 1 - p;
+  p, 1 - p, 0, 0;
+  p, 0, 1 - p, 0;
+) $
+
+2. En el caso de que el estado inicial es 3, la distribucion de probabilidades es $(0, 0, 0, 1)$. Obtener la distribucion de probabilidades para los primeros tres periodos y conjeturar sobre su forma para todo $n$. Analizar su valor limite
+
+Esto seria calcular si o si a mano la multiplicacion de matrices para los 3 casos. No lo voy a hacer pero es eso
 

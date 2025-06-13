@@ -16,10 +16,14 @@
 
 = Cadenas de Markov:
 
-- *ATENTO* a poner bien filas y columnas.
++ *ATENTO* a poner bien filas y columnas.
 
-- Ser concistente, si lo hacer al revez del enunciado (siempre y cuando sea cuadrada la matriz), ser concistente para el resultado
+  - Ser concistente, si lo hacer al revez del enunciado (siempre y cuando sea cuadrada la matriz), ser concistente para el resultado
 
-- Intentar hacerlo como dice en el enunciado porque sino puede llegar a causar confusion
+  - Intentar hacerlo como dice en el enunciado porque sino puede llegar a causar confusion
+
++ Los *subindices de X son el numero de estado*, si entre los subindices hay una diferencia de $k$ pasos, se puede calcular la matriz de transicion con las probabilidades usando $PP^k$ y se ve la celda que interesa
+
+
 
 
