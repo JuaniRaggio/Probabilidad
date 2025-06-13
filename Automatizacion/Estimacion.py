@@ -19,31 +19,33 @@ def n_media(sigma, E):
 def n_proporcion(E, z):
     return ( (z * 0.5 / E) ** 2 )
 
-# gl = n - 1
-t = # invT(1 - alfa/2, gl)
-z = # invNorm(1 - alfa/2, 0, 1)
+# gl son los grados de libertad y son:
+# n - 1
+
+# t = # invT(1 - alfa/2, gl)
+z = 1.959963 # invNorm(1 - alfa/2, 0, 1)
 
 # Ejemplo 1: intervalo media sigma conocida
-X_barra = 100
-sigma = 10
-n = 25
-alfa = 0.05
-print("IC media sigma conocida:", IC_media_sigma_conocida(X_barra, sigma, n, alfa, z))
+X_barra = 501.2
+sigma = 4
+n = 100
+alfa = 0.01
+print("IC media sigma conocida:", IC_media_sigma_conocida(X_barra, sigma, n, z))
 
 # Ejemplo 2: intervalo media sigma desconocida
-S = 9
-n2 = 16
-alfa2 = 0.05
-print("IC media sigma desconocida:", IC_media_sigma_desconocida(X_barra, S, n2, alfa2, t))
+# S = 9
+# n2 = 16
+# alfa2 = 0.05
+# print("IC media sigma desconocida:", IC_media_sigma_desconocida(X_barra, S, n2, t))
 
 # Ejemplo 3: intervalo para proporcion
-p_hat = 0.6
-n_p = 200
-alfa3 = 0.05
-print("IC proporcion:", IC_proporcion(p_hat, n_p, alfa3, z))
+# p_hat = 0.6
+# n_p = 200
+# alfa3 = 0.05
+# print("IC proporcion:", IC_proporcion(p_hat, n_p, z))
 
 # Ejemplo 4: tamaño muestra media
-print("n media:", n_media(sigma, 2, alfa))
+# print("n media:", n_media(sigma, 2))
 
 # Ejemplo 5: tamaño muestra proporcion
-print("n proporcion:", n_proporcion(0.03, alfa, z))
+# print("n proporcion:", n_proporcion(0.03, z))
