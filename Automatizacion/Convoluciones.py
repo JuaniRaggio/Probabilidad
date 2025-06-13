@@ -20,6 +20,15 @@ Z_vals = [-2, -1, 0, 1, 2]
 # Probabilidades
 Z_probs = [0.1, 0.25, 0.3, 0.25, 0.1]
 
+if len(Z_vals) != len(Z_probs):
+    print("Error: la cantidad de valores con coincide con la cantidad de probabilidades, dale gordo que haces? Concentrate")
+    raise SystemError
+
+suma_Z_probs = sum(Z_probs)
+if abs(suma_Z_probs - 1.0) > 0.00001:
+    print("Error: las probabilidades no suman 1 (suman:", round(suma_Z_probs, 4), "), dale gordo que haces?")
+    raise SystemError
+
 def inicializar_Z():
     dist = {}
     for i in range(len(Z_vals)):
@@ -46,7 +55,7 @@ def calcular_Xn(Z_dist, n):
 
 Z_dist = inicializar_Z()
 
-n = int(input("Ingrese n: "))
+n = int(input("Ingresa n: "))
 
 Xn = calcular_Xn(Z_dist, n)
 
