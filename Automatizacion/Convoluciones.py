@@ -1,7 +1,18 @@
+# Requisitos si se quiere usar este programa y que los resultados sean
+# correctos:
+# Z_i -> i.i.d. -> Independientes e identicamente distribuidos
+# NO tiene en cuenta tiempo de Absorcion, para eso se necesitan matrices
+
+
+
+# Cubre Suma de variables aleatorias combinado con Random Walk
+# si solo se desea random walk y X_n no depende de una suma
+# basta poner que se desea 1 sola Z
+
 # Este codigo sirve para calcular:
-# P(X_n = k)
+# P(X_n = k) -> Toda su distribucion
 # Siendo X_n = Z_1 + Z_2 + ... + Z_n
-# Con Z_i conocidas
+# Con Z_i conocidas, i.i.d.
 
 # Posibles pasos de la caminata
 Z_vals = [-2, -1, 0, 1, 2]
