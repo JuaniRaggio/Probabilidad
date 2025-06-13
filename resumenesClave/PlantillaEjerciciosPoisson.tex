@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\begin{document}
+
+\section{Plantilla de resolucion --- Procesos de Poisson (TP6)}
+
+\subsection{Definicion general}
+
+Un proceso de Poisson es un proceso estocastico que modela la ocurrencia de eventos aleatorios en el tiempo.
+
+\begin{itemize}
+  \item Tasa de ocurrencia: $\lambda$ (eventos por unidad de tiempo).
+  \item Variable de conteo: $N(t)$: cantidad de eventos hasta el tiempo $t$.
+  \item Espacio de estados: $\{0, 1, 2, 3, \dots\}$.
+\end{itemize}
+
+\subsection*{Propiedades fundamentales}
+
+\begin{itemize}
+  \item \textbf{Incrementos independientes:} los eventos en intervalos disjuntos son independientes.
+  \item \textbf{Incrementos estacionarios:} la distribucion depende solo de la longitud del intervalo.
+  \item \textbf{Aproximacion en intervalos pequenos:}
+  \[
+  P(\text{1 evento en } \Delta t) \approx \lambda \Delta t
+  \]
+  \[
+  P(\text{2 o mas eventos en } \Delta t) \approx 0
+  \]
+\end{itemize}
+
+\subsection*{Distribuci\'on de $N(t)$}
+
+La cantidad de eventos en un intervalo de longitud $t$ sigue una distribuci\'on de Poisson:
+
+\[
+P(N(t) = k) = \frac{(\lambda t)^k}{k!} e^{-\lambda t}
+\]
+
+o bien:
+
+\[
+N(t) \sim \text{Poisson}(\lambda t)
+\]
+
+\subsection*{Distribucion de los tiempos entre eventos}
+
+Los tiempos entre eventos consecutivos ($T_i$) son variables aleatorias independientes con distribucion exponencial:
+
+\[
+T_i \sim \text{Exponencial}(\lambda)
+\]
+
+\subsection*{Esperanza y varianza}
+
+\begin{itemize}
+  \item Esperanza: $E[N(t)] = \lambda t$
+  \item Varianza: $\text{Var}[N(t)] = \lambda t$
+\end{itemize}
+
+\end{document}
