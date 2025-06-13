@@ -79,13 +79,19 @@ def calcular_periodo(P, estado, max_pasos=20):
         return None
 
 P = [
-    [0.8, 0.14, 0.06],
-    [0.1, 0.7, 0.2],
-    [0.02, 0.08, 0.9]
+    [0.3, 0.4, 0.3],
+    [1, 0, 0],
+    [0, 0.3, 0.7]
 ]
 
 # Evolucion / Paso
 p0 = [1/3, 1/3, 1/3]
+
+for fila in P:
+    suma = sum(P)
+    if suma != 1:
+        print(f"Ojo gordo, la suma de la fila {fila} no es 1, es {sum}, modificala desde el codigo")
+
 n = int(input("Ingrese la cantidad de pasos (n): "))
 
 Pn = matpow(P, n)
