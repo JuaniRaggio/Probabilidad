@@ -84,16 +84,3 @@ Finalmente obtendriamos: $ n' = 6763.9 approx 6764 => "Se necesitan" 6764 - 300 
 
 3. Con la muestra dada de 300 unidades calcular el porcentaje defectuoso maximo del proceso con $90%$ de confianza (o sea un porcentaje tal que la probabilidad que el verdadero porcentaje defectuoso lo exceda sea 0.1)
 
-
-= Ejercicio 17
-
-
-
-
-
-
-
-
-
-
-
