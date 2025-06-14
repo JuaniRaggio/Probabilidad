@@ -31,5 +31,10 @@
 
 $ "El " n " siempre se redondea para arriba" $
 
++ Que pasa si te dan los datos agrupados?
+
+  + Se calcula la media muestral con la formula de datos agrupados
+
+  +
 
 
