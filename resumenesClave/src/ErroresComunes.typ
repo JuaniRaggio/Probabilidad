@@ -34,3 +34,5 @@ $ "El " n " siempre se redondea para arriba" $
 + La forma de maximizar $hat(p)(1-hat(p)) <=> hat(p) = 0.5$, nos sirve cuando queremos limitar un error en base a la cantidad de muestras, en tal caso tenemos que tener en cuenta que esa $hat(p)$ puede ser maxima
 
 
+
+
