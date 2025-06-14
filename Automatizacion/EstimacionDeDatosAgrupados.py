@@ -31,8 +31,8 @@ def IC_media_agrupada(clases, frecuencias, t):
     return (media_muestral - margen, media_muestral + margen)
 
 # Ejemplo con tu ejercicio:
-clases = [(0.333, 0.433), (0.433, 0.533), (0.533, 0.633), (0.633, 0.733), (0.733, 0.833), (0.833, 0.933), (0.933, 1.033)]
-frecuencias = [4, 12, 19, 28, 48, 25, 14]
+clases = [(0.96, 0.96), (0.98, 0.98), (10.0, 10.0), (10.2, 10.2), (10.4, 10.4)]
+frecuencias = [1, 2, 1, 2, 1]
 
 n = 0
 for frec in frecuencias:
@@ -40,10 +40,10 @@ for frec in frecuencias:
 
 gl = n - 1
 alfa = 0.05
-# Supongamos que calculaste en la TI: t = invT(1 - alfa/2, gl)
 
 # OJO ACA
+# t = invT(1 - alfa/2, gl)
 
-t = 1.976 # (poner aca el valor exacto que te da la TI)
+t =  # (poner aca el valor exacto que te da la TI)
 
 print(IC_media_agrupada(clases, frecuencias, t))
