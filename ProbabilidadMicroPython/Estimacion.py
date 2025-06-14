@@ -23,14 +23,14 @@ def n_proporcion(E, z):
 # n - 1
 
 # t = # invT(1 - alfa/2, gl)
-z = 1.644853626 # invNorm(1 - alfa/2, 0, 1)
+z = 1.64485 # invNorm(1 - alfa/2, 0, 1)
 
 # Ejemplo 1: intervalo media sigma conocida
-X_barra = 246
-sigma = 15
-n = 10
-alfa = 0.1
-print("IC media sigma conocida:", IC_media_sigma_conocida(X_barra, sigma, n, z))
+# X_barra = 246
+# sigma = 15
+# n = 300
+# alfa = 0.1
+# print("IC media sigma conocida:", IC_media_sigma_conocida(X_barra, sigma, n, z))
 
 # Ejemplo 2: intervalo media sigma desconocida
 # S = 9
@@ -39,10 +39,10 @@ print("IC media sigma conocida:", IC_media_sigma_conocida(X_barra, sigma, n, z))
 # print("IC media sigma desconocida:", IC_media_sigma_desconocida(X_barra, S, n2, t))
 
 # Ejemplo 3: intervalo para proporcion
-# p_hat = 0.6
-# n_p = 200
-# alfa3 = 0.05
-# print("IC proporcion:", IC_proporcion(p_hat, n_p, z))
+p_hat = 0.06 # La proporcion de los datos (18 D => 18/n_p)
+n_p = 300 # Tamaño de la muestra
+alfa3 = 0.1
+print("IC proporcion:", IC_proporcion(p_hat, n_p, z))
 
 # Ejemplo 4: tamaño muestra media
 # print("n media:", n_media(sigma, 2))

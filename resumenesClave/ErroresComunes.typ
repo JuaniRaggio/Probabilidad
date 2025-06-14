@@ -31,10 +31,6 @@
 
 $ "El " n " siempre se redondea para arriba" $
 
-+ Que pasa si te dan los datos agrupados?
-
-  + Se calcula la media muestral con la formula de datos agrupados
-
-  +
++ La forma de maximizar $hat(p)(1-hat(p)) <=> hat(p) = 0.5$, nos sirve cuando queremos limitar un error en base a la cantidad de muestras, en tal caso tenemos que tener en cuenta que esa $hat(p)$ puede ser maxima
 
 
