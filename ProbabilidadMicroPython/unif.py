@@ -1,6 +1,3 @@
-import math
-
-# Chequearlo despues
 def unif_pdf(x, a, b):
     if a <= x <= b:
         return 1 / (b - a)
@@ -14,8 +11,8 @@ def unif_cdf(x, a, b):
     else:
         return 1
 
-x:float = float(input("x: "))
-a:float = float(input("a: "))
-b:float = float(input("b: "))
+x = float(input("x: "))
+a = float(input("a: "))
+b = float(input("b: "))
 print("cdf: ", unif_cdf(x, a, b))
 print("pdf: ", unif_pdf(x, a, b))

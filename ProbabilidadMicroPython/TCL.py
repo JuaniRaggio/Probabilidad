@@ -1,40 +1,47 @@
-from math import sqrt, erf
-# === TCL ===
+from math import sqrt
 
-# Si X_1, ..., X_n son i.i.d. con media mu y varianza sigma^2:
-# La suma Sn = X1 + X2 + ... + Xn
-# Entonces: Sn ~ Aproximadamente Normal(N * mu, N * sigma^2)
+def calcular_z(valor, n, mu, sigma, tipo):
+    if tipo == 'suma':
+        z = (valor - n*mu) / (sigma * sqrt(n))
+    elif tipo == 'promedio':
+        z = (valor - mu) / (sigma / sqrt(n))
+    else:
+        raise ValueError("Tipo inválido. Use 'suma' o 'promedio'.")
+    return z
 
-# Se puede estandarizar:
-# Z = (Sn - n*mu) / (sigma * sqrt(n)) ~ N(0,1)
+# Para intervalos
+def calcular_z_intervalo(a, b, n, mu, sigma, tipo):
+    z_a = calcular_z(a, n, mu, sigma, tipo)
+    z_b = calcular_z(b, n, mu, sigma, tipo)
+    return z_a, z_b
 
-# === 2) Funciones auxiliares ===
+# === Ejemplos de uso ===
 
-# Funcion de distribucion de la normal estandar (acumulada)
-def phi(z):
-    return 0.5 * (1 + erf(z / sqrt(2)))
+# Necesitamos siempre:
+mu = 10
+sigma = 2
+n = 30
 
-# Probabilidad de que Sn <= k (usando TCL)
-def P_Sn_leq_k(k, n, mu, sigma):
-    z = (k - n*mu) / (sigma * sqrt(n))
-    return phi(z)
-
-# Probabilidad de intervalo (a <= Sn <= b)
-def P_Sn_intervalo(a, b, n, mu, sigma):
-    return P_Sn_leq_k(b, n, mu, sigma) - P_Sn_leq_k(a, n, mu, sigma)
-
-# === 3) Codigo de uso ===
-
-# Datos de ejemplo
-mu = 10      # media de cada variable
-sigma = 2    # desvio de cada variable
-n = 30       # cantidad de variables
-
-# Queremos P(Sn <= 320)
+# Para sumas:
+# Ejemplo : suma Sn <= 320
 k = 320
-print("P(Sn <=", k, ") =", round(P_Sn_leq_k(k, n, mu, sigma), 4))
+z_suma = calcular_z(k, n, mu, sigma, 'suma')
+print("P(Sn <=", k, ") --> Z =", round(z_suma, 4))
 
-# Queremos P(290 <= Sn <= 310)
+# Ejemplo : intervalo para suma
 a = 290
 b = 310
-print("P(", a, "<= Sn <=", b, ") =", round(P_Sn_intervalo(a, b, n, mu, sigma), 4))
+z_a, z_b = calcular_z_intervalo(a, b, n, mu, sigma, 'suma')
+print("Intervalo suma: Zs =", round(z_a, 4), "a", round(z_b, 4))
+
+# Para promedios:
+# Ejemplo : promedio <= 10.4
+x = 10.4
+z_promedio = calcular_z(x, n, mu, sigma, 'promedio')
+print("P(promedio <=", x, ") --> Z =", round(z_promedio, 4))
+
+# Ejemplo : intervalo para promedio
+a = 9.8
+b = 10.3
+z_a, z_b = calcular_z_intervalo(a, b, n, mu, sigma, 'promedio')
+print("Intervalo promedio: Zs =", round(z_a, 4), "a", round(z_b, 4))
