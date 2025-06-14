@@ -80,8 +80,12 @@ $ 0.01 >= 1.64485 times sqrt((hat(p) - hat(p)^2)/n') $
 
 Suponiendo que $hat(p)$ es maximo pues queremos el limite, el maximo de la funcion $g(p) = p(1-p) <=> p = 0.5 =>$ tomamos ese valor
 
+Finalmente obtendriamos: $ n' = 6763.9 approx 6764 => "Se necesitan" 6764 - 300 = 6364 "muestras extra" $
+
 3. Con la muestra dada de 300 unidades calcular el porcentaje defectuoso maximo del proceso con $90%$ de confianza (o sea un porcentaje tal que la probabilidad que el verdadero porcentaje defectuoso lo exceda sea 0.1)
 
+
+= Ejercicio 17
 
 
 
