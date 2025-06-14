@@ -23,13 +23,13 @@ def n_proporcion(E, z):
 # n - 1
 
 # t = # invT(1 - alfa/2, gl)
-z = 1.959963 # invNorm(1 - alfa/2, 0, 1)
+z = 1.644853626 # invNorm(1 - alfa/2, 0, 1)
 
 # Ejemplo 1: intervalo media sigma conocida
-X_barra = 501.2
-sigma = 4
-n = 100
-alfa = 0.01
+X_barra = 246
+sigma = 15
+n = 10
+alfa = 0.1
 print("IC media sigma conocida:", IC_media_sigma_conocida(X_barra, sigma, n, z))
 
 # Ejemplo 2: intervalo media sigma desconocida

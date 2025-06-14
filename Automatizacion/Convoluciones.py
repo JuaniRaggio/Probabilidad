@@ -65,4 +65,4 @@ def mostrar(dist, nombre):
         print("X =", k, "-> P =", round(dist[k], 4))
     print("")
 
-mostrar(Xn, f"X{n}")
+mostrar(Xn, "X{n}")

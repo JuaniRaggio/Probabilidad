@@ -87,15 +87,18 @@ P = [
 # Evolucion / Paso
 p0 = [1/3, 1/3, 1/3]
 
+suma = 0
+
 for fila in P:
-    suma = sum(P)
+    for col in fila:
+        suma += col
     if suma != 1:
-        print(f"Ojo gordo, la suma de la fila {fila} no es 1, es {sum}, modificala desde el codigo")
+        print("Ojo gordo, la suma de la fila", fila, "no es 1, es", sum, "modificala desde el codigo")
 
 n = int(input("Ingrese la cantidad de pasos (n): "))
 
 Pn = matpow(P, n)
-print(f"La potencia {n}-esima de la matriz dada:")
+print("La potencia", n, "-esima de la matriz dada:")
 for fila in Pn:
     print(fila)
 
