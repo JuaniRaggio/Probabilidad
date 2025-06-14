@@ -1,3 +1,13 @@
+P = [
+    [0.3, 0.4, 0.3],
+    [1, 0, 0],
+    [0, 0.3, 0.7]
+]
+
+# Evolucion / Paso
+p0 = [1/3, 1/3, 1/3]
+
+
 def matmul(A, B):
     filas = len(A)
     cols = len(B[0])
@@ -77,15 +87,6 @@ def calcular_periodo(P, estado, max_pasos=20):
         return gcd_lista(indices)
     else:
         return None
-
-P = [
-    [0.3, 0.4, 0.3],
-    [1, 0, 0],
-    [0, 0.3, 0.7]
-]
-
-# Evolucion / Paso
-p0 = [1/3, 1/3, 1/3]
 
 suma = 0
 
