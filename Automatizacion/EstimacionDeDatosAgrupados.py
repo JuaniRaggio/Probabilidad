@@ -43,7 +43,6 @@ alfa = 0.05
 
 # OJO ACA
 # t = invT(1 - alfa/2, gl)
-
-t =  # (poner aca el valor exacto que te da la TI)
+t = 2.36466242
 
 print(IC_media_agrupada(clases, frecuencias, t))
