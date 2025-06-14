@@ -36,6 +36,8 @@ echo "Logs disponibles en: ${LOG_DIR}"
 
 DEST="./pdfs"
 
+rm -r $DEST
+
 mkdir -p $DEST
 
 find . -type f -name "*.pdf" -print0 | while IFS= read -r -d '' file; do
