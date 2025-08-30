@@ -18,9 +18,9 @@ def calcular_z_intervalo(a, b, n, mu, sigma, tipo):
 # === Ejemplos de uso ===
 
 # Necesitamos siempre:
-mu = 10
-sigma = 2
-n = 30
+mu = 1000
+sigma = 0.006
+n = 2000
 
 # Para sumas:
 # Ejemplo : suma Sn <= 320
