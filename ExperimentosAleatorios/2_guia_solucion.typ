@@ -257,11 +257,251 @@ e. $P(overline(B)|overline(A))$
 Si $P(A|B) = 0.6$, $P(overline(A) union B) = P(A union overline(B)) = 0.8$
 
 a. Son independientes los sucesos A y B?
-  $ P(A|B) = P(A) <=> A "ind" B $
+  $ P(A|B) = P(A) <=> P(A inter B) = P(A).P(B) <=> A "ind" B $
+
+  $ P(A|B) = P(A inter B)/P(B) => 0.6 = P(A inter B)/P(B) $
+
+  Uso los datos para obtener mas informacion
+
+  $ P(A union overline(B)) = P(A) + P(overline(B)) - P(A inter overline(B)) = P(A) - P(B) + 1 - P(A inter overline(B)) $
+
+  $ => P(A union overline(B)) = P(A) - P(B) + 1 - 1 + P(overline(A) union B) and P(overline(A) union B) = P(A union overline(B)) $
+
+  $ P(A union overline(B)) = P(A) - P(B) + P(A union overline(B)) $
+
+  $ 0 = P(A) - P(B) => #table()[P(A) = P(B)] $
+
+  Tenemos que
+
+  $ P(A) = P(B) and P(A|B) = 0.6 $
+
+  Supongo que son independientes
+
+  $ P(A|B) = P(A) => P(A) = 0.6 $
+
+  Tambien tendriamos que
+  
+  $ P(A union overline(B)) = 0.8 = P(A) + P(overline(B)) - P(A inter overline(B)) $
+
+  $ 0.8 = 0.6 + (1 - 0.6) - (0.6 times (1 - 0.6)) = 0.76 $
+
+  $ #table()[$ 0.8 != 0.76 => "Absurdo!" $] $
+
+  Vino de suponer independencia por lo tanto no son independientes
 
 b. Calcular $P(A union B)$ y $P(B|A)$
 
+  $ P(A union B) = P(A) + P(B) - P(A inter B) = P(A) + P(B) - P(A|B).P(B) $
+
+  $ P(A inter B) = P(A|B).P(B) $
+
+  $ P(B|A) = P(A inter B)/P(A) and P(A) = P(B) => #table()[P(B|A) = P(A|B) = 0.6] $
+
 == Ejercicio 12
+
+Sean A y B dos sucesos asociados a un experimento aleatorio. Considerando que $P(A) = 0.4$
+
+$P(B) = p$ y $P (A union B) = 0.7$ 
+Cuál es el valor de p si A y B son:
+
+1. Mutuamente excluyentes?
+
+  $ P(A union B) = P(A) + P(B) => 0.7 = 0.4 + p => p = 0.3 $
+
+2. Independientes?
+
+  $ P(A|B) = P(A) => P(A inter B)/P(B) = A => P(A inter B) = P(A) times P(B) $
+
+  $ P(A union B) = P(A) + P(B) - P(A inter B) => 0.7 = 0.4 + p - P(A) times P(B) $
+
+  $ 0.7 = 0.4 + p - 0.4 times p => p = 0.5 $
+
+== Ejercicio 15
+Cierto tipo de motor eléctrico falla por obstrucción de los cojinetes, por combustión del bobinado o por desgaste de las escobillas. Suponga que la probabilidad de la obstrucción es el doble de la de combustión, la cual es cuatro veces más probable que la inutilización de las escobillas. Cuál es la probabilidad de que el fallo sea por cada uno de estos tres mecanismos si la *probabilidad de que el motor falle es 0.13?* Indique las hipótesis que debe asumir para resolver el problema.
+
+- MF : {Falla el motor}
+
+- OC : {Falla por obstruccion de cojinetes}
+
+- CB : {Falla por combustion del bobinado}
+
+- DE : {Falla por desgaste de las escobillas}
+
+$ P("OC") = 2 times P("CB") and P("CB") = 4 times P("DE") $
+
+El motor falla si falla alguna de las tres cosas, entonces
+
+$ "MF" = "OC" union "CB" union "DE" $
+
+$ P("MF") = P("OC" union "CB" union "DE") $
+
+$ P("MF") = P("OC") + P("CB" union "DE") - P("OC" inter ("CB" union "DE")) $
+
+$ P("CB" union "DE") = P("CB") + P("DE") - P("CB" inter "DE") $
+
+$ P(("OC" inter "CB") union ("OC" inter "DE")) = P("OC" inter "CB") + P("OC" inter "DE") - P("OC" inter "CB" inter "DE") $
+
+Entonces tenemos...
+
+$ P("MF") = P("OC") + P("CB") + P("DE") - P("CB" inter "DE") - (P("OC" inter "CB") + P("OC" inter "DE") - P("OC" inter "CB" inter "DE")) $
+
+$ P("MF") = 0.13 $
+
+Luego tenemos que suponer que los eventos son independientes
+
+$ 0.13 = P("OC") + P("CB") + P("DE") - P("CB").P("DE") - P("OC").P("CB") - P("OC").P("DE") + P("OC").P("CB").P("DE") $
+
+#table()[Faltaria usar los datos para extraer una por una todas las probabilidades]
+
+
+== Ejercicio 16
+Un sistema de frenado diseñado para impedir que los automóviles derrapen puede descomponerse en tres subsistemas en serie (el sistema de frenado *opera adecuadamente* si y solo sí los *tres subsistemas operan adecuadamente*), que operan independientemente: un sistema
+electrónico, otro hidráulico y un tercero mecánico. La confiabilidad de un sistema se dene
+como la probabilidad de que funcione adecuadamente durante un período de tiempo dado.
+En cierto tipo de frenado las confiabilidades de cada subsistema son respectivamente 0.998;
+0.997.y 0.993.
+
+\
+
+SE = {Funciona el sistema electronico} = 0.998
+
+SH = {Funciona el sistema hidraulico} = 0.997
+
+SM = {Funciona el sistema mecanico} = 0.993
+
+a. Determine la confiabilidad del sistema.
+
+#table(columns: 1)[ESTO ESTA MAL][
+Como el sistema esta en serie, el orden en el que se "evaluan" es siempre el mismo $ E -> H -> M $
+
+- Por lo que si estas evaluando el sistema hidraulico, ya sabes que tuvo que haber funcionado el sistema electrico.
+
+- Si estas evaluando el sistema mecanico, ya sabes que tuvo que haber funcionado el sistema hidraulico (en consecuencia el electrico tambien)
+][Porque que el sistema funcione "en serie", no necesariamente quiere decir que se van a evaluar uno por uno. Lo que pasa en estos sistemas es que SI o SI tienen que funcionar los tres sistemas, si cualquiera de los tres falla, no puedes frenar adecuadamente]
+
+Entonces,
+$ "S" = {"El sistema funciona"} $
+
+$ P("S") = P("SE" inter "SH" inter "SM") = P("SE") times P("SH") times P("SM") = 0.998 times 0.997 times 0.993 = 0.98804 $
+
+b. Si en cierto período de operación el sistema falló porque eso ocurrió con uno de los subsistemas, cuál de los tres es más probable que haya fallado?
+
+Claramente el mas propenso a fallar es el sistema mecanico pues es el que menor confiabilidad tiene
+
+
+== Ejercicio 17
+
+Un número binario está compuesto sólo de los dígitos 0 y 1. Esos dígitos se transmiten uno
+tras otro a través de cierto canal de información. Suponga que la probabilidad de que se
+transmita un dígito incorrecto es $p$ y que los *errores en dígitos diferentes son independientes*
+uno de otro.
+
+a. Cuál es la probabilidad de recibir al extremo del canal de información un número
+incorrecto de n dígitos ? La condición de número incorrecto corresponde a que por lo
+menos un bit sea recibido con error.
+
+Se plantea que el experimento aleatorio se repite _n veces_, independientemente de si en el experimento $i, i < n$ se envia un bit erroneo, se van a seguir repitiendo los experimentos hasta llegar a n
+
+$"ok"_i$: {"El i-esimo digito se recibio sin errores"}
+
+Como los experimentos son independientes el uno del otro, el evento: NK: {"El numero se envio correctamente"}, implica se cumpla $"ok"_i$ para todo i menor o igual a n, con n siendo la cantidad de digitos del numero
+
+$ P("NK") = P(inter.big_(1)^(n) "ok"_i) $
+
+$ P("NK") = product_(1)^(n) P("ok"_i) underbrace(=>, "equiprob.") P("NK") = P("ok"_i)^n = (1 - p)^n $
+
+b. Cuál es la probabilidad de recibir al extremo del canal de información un número
+incorrecto de n dígitos por tener sólo un bit con error?
+
+Esto es probabilidad condicional, pues necesitamos saber la probabilidad de que un solo bit haya sido incorrecto sabiendo que el numero fue incorrecto
+
+UE: {"Solo un digito tuvo error"}
+
+$ P("UE"|overline("NK")) = P("UE" inter overline("NK"))/P(overline("NK")) $
+
+$ P("UE"|overline("NK")) = P("UE" inter "NK")/(1 - p^n) = P("UE")/(1 - p^n) $
+
+Tenes que tomar uno entre en para decir en que "posicion" esta el error, por eso se lo multiplica por el combinatorio
+
+$ P("UE") = (1 - p)^(n - 1) p binom(n, 1) $
+
+$ #table(columns: 1)[$P("UE"|overline("NK")) = ((1 - p)^(n - 1) p binom(n, 1))/(1 - (1 - p)^n) $] $
+
+
+== Ejercicio 18
+
+Agregando tres bits extras a una palabra de 4 bits de una manera particular (código de Hamming) se puede detectar y corregir hasta un error en cualquiera de los bits. Si la probabilidad de que un bit sea cambiado durante la transmisión (y por consiguiente se transmita con error) es 0.05 y esos cambios son independientes
+
+
+a. cuál es la probabilidad de que una palabra (de 7 bits en total) sea correctamente recibida (o sea con hasta un error) ?
+
+Volvemos a usar el evento $"ok"_i$ y el evento UI
+
+$ p = 0.05 => P("UE") + P("NK") = 7 times (1 - 0.05)^(7 - 1) times 0.05 + (1 - 0.05)^7 = 0.95561 $
+
+b. Compare la probabilidad calculada en a) con la que correspondería si la palabra de 4 bits no fuera transmitida con bits de chequeo. En este caso los 4 bits deben recibirse sin error para que la palabra no tenga error.
+
+$ P("NK") = (1 - 0.05)^4 = 0.81451 $
+
+
+== Ejercicio 19
+
+En la fabricación de cierto artículo se encuentra que se presenta un tipo de defectos con una probabilidad de 0.1 y defectos de un segundo tipo con una probabilidad de 0.05.
+Si la ocurrencia de esos defectos puedan suponerse sucesos independientes, cuál es la probabilidad de que:
+
+$ D_i = {"Articulo tiene el defecto i"} $
+
+a. Un articulo no tenga ambas clases de defectos?
+
+$ P(overline(D_1 inter D_2)) = 1 - P(D_1 inter D_2) $
+
+Como son independientes...
+
+$ P(D_1 inter D_2) = P(D_1) times P(D_2) $
+
+$ P(overline(D_1 inter D_2)) = 1 - 0.1 times 0.05 = 0.995 $
+
+
+b. Un articulo sea defectuoso?
+
+$ D = {"Articulo defectuoso"} = D_1 union D_2 $
+
+$ P(D) = P(D_1 union D_2) = P(D_1) + P(D_2) - P(D_1 inter D_2) $
+
+$ P(D) = 0.15 - (1 - 0.995) = 0.145 $
+
+
+c. Sabiendo que un articulo es defectuoso, tenga solo un tipo de defecto?
+
+$ "1D" = {"Articulo tiene un solo tipo de defecto"} $
+
+$ P("1D") = P((D_1 inter overline(D_2)) union (overline(D_1) inter D_2)) $
+
+$ P("1D") = P(D_1 inter overline(D_2)) + P(overline(D_1) inter D_2) - P(D_1 inter overline(D_2) inter overline(D_1) inter D_2) $
+
+$ P("1D") = P(D_1 inter overline(D_2)) + P(overline(D_1) inter D_2) $
+
+$ P("1D") = 0.1 times 0.95 + 0.9 times 0.05 = 0.14 $
+
+$ P("1D"|D) = P("1D" inter D)/P(D) underbrace(=, "1D implica D") P("1D")/P(D) = 0.96551 $
+
+
+== Ejercicio 20
+
+Los contactos A, B, C, D, pertenecen a distintos relevadores (A en serie con B, en paralelo a C en serie con D). Cuando se excita cualquier relevador se cierra el contacto pero puede ocurrir una falla de conexión con probabilidad $10^-2$. Calcule la probabilidad de que circule corriente entre la entrada y la salida del circuito de la gura al excitar los cuatro relevadores. Asuma independencia de falla de los relevadores.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
