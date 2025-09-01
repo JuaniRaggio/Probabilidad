@@ -621,9 +621,42 @@ La maquina mas probable es la *B*
 $ballot$
 
 
-= Hoy termino con
-
 == Ejercicio 28
+
+Un sistema de transmisión de energía eléctrica está compuesto por un transformador elevador T1, dos líneas de transporte de energía L y dos transformadores reductores T2. El consumidor puede recibir por cualquier línea la potencia que necesite, pero el transformador reductor puede transmitir sólo el 50 % de la potencia requerida por el consumidor. La probabilidad de falla del transformador T1 es qT 1 = 0.05, de una línea L es $q L = 0.03$ y la del transformador T2 es $q T_2 = 0.006$. Los fallos de todos los elementos se consideran sucesos aleatorios independientes.
+
+Determinar la probabilidad de transmitir un porcentaje de la potencia requerida por el consumidor del:
+
+$ X% = {"Se transmite el" X% "de la potencia requerida por el cliente"} $
+
+1. 100%
+
+Quiere decir que *si o si* ambos transformadores reductores $T_2$ estan funcionando correctamente
+
+$ "FT"_(i j) = {"Funciona el dispositivo" T_(i j)} $
+
+
+$ P("100%") = P("FT"_(1 1) inter ("FT"_(L 1) union "FT"_(L 2)) inter "FT"_(2 1) inter "FT"_(2 2)) $
+
+Como los fallos son _sucesos aleatorios independientes_, es relativamente facil desglosar esta cuenta
+
+$ P(100%) = P("FT"_(1 1)) times P("FT"_(L 1) union "FT"_(L 2)) times P("FT"_(2 1)) times P("FT"_(2 2)) $
+
+$ P(100%) = 0.95 times P("FT"_(L 1) union "FT"_(L 2)) times (1 - 0.006)^2 $
+
+$ P("FT"_(L 1) union "FT"_(L 2)) = P("FT"_(L 1)) + P("FT"_(L 2)) - P("FT"_(L 1) inter "FT"_(L 2)) = 2 times (1 - 0.03) - (1 - 0.03)^2 $
+
+$ P("FT"_(L 1) union "FT"_(L 2)) = 0.9991 $
+
+$ P(100%) = 0.937789 $
+
+
+2. 50%
+
+$ P(50%) $
+
+3. 0%
+
 == Ejercicio 29
 == Ejercicio 30
 == Ejercicio 33
