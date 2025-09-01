@@ -488,20 +488,145 @@ $ P("1D"|D) = P("1D" inter D)/P(D) underbrace(=, "1D implica D") P("1D")/P(D) = 
 
 == Ejercicio 20
 
-Los contactos A, B, C, D, pertenecen a distintos relevadores (A en serie con B, en paralelo a C en serie con D). Cuando se excita cualquier relevador se cierra el contacto pero puede ocurrir una falla de conexión con probabilidad $10^-2$. Calcule la probabilidad de que circule corriente entre la entrada y la salida del circuito de la gura al excitar los cuatro relevadores. Asuma independencia de falla de los relevadores.
+Los contactos A, B, C, D, pertenecen a distintos relevadores (A en serie con B, en paralelo a C en serie con D). Cuando se excita cualquier relevador se cierra el contacto pero puede ocurrir una falla de conexión con probabilidad $10^(-2)$. Calcule la probabilidad de que circule corriente entre la entrada y la salida del circuito de la gura al excitar los cuatro relevadores. Asuma independencia de falla de los relevadores.
 
 
+CC = {"Circula corriente en la salida"}
 
 
+$ P("CC") = P((B inter A) union (D inter C)) = P(B inter A) + P(D inter C) - P(A inter B inter D inter C) $
+
+Como son independientes y su probabilidad de falla es 
+
+$ p = 10^(-2) $
+
+$ P("CC") = P(B) times P(A) + P(D) times P(C) - P(A) times P(B) times P(C) times P(D) = 0.99960399 $
 
 
+== Ejercicio 21
+
+Un conjunto electrónico consta de 2 subsistemas, A y B. A partir de una serie de pruebas previas, se presuponen estas probabilidades:
+$ P (A "falle") = 0.2; $
+$ P (B "solo falle") = 0.15; $
+$ P (A " y " B "fallen") = 0.15 $
+
+\
+
+Calcule las siguientes probabilidades:
+
+1. $ P(A "falle" | B "haya fallado") $
+
+$ P(A "falle" | B "haya fallado") = P(A "falle" inter B "falle")/P(B "falle") = 0.15/P(B "falle") $
+
+$ P(B "falle") = P("solo" B "falle" union A " y " B "fallen") = P("solo" B "falle") + P(A " y " B "fallen") - underbrace(P("solo falle" B inter A " y " B "fallen"), "Interseccion vacia" => P(...) = 0) $
+
+$ P(B "falle") = 0.15 + 0.15 = 0.3 $
+
+$ P(A "falle" | B "fallo") = 0.5 $
+
+2. $ P("solo" A "falle") $
+
+$ P("solo" A "falle") = P(A "falle") - P(A " y " B "fallen") = 0.2 - 0.15 = 0.05 $
 
 
+== Ejercicio 22
+
+Para la señalización de emergencia se han instalado dos indicadores que funcionan independientemente. La probabilidad de que el indicador accione durante la avería es igual a 0.95 para el primero de ellos y 0.9 para el segundo
 
 
+a. Halle la probabilidad de que durante la avería accione sólo un indicador.
+
+P: {"Se acciona el primer indicador"}
+
+S: {"Se acciona el segundo indicador"}
+
+$ P((P inter overline(S)) union (overline(P) inter S)) = P(P inter overline(S)) + P(overline(P) inter S) - underbrace(P(P inter overline(S) inter overline(P) inter S), "Prob. de conjunto vacio" => 0) $
+
+$ P(P inter overline(S)) + P(overline(P) inter S) underbrace(=, "x ind") P(P) times P(overline(S)) + P(overline(P)) times P(S) = 0.14 $
+
+b. Calcule la probabilidad de que durante la avería se accionen k indicadores para k tomando los valores 0, 1, y 2.
+
+$ 0: "CE" = {"Se accionan 0 indicadores"} $
+
+$ P(overline(P) inter overline(S)) underbrace(=, "x ind") P(overline(P)) times P(overline(S)) = (1 - 0.95) times (1 - 0.9) = 0.005 $
+
+$ 1: "UN" = {"Se acciona 1 indicador"} $
+
+$ P("UN") = P("CE" union ((P inter overline(S)) union (overline(P) inter S))) underbrace(=, "m.e.") 0.005 + 0.14 = 0.145 $
+
+$ 2: "DS" = {"Se accionan 2 indicadores"} $
+
+$ P("DS") = P("UN" union (P inter S)) underbrace(=, "m.e. y" P "ind" S) 0.145 + P(P) times P(S) = 1 $
+
+Tiene sentido porque me piden "que se accionen k", no me dicen explicitamente "que se accionen _exactamente_ k"
+
+== Ejercicio 23
+
+Una instalación industrial funciona cuando lo hacen un motor y al menos dos de tres equipos de bombeo. La probabilidad de que funcione el motor es 0.95 y la de funcionamiento de cada equipo de bombeo es 0.8. Se supone que la ocurrencia de falla en el motor o cualquiera de las bombas son sucesos independientes
 
 
+a. Calcule la probabilidad de buen funcionamiento de la instalación.
+
+$ I: {"Funciona la instalacion"} $
+
+$ M: {"Funciona el motor"} $
+
+$ E_i: {"Funcionan i equipos de bombeo"} $
+
+$ P(E_i) = 0.8^i times 0.2^(3 - i) times binom(3, i) $
+
+$ P(I) = P(M inter (E_3 union E_2)) $
+
+$ P(I) underbrace(=, "m.e.") P(M inter E_3) + P(M inter E_2) $
+
+$ P(I) underbrace(=, "ind") P(M) times P(E_3) + P(M) times P(E_2) $
+
+$ P(I) = 0.95 times (0.512 + 0.384) = 0.8512 $
+
+b. Si la instalación funciona calcular la probabilidad de que funcionen exactamente dos equipos de bombeo.
+
+$ P(E_2|I) = P(E_2 inter I)/P(I) underbrace(=, E_2 => I) P(E_2) = 0.512 $
 
 
+== Ejercicio 27
+
+En una fábrica de pernos, las máquinas A, B y C fabrican 25 %, 35 % y 40 % de la producción total, respectivamente. De lo que producen, 5 %, 4 % y 2 % respectivamente son pernos defectuosos. Se escoge un perno al azar del total de lo producido por las tres máquinas.
+
+1. Cual es la probabilidad de que el perno extraído sea defectuoso?
+
+$ D = {"El perno extraido fue defectuoso"} $
+
+$ A = {"El perno se extrajo de la maquina A"} $
+
+$ B = {"El perno se extrajo de la maquina B"} $
+
+$ C = {"El perno se extrajo de la maquina C"} $
+
+$ P(D) = P(D|A).P(A) + P(D|B).P(B) + P(D|C).P(C) $
+
+$ P(D) = 0.05 times 0.25 + 0.04 times 0.35 + 0.02 times 0.40 = 0.0345 $
+
+2. Si el perno extraido es defectuoso, de que maquina es mas probable quevenga
+
+$ "Maquina mas probable" = "max"{P(A|D), P(B|D), P(C|D)} $
+
+$ P(A|D).P(D) = P(D|A).P(A) => P(A|D) = (P(D|A).P(A))/P(D) = (0.05 times 0.25)/0.0345 = 0.362318 $
+
+$ P(B|D).P(D) = P(D|B).P(B) => P(B|D) = 0.40579 $
+
+$ P(C|D).P(D) = P(D|C).P(C) => P(C|D) = 0.23188 $
+
+La maquina mas probable es la *B*
+
+$ballot$
+
+
+= Hoy termino con
+
+== Ejercicio 28
+== Ejercicio 29
+== Ejercicio 30
+== Ejercicio 33
+== Ejercicio 37
 
 
