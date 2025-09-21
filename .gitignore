@@ -1,3 +1,4 @@
 *.aux
 *.log
 compilation_logs
+.DS_Store
