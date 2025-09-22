@@ -68,19 +68,26 @@ $ f_X (x) = cases(
 
 $ E[X] = integral_(- infinity)^(infinity) f_X (x) x d x $
 
-$ E[X] = integral_0^1 2 x - x^2 $
+$ E[X] = integral_0^1 2 x - 2 x^2 $
 
-$ E[X] = [x^2 - 1/3 x^3]_0^1 $
+$ E[X] = [x^2 - 2/3 x^3]_0^1 $
 
-#table()[$ E[X] = 1 - 1/3 = 2/3 $]
+#align(center)[#table()[$ E[X] = 1 - 2/3 = 1/3 $]]
 
 $ "Var"[X] = E[X^2] - E^2[X] $
 
-#table()[$ "Var"[X] = [1/3 x^3 - 1/4 x^4]_0^1 - 4/9 = -0.361 $]
+#align(center)[#table()[$ "Var"[X] = [2/3 x^3 - 1/2 x^4]_0^1 - 1/9 = 1/18 $]]
 
 2. Calcular la mediana $m$ de $X$ definida por $P(X < m) = 0.5$
 
 $ P(X < m) = 0.5 $
+
+$ [2 x - x^2]_0^m = 0.5 $
+
+$ 2 m - m^2 - 1/2 = 0 $
+
+#align(center)[#table()[$ m = 0.2928 $]]
+
 
 
 
