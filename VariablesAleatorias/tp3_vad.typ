@@ -236,12 +236,117 @@ $ E[X] = 1.P((F_("I") inter overline(F_("II"))) union (overline(F_"I") inter F_"
 
 \
 
-= Ejercicio 9
+= Ejercicio 10
+
+Un contratista debe elegir entre dos obras. La primera promete una ganancia de 
+$240k$ con una probabilidad de 0.75 o una perdida de $60k$ (por inconvenientes 
+varios) con una probabilidad de 0.25. La segunda obra promete una ganancia de 
+$360k$ con probabilidad 0.5 o una perdida de $90k$ con probabilidad 0.5
+
++ Cual deberia elegir el contratista si quiere maximizar la ganancia esperada?
+
+La ganancia esperada deberia ser el valor esperado de la variable aleatoria
+que describe la ganancia
+
+
+
++ Cual seria la obra que elegiria si su negocio anduviera mal y quebrara a menos
+que lograra una ganancia de $300k$ en su proxima obra
 
 
 
 
+\
 
+= Ejercicio 11
+
+Un vendedor de diarios compra cada periodico a 40 centavos y lo vende a 1 peso y no puede devolver los diarios que no vendio. La demanda diaria es independiente de la del dia anterior y tiene la siguiente distribucion de probabilidades:
+
+#table(columns: 9)[*cantidad demandada*][63][64][65][66][67][68][69][70][*probabilidad*][0.01][0.04][0.06][0.08][0.15][0.28][0.22][0.16]
+
+Cuantos diarios debe adquirir diariamente si desea maximizar la ganancia esperada? (la insatisfaccion de la demanda no esta penalizada)
+
+\
+
+= Ejercicio 21
+
+Se determino, a partir de numerosas experiencias previas, que de cada 5 fusibles que produce una maquina 1 es defectuoso. Calcular la probabilidad de que en una muestra aleatoria (*de un lote muy grande*) de 4 fusibles se obtengan:
+
+#align(center)[*Como la muestra es muy grande, podemos usar binomial en vez de hipergeometrica*]
+
+$ D = {"Cantidad de fusibles defectuosos tomados de una muestra de 4"} $
+
+$ D tilde "Binomial"("trials" = 4, p = 1/5) $
+
+1. Uno defectuoso
+
+$ P(D = 1) = "binompdf"(4, 1/5) = 0.4096 $
+
+2. Como max dos defectuosos
+
+$ P(D <= 2) = "binomcdf"(4, 1/5) = 0.9728 $
+
+3. Ninguno defectuoso
+
+$ P(D = 0) = "binompdf"(4, 1/5) = 0.4096 $
+
+4. Los cuatro defectuosos
+
+$ P(D = 4) = "binompdf"(4, 1/5) = 0.0016 $
+
+\
+
+= Ejercicio 24
+
+La maquina A produce diariamente el doble de articulos que la maquina B; el 4% de los articulos producidos por la maquina A tiende a ser defectuosos, mientras que para la maquina B el porcentaje de defectuosos es del 2%. Se combina la produccion diaria de ambas maquinas y se toma una muestra aleatoria de 10 articulos
+
+1. Cual es la probabilidad de que la muestra contenga exactamente 2 defectuosos?
+
+$ D_i = {"Cantidad de articulos defectuosos en una muestra de i articulos"} $
+
+$ D = {"Articulo defectuoso"} $
+
+$ A = {"articulo de la maquina A dentro de la muestra"} $
+
+$ B = {"articulo de la maquina B dentro de la muestra"} $
+
+$ P(D|A) = 0.04 $
+
+$ P(D|B) = 0.02 $
+
+$ P(D) = 0.04 P(A) + 0.02 P(B) = 0.03333 $
+
+$ P(D_10 = 2) = "Binompdf"("trials" = 10, p = 0.0333333) = 0.03812 $
+
+2. Determinar el valor esperado y el desvio estandar del numero de articulos defectuosos en esa muestra aleatoria de 10 articulos
+
+$ E[X] = P(D_10 = 1) + P(D_10 = 2) 2 + P(D_10 = 3) 3 + P(D_10 = 4) 4 + P(D_10 = 5) 5 + P(D_10 = 6) 6 + P(D_10 = 7) 7 + P(D_10 = 8) 8 + P(D_10 = 9) 9 + P(D_10 = 10) 10 = p . n = 0.3333 $
+
+$ sigma(X) = sqrt(V[X]) = sqrt(p n (1 - p)) = sqrt(0.322222) = 0.567646 $
+
+\
+
+= Ejercicio 28
+
+Sea p la probabilidad de que cualquier simbolo particular de un codigo se transmita erroneamente a traves de un sistema de comunicaciones. Suponga que en diferentes simbolos ocurren errores independientemente uno de otro. Suponga tambien que con probabilidad $p_2$ un simbolo erroneo se corrige al recibirse. Sea $X_n$ el numero de simbolos correctos recibidos en un bloque de mensaje formado por $n$ simbolos (una vez que el proceso de correccion haya terminado)
+
+1. Demostrar que $X_n$ es una variable aleatoria discreta con distribucion binomial
+
+2. Determinar el valor esperado y la verianza de $X_n$ si $n = 10$, $p = 0.02$, y $p_2 = 0.95$
+
+$ D = {"Hubo defecto en la salida del envio"} $
+
+$ Z = {"Se corrige un defecto"} $
+
+$ C = {"Simbolo recibido correctamente"} $
+
+$ P(C) = P(C|D).P(D) + P(C|overline(D)).P(overline(D)) $
+
+$ P(C) = P(D inter Z). P(D) + P(overline(D))^2 = 0.96078 $
+
+$ E[X_n] = n 0.96078 = 9.6078 $
+
+$ V[X] = n p (1 - p) = 0.37681 $
 
 
 
