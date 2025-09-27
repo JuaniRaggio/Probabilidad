@@ -92,11 +92,48 @@ $ 2 m - m^2 - 1/2 = 0 $
 
 = Ejercicio 4
 La variable aleatoria continua $X$ tiene por funcion densidad de probabilidad
-$f_X (x = x/2, 0 < x < 2$ y $0$ fuera de ese intervalo. Si se hacen:
+$f_X (x) = x/2, 0 < x < 2$ y $0$ fuera de ese intervalo. Si se hacen:
 
 1. Dos determinaciones independientes de $X$, cual es la probabilidad de que ambas sean mayores que 1
 
+$ P(X_1 > 1 inter X_2 > 1) = P(X_1 > 1).P(X_2 > 1) $
+
+$ P(X > 1) = 1 - P(X <= 1) => "Tenemos que hallar la funcion acumulada" $
+$ F_X (x) = x^2 / 4, 0 < x < 2 $
+
+$ P(X > 1) = 1 - 1/4 = 3/4 $
+
+$ P(X_1 > 1).P(X_2 > 1) = 9/16 = 0.5625 $
+
+#align(center)[#table()[$P(X > 1) = 9/16$]]
+
 2. Tres determinaciones independientes, cual es la probabilidad de que exactamente dos sean mayores que 1?
+
+$ D = {"Cantidad de determinaciones que dan mayor a 1 dentro de 3"} $
+
+$ D tilde "Binomial"(p = 3/4, t = 3) $
+
+#align(center)[#table()[$P(D = 2) = 0.4218 = $]]
+
+\
+
+= Ejercicio 5
+
+El porcentaje de alcohol ($100 X$) en cierto compuesto se puede considerar 
+una variable aleatoria continua, en donde $X$ verifica $0 < X < 1$ y tiene la
+funcion de densidad $f_X (x) = 20 x^3 (1 - x), 0 < x < 1$ y $0$ fuera del 
+intervalo
+
+1. Determinar la funcion de distribucion $F_X$ y representarla graficamente
+
+$ F_X (x) = integral _(-infinity)^(infinity) f_X (x) d x  $
+$ F_X (x) = 20 integral x^3 - x^4 d x $
+$ F_X (x) = 20 (integral x^3 d x - integral x^4 d x) $
+#align(center)[#table()[$F_X (x) = 20 [x^4 / 4 - x^5 / 5]$]]
+
+
+2. Calcular $P[(X < 1/2)/(1/3 < X < 2/3)]$
+
 
 \
 
@@ -138,6 +175,72 @@ $ => "La cantidad de dispositivos maxima es" 2 $
 
 = Ejercicio 7
 
+El colectivo de cierta linea va a un horario estricto con intervalos de 5
+minutos. Calcular la probabilidad de que un pasajero que se acerque a la
+parada en un instante al azar tenga que esperar el colectivo menos de tres
+minutos. Suponga que el instante de llegada del pasajero a la parada es una
+variable aleatoria continua con distribucion uniforme en (0, 5)
+
+$ L = {"Llegada de un pasajero a la parada"} $
+$ L tilde "Unif"(0, 5) $
+
+- Estaria mal modelar la llegada de los colectivos como una variable aleatoria porque dice que tiene un horario estricto, entonces buscamos:
+
+$ W = {"Tiempo de espera del pasajero"} $
+$ W = 5 - L $
+$ W tilde "Unif"(0, 5) $
+$ P(W < 3) = 0.6 $
+
+\
+
+= Ejercicio 8
+
+La duracion en horas de un sistema puede considerarse una variable aleatoria
+continua con distribucion exponencial de parametro caracteristico
+$0.001 "hora"^(-1)$
+
+a. Una empresa que produce este sistema desea garantizarlo durante cierto 
+tiempo. Cuantas horas lo debe amparar la garantia de buen funcionamiento
+para asegurar, con probabilidad $0.95$, que el sistema funcionara como minimo
+el numero de horas garantizadas.
+
+
+
+b. Un dispositivo utiliza cinco de estos sistemas y funciona si todos ellos
+lo hacen. Los sistemas funcionan (y fallan) en forma independiente. Cual es
+la probabilidad de que el dispositivo opere, por lo menos, 100 horas? Y 1000
+horas?
+
+
+
+c. Otro dispositivo tambien utiliza cinco de estos sistemas y funciona
+mientras lo hagan por lo menos tres de ellos (no suponga ninguna conexion en
+especial). Los sistemas funcionan (y tambien fallan) en forma independiente.
+Cual es la probabilidad de que el dispositivo funcione aun al cabo de 1000
+horas?
+
+\
+
+= Ejercicio 9
+
+Un sistema esta integrado por dos componentes A y B que fallan al azar en 
+promedio 1 vez cada 500 y 800 horas respectivamente. El sistema falla cuando 
+cualquiera de dichos componentes falla. Se supone que estos componentes
+fallan en forma independiente y que el tiempo entre fallas es una variable
+aleatoria con distribucion exponencial. Cual es la probabilidad de que el
+sistema falle despues de transcurridas las primeras 1000 horas?
+
+$ A tilde "expo"(lambda = 1/500 "hrs") $
+$ B tilde "expo"(lambda = 1/800 "hrs") $
+$ D = {"Tiempo hasta que el sistema falla"} $
+
+- Me piden la probabilidad de que el sistema falle *despues* de transcurridas las primeras 1000 horas
+
+$ P(D > 1000) = P(A > 1000 inter B > 1000) = P(A > 1000) times P(B > 1000) $
+$ P(A > 1000) = 1 - P(A < 1000) = 1 - 1 + e^(-1/500 1000) = 1 - 0.8647 $
+$ P(B > 1000) = 1 - P(B < 1000) = 1 - 1 + e^(-1/800 1000) = 1 - 0.7135 $
+
+#align(center)[#table()[$P(D > 1000) = 0.0388$]]
 
 \
 
@@ -162,6 +265,23 @@ $ D = {"Cantidad de disp. que fallan de 10 antes de 100 horas"} $
 $ D tilde "Binomial"("trials" = 10, p = P(X < 100)) $
 
 $ P(D >= 1) = 1 - P(D < 1) = 1 - P(D = 0) = 0.91791 $
+
+\
+
+= Ejercicio 11
+
+Un sistema consta de $n$ componentes identicos conectados en serie. Cuando
+falla por lo menos un componente, falla todo el sistema. Suponga que la
+duracion de cada componente es una variable aleatoria con distribucion
+exponencial de parametro $lambda = 0.01 1/"hora"$, y que los componentes
+fallan independientemente uno de otro. Defina los sucesos independientes
+$A_i = "i-esimo componente dura por lo menos t horas"$, $i = 1, ..., n$. Sea
+$T$ el tiempo en el que falla el sistema, esto es, la duracion minima de
+funcionamiento entre los $n$ componentes. Considerando la independecia de los
+sucesos $A_i$, obtenga $F_T (t) = P(T < t)$ y la funcion densidad de 
+probabilidad de $T$.
+1. Que tipo de distribucion de probabilidades tiene $T$?
+2. Cual es el valor esperado de $T$?
 
 \
 
