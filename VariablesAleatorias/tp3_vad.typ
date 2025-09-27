@@ -63,7 +63,6 @@ $ E[Y] = 1/6^2 times 1 + (1 + 2)/6^2 times 2 + (1 + 2 times 2 )/6^2 times 3 + (1
 
 b. Valor esperado E[D] de la variable aleatoria D de la demanda del ejercicio anterior
 
-$$
 
 \
 
@@ -246,15 +245,30 @@ $360k$ con probabilidad 0.5 o una perdida de $90k$ con probabilidad 0.5
 + Cual deberia elegir el contratista si quiere maximizar la ganancia esperada?
 
 La ganancia esperada deberia ser el valor esperado de la variable aleatoria
-que describe la ganancia
+que describe la ganancia, llamemosla $X$
 
+*Para la obra 1*:
+$ f_X (x) = cases(
+  0.75 "if" x = 240 000,
+  0.25 "if" x = -60 000
+) $
 
+$ E[X] = P(X = 240 000) . 240 000 - P(X = 60 000) . 60 000 = 165 000 $
+
+*Para la obra 2*:
+$ f_Y (y) = cases(
+  0.5 "if" x = 360 000,
+  0.5 "if" x = -90 000
+) $
+
+$ E[Y] = P(Y = 360 000) . 360 000 - P(Y = -90 000) . 90 000 = 135 000 $
+
+#align(center)[#table()[*Deberia elegir la obra 1*]]
 
 + Cual seria la obra que elegiria si su negocio anduviera mal y quebrara a menos
 que lograra una ganancia de $300k$ en su proxima obra
 
-
-
+*La obra 2*
 
 \
 
@@ -265,6 +279,78 @@ Un vendedor de diarios compra cada periodico a 40 centavos y lo vende a 1 peso y
 #table(columns: 9)[*cantidad demandada*][63][64][65][66][67][68][69][70][*probabilidad*][0.01][0.04][0.06][0.08][0.15][0.28][0.22][0.16]
 
 Cuantos diarios debe adquirir diariamente si desea maximizar la ganancia esperada? (la insatisfaccion de la demanda no esta penalizada)
+
+\
+
+= Ejercicio 12
+
+De un mazo de naipes ordinarios (52 naipes) bien barajado se extraen cinco
+cartas, al azar (sin sustitucion), para un mano de poker
+
++ Obtenga la distribucion de probabilidades del numero de diamantes D en la mano
+
+$ X = {"Se extrae un diamante de la carta de naipes bien barajada"} $
+$ D = {"Cantidad de diamantes en una mano de cinco cartas"} $
+
+Hay 13 diamantes en total, entonces:
+$ P(X) = 13/52 $
+
+== Muy importante
+Notemos que las probabilidades en esta situacion cambian en cada extraccion,
+ya sea que sacamos un diamante o no. Pues se reducen los casos totales 
+(cantidad de cartas) y en caso de extraer un diamante, el total de diamantes
+
+- Por lo tanto:
+
+$ D tilde "Hipergeometrica"("pop. size" = 52, "successes in pop." = 13, "extraction size" = 5) $
+
+1. Determine el valor esperado y el desvio estandar de D
+
+_Para el valor esperado, podemos usar la formula_
+$ E[D] = 5 . P(D = 5) + 4 . P(D = 4) + 3 . P(D = 3) + 2 . P(D = 2) + 1 . P(D = 1) $
+$ E[D] = 5 times 0.000495 + 4 times 0.010729 + 3 times 0.081542 + 2 times 0.274279 + 0.411419 $
+#align(center)[#table()[$ E[D] = 1.2499 $]]
+
+_Para el desvio lo mismo_
+
+$ sigma = sqrt(V[X]) $
+
+$ V[X] = E[X^2] - E^2[X] $
+$ V[X] = 2.4264 - 1.5624 = 0.8639 $
+
+#align(center)[#table()[$sigma = sqrt(0.8639) = 0.9295$]]
+
+2. Calcule la probabilidad de sacar por lo menos un trebol
+
+$ P(T >= 1) underbrace(=, "#Treb. = #Diam.") P(D >= 1) = 1 - P(D < 1) $
+$ P(T >= 1) = 1 - P(D = 0) = 1 - 0.2215 = 0.7785 $
+
+#align(center)[#table()[$P(T >= 1) = 0.7785$]]
+
+3. Calcule la probabilidad de sacar por lo menos dos ases
+
+$ "EA" = {"Se extrae un As del mazo de 52 cartas"} $
+$ A = {"Cantidad de ases en una mano de cinco cartas"} $
+
+$ P("EA") = 4/52 $
+
+$ A tilde "Hipergeometrica"("pop. size" = 52, "successes in pop." = 4, "extraction size" = 5) $
+
+$ P(A >= 2) = 1 - P(A <= 1) = 1 - c d f(A = 1) = 1 - 0.9583 = 0.0417 $
+
+#align(center)[#table()[$P(A >= 2) = 0.0417$]]
+
+\
+
+= Ejercicio 13
+
+En una semana de trabajo se realizaron 50 facturas en un comercio. En 5 de el
+las se cometio un error
+
+
+\
+
+
 
 \
 

@@ -90,6 +90,16 @@ $ 2 m - m^2 - 1/2 = 0 $
 
 \
 
+= Ejercicio 4
+La variable aleatoria continua $X$ tiene por funcion densidad de probabilidad
+$f_X (x = x/2, 0 < x < 2$ y $0$ fuera de ese intervalo. Si se hacen:
+
+1. Dos determinaciones independientes de $X$, cual es la probabilidad de que ambas sean mayores que 1
+
+2. Tres determinaciones independientes, cual es la probabilidad de que exactamente dos sean mayores que 1?
+
+\
+
 = Ejercicio 6
 
 $ f_X (x) = cases(
