@@ -44,8 +44,14 @@
   $ P(X_1 = 1 | X_3 = 3) => "Probabilidad de lo que paso en el primer caso,
   sabiendo lo que paso en el tercero" $
   _Luego se puede descomponer en las probabilidades de lo que paso en el 
-  primer paso. *Acordarse de usar que pasar de un estado mayor a uno menor, es
-  probabilidad 0 (me ahorra notacion)*_
+  primer paso. *Acordarse de usar que pasar de un estado mayor a uno menor,
+  es probabilidad 0 (me ahorra notacion)*_
+
+  - Tambien es interesante para *sacarse los casos que no nos interesan*,
+    usar la resta de funciones de probabilidad acumulada
+    $ P(X_n = 5) = underbrace(P(X_n <= 5), "Incluye que sean todos 4 
+    (no obtuve 5)") - underbrace(P(X_n <= 4), "Me saco los casos que no me
+    interesan (ningun 5)") $
 
 = Intervalos de confianza
 

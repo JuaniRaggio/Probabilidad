@@ -388,3 +388,131 @@ $ PP = mat(
 
 Esto seria calcular si o si a mano la multiplicacion de matrices para los 3 casos. No lo voy a hacer pero es eso
 
+\
+
+== Ejercicio 2 en clase - 01/10/25
+
+Un musico toca solo dos instrumentos (guitarra y piano) y se aburre con mucha
+facilidad y salta de uno a otro:
+
+- Si un dia toca la guitarra, al dia siguiente toca el piano
+- Si un dia toca el piano, al dia siguiente toca la guitarra
+
+1. Calcular la matriz de transicion $PP$ de la cadena y graficar el diagrama de
+  estados
+
+2. Si comienza tocando la guitarra, calcular la probabilidad de que al dia $n$
+  toque el piano.
+
+  $ PP^n = cases(
+    mat( 0, 1; 1, 0) "si" n = 2 k + 1\, k in ZZ,
+    mat(1, 0; 0, 1) "si" n = 2k\, k in ZZ
+  ) => "Es facil ver que no es regular" $
+
+3. Hallar el autovector a izquierda de $PP$ de autovalor 1.
+
+$ vec(pi) = vec(pi) times PP = cases(
+  (a, b) = (a, b) mat(0 && 1, 1 && 0),
+  a + b = 1
+) $
+
+*#underline("OJO")*: Como no es regular, no sirve el autoevctor a izquierda
+
+4. Hallar la distribucion estacionaria de la cadena de Markov
+
+Como $not exists lim_(n -> infinity) PP^n$ (todas sus coordenadas oscilan en
+${0, 1}$) la cadena no tiene distribucion estacionaria
+
+\
+
+== Ejercicio 4 en clase - 01/10/25
+
+
+Diego comienza un juego de sucesivas apuestas. En cada partida, pierde \$1 con probabilidad $1/4$, gana \$1 con la misma probabilidad. En el resto de los casos, mantiene su fortuna. Comienza con $2$ y el juego se termina cuando sus ganancias hacen ascender este capital a $4$ (es decir, gana) o cuando su fortuna se agota (es decir, pierde).
+
+
+1. Calcular el espacio de estados, describir el diagrama de fases de la 
+  cadena y calcular la matriz de transición.
+
+  $ E = {0, 1, 2, 3, 4} $
+
+  $ PP = mat(
+    1, 0, 0, 0, 0;
+    1/4, 1/2, 1/4, 0, 0;
+    0, 1/4, 1/2, 1/4, 0;
+    0, 0, 1/4, 1/2, 1/4;
+    0, 0, 0, 0, 1
+  ) $
+
+  \
+  _En la teoria tenemos que:_
+
+  $ PP = mat(II_(k times k), 0; FF, QQ) $
+
+  _Asique vamos a organizarla para que quede con el mismo orden_:
+  - Arriba a la izquierda las absorbentes:
+
+  $ 0\
+  4\
+  1\
+  2\
+  3 $
+
+  $ PP = mat(
+    1, 0, 0, 0, 0;
+    0, 1, 0, 0, 0;
+    1/4, 0, 1/2, 1/4, 0;
+    0, 0, 1/4, 1/2, 1/4;
+    0, 1/4, 0, 1/4, 1/2;
+  ) $
+
+  - Luego la matriz $MM$:
+
+  $ MM = (II_3 - QQ)^(-1) = mat(
+    1/2, -1/4, 0;
+    -1/4, 1/2, -1/4;
+    0, -1/4, 1/2
+  )^(-1) = mat(
+    3, 2, 1;
+    2, 4, 2;
+    1, 2, 3
+  ) $
+
+  - Luego calculamos $GG = MM times FF$
+
+  $ GG = MM times FF = mat(
+    3, 2, 1;
+    2, 4, 2;
+    1, 2, 3
+  ) times mat(
+    1/4, 0;
+    0, 0;
+    0, 1/4
+  ) = mat(
+    3/4, 1/4;
+    1/2, 1/2;
+    1/4, 3/4
+  ) $
+
+  _Notemos que tiene sentido que sea $1/2$ porque ambas tienen la misma
+  probabilidad_
+
+2. Calcular la probabilidad de que tarde 3 apuestas en ganar.
+
+3. Calcular la probabilidad de que tarde 3 apuestas en perder.
+
+4. Calcular la probabilidad de que el juego termine en 3 apuestas.
+
+5. Calcular la probabilidad de que el juego dure por lo menos 4 partidas.
+
+6. Calcular la probabilidad de que el juego termine porque Diego gana.
+
+7. Calcular la probabilidad de que el juego termine porque Diego pierde.
+
+8. Calcular el valor esperado de la cantidad de veces que Diego tiene $1$
+  como capital antes de que el juego termine.
+
+9. Considerar $T_1 =$ cantidad de apuestas hasta que Diego tiene $1$ 
+  como capital. ¿Cuál sería su recorrido?
+
+
