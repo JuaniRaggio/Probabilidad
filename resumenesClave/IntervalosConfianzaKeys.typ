@@ -164,7 +164,7 @@
 ]
 
 = Pre muestra
-- Buscamos a y b dependientes de la muestra de forma que:
+- Buscamos a y b *dependientes de la muestra* de forma que:
 
 $ P(a <= mu <= b) = "Porcentaje de confiabilidad" != "Probabilidad" $
 
@@ -178,6 +178,20 @@ $ overline(X)_n tilde N(mu; sigma/sqrt(n)) $
   $ (overline(X)_n - mu)/(sigma/sqrt(n)) tilde N(0, 1) $
 ]
 
+#tip[
+  Es util para que sean normales, *usar Teorema Central del Limite*, ejemplo:
+  $ X tilde "Bi"(1000; p) $
+  $ X underbrace(tilde, "TCL") N(1000 p; sqrt(1000 p (1 - p))) $
+  $ hat(p) = X_(1000)/1000 tilde N(p; sqrt(p (1 - p))/sqrt(1000)) $
+  $ (hat(p) - p)/sqrt(p (1 - p)/1000) tilde underbrace(N(0, 1), "Distribucion
+  pivote") $
+]
+
+#importante[
+  En el ejemplo anterior *notemos que* $p$ no depende de la muestra pero 
+  $hat(p)$ si, por lo que cuando querramos calcular $a$, tenemos que usar 
+  $hat(p)$
+]
 
 
 
