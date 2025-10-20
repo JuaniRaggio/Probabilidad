@@ -18,6 +18,164 @@
 // }
 // ```
 
+#set document(
+  title: "Solucion guia 6 - Probabilidad y estadistica",
+  author: "Juan Ignacio Raggio",
+)
+
+#set page(
+  paper: "a4",
+  margin: (
+    top: 2.5cm,
+    bottom: 2.5cm,
+    left: 2cm,
+    right: 2cm,
+  ),
+  numbering: "1",
+  number-align: bottom + right,
+
+  header: [
+    #set text(size: 9pt, fill: gray)
+    #grid(
+      columns: (1fr, 1fr, 1fr),
+      align: (left, center, right),
+      [Juan Ignacio Raggio],
+      [],
+      [#datetime.today().display("[day]/[month]/[year]")]
+    )
+    #line(length: 100%, stroke: 0.5pt + gray)
+  ],
+
+  footer: context [
+    #set text(size: 9pt, fill: gray)
+    #line(length: 100%, stroke: 0.5pt + gray)
+    #v(0.2em)
+    #align(center)[
+      Pagina #counter(page).display() de #counter(page).final().first()
+    ]
+  ]
+)
+
+#set text(
+  font: "New Computer Modern",
+  size: 11pt,
+  lang: "es",
+  hyphenate: true,
+)
+
+#set par(
+  justify: true,
+  leading: 0.65em,
+  first-line-indent: 0em,
+  spacing: 1.2em,
+)
+
+#set heading(numbering: "1.1")
+#show heading.where(level: 1): set text(size: 16pt, weight: "bold")
+#show heading.where(level: 2): set text(size: 14pt, weight: "bold")
+#show heading.where(level: 3): set text(size: 12pt, weight: "bold")
+
+#show heading: it => {
+  v(0.5em)
+  it
+  v(0.3em)
+}
+
+#set list(indent: 1em, marker: ("•", "◦", "▪"))
+#set enum(indent: 1em, numbering: "1.a.")
+
+#show raw.where(block: false): box.with(
+  fill: luma(240),
+  inset: (x: 3pt, y: 0pt),
+  outset: (y: 3pt),
+  radius: 2pt,
+)
+
+#show raw.where(block: true): block.with(
+  fill: luma(240),
+  inset: 10pt,
+  radius: 4pt,
+  width: 100%,
+)
+
+#show link: underline
+
+// ====================================
+// FUNCIONES UTILES
+// ====================================
+
+// Funcion para crear una caja de nota/observacion
+#let nota(contenido) = {
+  block(
+    fill: rgb("#E3F2FD"),
+    stroke: rgb("#1976D2") + 1pt,
+    inset: 10pt,
+    radius: 4pt,
+    width: 100%,
+  )[
+    #text(weight: "bold", fill: rgb("#1976D2"))[Nota:] #contenido
+  ]
+}
+
+// Funcion para crear una caja de advertencia
+#let importante(contenido) = {
+  block(
+    fill: rgb("#FFF3E0"),
+    stroke: rgb("#F57C00") + 1pt,
+    inset: 10pt,
+    radius: 4pt,
+    width: 100%,
+  )[
+    #text(weight: "bold", fill: rgb("#F57C00"))[Importante:] #contenido
+  ]
+}
+
+// Funcion para crear una caja de error comun
+#let error(contenido) = {
+  block(
+    fill: rgb("#FFEBEE"),
+    stroke: rgb("#D32F2F") + 1pt,
+    inset: 10pt,
+    radius: 4pt,
+    width: 100%,
+  )[
+    #text(weight: "bold", fill: rgb("#D32F2F"))[Error Comun:] #contenido
+  ]
+}
+
+// Funcion para crear una caja de tip
+#let tip(contenido) = {
+  block(
+    fill: rgb("#E8F5E9"),
+    stroke: rgb("#388E3C") + 1pt,
+    inset: 10pt,
+    radius: 4pt,
+    width: 100%,
+  )[
+    #text(weight: "bold", fill: rgb("#388E3C"))[Tip:] #contenido
+  ]
+}
+
+// ====================================
+// PORTADA
+// ====================================
+
+#align(center)[
+  #v(1em)
+  #text(size: 24pt, weight: "bold")[Probabilidad y estadistica]
+  #v(0.5em)
+  #text(size: 18pt)[Procesos de poisson]
+  #v(0.5em)
+  #text(size: 12pt, fill: gray)[
+    Guia 6 \
+    #datetime.today().display("[day]/[month]/[year]")
+  ]
+  #v(1em)
+]
+
+#line(length: 100%, stroke: 1pt)
+#v(1em)
+
 = Ejercicio 1
 <random_walk>
 
@@ -514,5 +672,34 @@ Diego comienza un juego de sucesivas apuestas. En cada partida, pierde \$1 con p
 
 9. Considerar $T_1 =$ cantidad de apuestas hasta que Diego tiene $1$ 
   como capital. ¿Cuál sería su recorrido?
+
+\
+
+= Ejercicio 9
+
+El tiempo entre arribos de clientes, durante la mañana de un dia normal, a una
+estacion de servicio se puede considerar una variable aleatoria con 
+distribucion exponencial de media 5 minutos.
+
+#tip[
+  Tiempos en los que ocurren los eventos
+]
+
+$ tau_i = "Tiempo entre el i-esimo evento y el anterior" tilde epsilon(lambda) "(IND)" $
+$ E(tau_i) = 5 -> lambda = 1/5 $
+
+#underline[_Proceso de Poisson:_]
+
+$ {N(t)} -> "Proceso de Poisson (parametro " lambda = 15 ")" = "# Clientes en los primeros t minutos" $
+
+$ P(N(360) > 90) tilde P_0(72) $
+
+$ underbrace("TCL", tilde) N(72, sqrt(72)) $
+
+1. Describir la distribucion de probabilidades del numero de clientes que 
+  llegan en una hora
+
+2. Calcular la probabilidad de que en 30 minutos lleguen mas de 5 clientes
+
 
 
