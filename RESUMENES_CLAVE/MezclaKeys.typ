@@ -169,7 +169,8 @@ la cual viene descripta por una funcion que incluye otras variables?
 
 #importante[
   Dado $X, Y$ variables aleatorias y tenemos $X = g(Y)$, se procede:
-  1. Encontramos la acumulada despejando
+  1. Encontramos la *acumulada de la desconocida* despejando $F_X (x)$ (en caso
+    de que $X$ sea la conocida e $Y$ la conocida)
   2. Derivamos para poder encontrar la funcion de densidad
   3. Para encontrar los limites, es util reemplazar con lo que se evalua en la 
     funcion

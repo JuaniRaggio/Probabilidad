@@ -362,6 +362,8 @@ Como nos piden la densidad de $V$, podemos derivar la expresion obtenida para en
 $ f_V (v) = (d F_V (v))/(d v) = (d F_R (root(3, (3 v)/(4 pi))))/(d v) underbrace(=, "x composicion") 
 f_R (root(3, (3 v)/(4 pi))) . d/(d v) (root(3, (3 v)/(4 pi))) $
 
+Despues para encontrar los limites, basta con reemplazar y despejar en la funcion R
+
 #importante[*Teorema*:
   Sea R VAContinua y $f_R (r)$ su densidad, si definimos una nueva variable 
   aleatoria a partir de la misma $V = g(R)$ entonces la densidad de $V$
