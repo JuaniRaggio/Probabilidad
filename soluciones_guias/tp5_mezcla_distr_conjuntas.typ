@@ -251,8 +251,91 @@ La variable aleatoria $Z$ tiene distribucion normal standard
 
 La variable aleatoria $U$ tiene distribucion uniforme en $(0, 1)$
 
+Primero importante definir:
+$ U tilde "Unif"(a, b) -> F_U (u) = cases(
+  0 " if " u <= a,
+  (u - a)/(b - a) " if " 0 <= u <= 1,
+  1 " if " u >= 1
+) $
+
+1. Obtener la ditribucion de probabilidades de $W = U^2$
+
+$ F_W (w) = P(W <= w) = P(U^2 <= w) = P(-sqrt(w) <= U <= sqrt(w)) $
+
+$ P(-sqrt(w) <= U <= sqrt(w)) = P(U <= sqrt(w)) - P(-sqrt(w) <= U) = P(U<= sqrt(w)) - 0 $
+
+$ F_W (w) = P(U <= sqrt(w)) $
+
+2. Demostrar que $X = (-1)/lambda ln(1 - U), lambda > 0$, es una VA. con
+  distribucion exponencial de parametro $lambda$. Realice una simulacion
+  generando 10 valores de $X$ si $lambda = 5$ usando el generador de
+  numeros aleatorios de su calculadora de mano
+
+  Buscamos $ F_X (x) = P(X <= x) = P(-1/lambda ln(1 - U) <= x) = P(U <= 1 - e^(- lambda x)) = F_U (1 - e ^(- lambda x)) $
+
+  $ F_X (x) = cases(
+    1 - e ^(-lambda x) " si " x >= 0,
+    0 " si " x < 0
+  ) $
+
+  #importante[
+    De donde salen los limites?
+    - Evaluas en la funcion $F_U (u)$
+    - Evaluas en las desigualdades de los limites y despejas $x$
+  ]
+
+  $ 0 <= 1 - e ^(lambda x) <= 1 => e ^(-lambda x) <= 1 <= 1 + e ^(-lambda x) => $
+
+  Por lo tanto, $X tilde "Exp"(lambda)$
+
+== Ejercicio 4
+
+La variable aleatoria $X$ tiene distribucion uniforme en $(1, 3)$
+
+_Usando la definicion de uniforme, sabemos que..._
+
+$ X tilde "Unif"(u) => F_X(x) = cases(
+  0 " si " 0 <= x,
+  (x - 1)/(3 - 1) " si " 1 <= x <= 3,
+  1 " si " x > 3
+) $
+
+1. Obtener las funciones densidad de probabilidad de $Y = 3 X + 4$ y 
+  $Z = e^X$
+
+  $ F_Y (y) = P(Y <= y) = P(3 X + 4 <= y) = P(X <= (y - 4)/3) = F_X ((y - 4)/3) $
+
+#tip[
+  Pensar que vos cuando haces el pasaje de $x -> y$, queres que se sigan
+  obteniendo los mismos "rangos", notemos que:
+
+  $ "Caso2"(7) = (7 - 7)/6 = (1 - 1)/(3 - 1) = 0 $
+  $ "Caso2"(13) = (13 - 7)/6 = (3 - 1)/(3 - 1) = 1 $
+]
+
+  $ F_Y (y) = cases(
+    0 " si " y <= 7,
+    (y - 7)/6 " si " 7 <= y <= 13,
+    1 " si " 13 <= y
+  ) $
+
+  $ f_Y (y) = cases(
+    0 " si " y not in (7, 13),
+    1/6 " si " y in (7, 13)
+  ) $
+
+  Luego para $Z$:
+  $ F_Z (z) = P(Z <= z) = P(e^X <= z) = P(X <= ln(z)) $
+
+2. Calcular los valores esperados de $Y$ y $Z$
+
+$ E[Y] =  $
+
 == Ejercicio 5
-El radio *R* de una esfera se considera una variable aleatoria continua. Supongamos que *R* tiene una funcion de densidad de probabilidad $f_R (r) = 6 r (1 - r), 0 < r < 1$. Obtener la funcion de densidad de probabilidad del volumen *V* y del area *A*
+El radio *R* de una esfera se considera una variable aleatoria continua.
+Supongamos que *R* tiene una funcion de densidad de probabilidad 
+$f_R (r) = 6 r (1 - r), 0 < r < 1$. Obtener la funcion de densidad de 
+probabilidad del volumen *V* y del area *A*
 
 - Sabemos que el _volumen de una esfera_ esta dado por:
 $ V = 4/3 pi r^3 $
@@ -260,31 +343,53 @@ $ V = 4/3 pi r^3 $
 - Sabemos que el _area_ esta dada por:
 $ A = 4 pi r^2 $
 
-- Muy importante usar el siguiente *teorema*
+- Como el radio viene dado por la funcion de densidad de probabilidad, podemos
+  poner el Area y el Volumen en funcion del radio. De esta forma se encuentra
+  la funcion de densidad del mismo
 
-Sea R VAContinua y $f_R(r)$ su densidad, si definimos una nueva variable aleatoria a partir de la misma $V = g(R)$ entonces la densidad de $V$ se obtiene en lo que tendriamos que evaluar:
+_Hallamos el Radio en funcion del volumen y Area_
 
+- $ R = root(3, ((3 pi)/4 v)) $
+- $ R = sqrt(a/(4 pi)) $
 
-$ f_V(v) = f_R(g ^(-1)(r)).abs(((d g^(-1))/(d r))) $
+Para encontrar la densidad de $V$:
 
+$ F_V (v) = P(V <= v) = P(4/3 pi . R^3) = P(R <= root(3, (3 v)/(4 pi))) = F_R (root(3, (3 v)/(4 pi))) $
+
+_Notemos que_ encontramos la distribucion de $V$ en funcion de la distribucion de $R$.
+Como nos piden la densidad de $V$, podemos derivar la expresion obtenida para encontrar la densidad
+
+$ f_V (v) = (d F_V (v))/(d v) = (d F_R (root(3, (3 v)/(4 pi))))/(d v) underbrace(=, "x composicion") 
+f_R (root(3, (3 v)/(4 pi))) . d/(d v) (root(3, (3 v)/(4 pi))) $
+
+#importante[*Teorema*:
+  Sea R VAContinua y $f_R (r)$ su densidad, si definimos una nueva variable 
+  aleatoria a partir de la misma $V = g(R)$ entonces la densidad de $V$
+  se obtiene en lo que tendriamos que evaluar:
+  $ f_V(v) = f_R(g ^(-1)(r)).abs(((d g^(-1))/(d r))) $
+]
+
+#tip[
+  Muchas veces los rangos de los limites los da la propia funcion partida, no
+  es necesario encontrarlos de una forma rara
+]
 
 Luego usamos el dato que nos dan en el enunciado: $f_R (r) = 6 r (1 - r)$
 
 
 Derivando $(d R)/(d v) = d ((3/(4 pi) v)^(1/3))/(d v)$
 
-
 Obtenemos lo siguiente: $ (d R) / (d v) = (1/(4 pi)) (3/(4 pi) v)^(-2/3) $
 
-
-==== _En simples palabras..._
-- Tenes dos variables aleatorias continuas, una depende de la otra, por lo que la otra depende de una
-- Si conoces la densidad de una de las dos, podes conocer la densidad de la otra. Como?
-1. Escribis la VAC(Densidad conocida) = g(VAC(Densidad *no* conocida)) - _Hallas la inversa_
-2. Derivas esa funcion (VAC(Dc)) respecto de la VAC(Dnc)
-3. Obtenes el parametro a usar para la funcion de densidad conocida
-4. Evaluas con ese parametro a la densidad conocida y multplicas la funcion evaluada por la derivada encontrada
-5. Para saber los limites, basta con hallar la _imagen_ de la VAC deseada (los puntos criticos y los extremos son siempre limites)
+#tip[_En simples palabras..._
+  - Tenes dos variables aleatorias continuas, una depende de la otra, por lo que la otra depende de una
+  - Si conoces la densidad de una de las dos, podes conocer la densidad de la otra. Como?
+  1. Escribis la VAC(Densidad conocida) = g(VAC(Densidad *no* conocida)) - _Hallas la inversa_
+  2. Derivas esa funcion (VAC(Dc)) respecto de la VAC(Dnc)
+  3. Obtenes el parametro a usar para la funcion de densidad conocida
+  4. Evaluas con ese parametro a la densidad conocida y multplicas la funcion evaluada por la derivada encontrada
+  5. Para saber los limites, basta con hallar la _imagen_ de la VAC deseada (los puntos criticos y los extremos son siempre limites)
+]
 
 == Ejercicio 6
 El beneficio total de una empresa esta dado por: $B = 10Q - 5 Q^2$ (en miles de pesos)
