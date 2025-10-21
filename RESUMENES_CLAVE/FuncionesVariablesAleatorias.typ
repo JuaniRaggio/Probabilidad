@@ -1,5 +1,5 @@
 #set document(
-  title: "Tips - Mezcla de variables aleatorias",
+  title: "Tips - Funciones de variables aleatorias",
   author: "Juan Ignacio Raggio",
 )
 
@@ -138,7 +138,7 @@
 
 #align(center)[
   #v(1em)
-  #text(size: 24pt, weight: "bold")[TP 5]
+  #text(size: 24pt, weight: "bold")[Funciones de variables aleatorias]
   #v(0.5em)
   #text(size: 18pt)[Tips y Formulas Clave]
   #v(0.5em)
@@ -152,30 +152,24 @@
 #line(length: 100%, stroke: 1pt)
 #v(1em)
 
-#importante[
-  Como la normal es simentrica (en caso de estar normalizada), podemos
-  hacer:
-  $ "Normalcdf"(-x) = Phi(-x) = 1 - Phi(x) $
-
-  _Si lo pensamos graficamente, seria como pensar:_
-  El area en la cola izquierda $P(X <= -x)$ es exactamente lo mismo que
-  el area en la cola derecha $1 - P(X <= x)$
-]
-
-= Distribucion de probabilidades
-
-Que hacer si te piden distribucion de probabilidades de una variable
-la cual viene descripta por una funcion que incluye otras variables?
 
 #importante[
-  Dado $X, Y$ variables aleatorias y tenemos $X = g(Y)$, se procede:
-  1. Encontramos la acumulada despejando
-  2. Derivamos para poder encontrar la funcion de densidad
-  3. Para encontrar los limites, es util reemplazar con lo que se evalua en la 
-    funcion
+  *Uniforme*
+  $ U tilde "Unif"(a, b) -> F_U (u) = cases(
+    0 " if " u <= a,
+    (u - a)/(b - a) " if " 0 <= u <= 1,
+    1 " if " u >= 1
+  ) $
+
 ]
 
+#importante[
+  *Exponencial*
+  $ F_X (x) = cases(
+    1 - e ^(-lambda x) " si " x >= 0,
+    0 " si " x < 0
+  ) $
 
-
+]
 
 
