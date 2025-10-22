@@ -411,8 +411,9 @@ Entonces, suponiendo que $f_Q(q) = 0$, si q < 0 y $f_Q(q) = 1$, si q > 2:
 
 - Para encontrar la acumulada de $Q$ simplemente necesitamos integrar la funcion de densidad
 
-*KEY*:
+#importante[
 Cuando se calcula la *acumulada* a partir de la de *densidad* es importante restarle a cada intervalo _la probabilidad acumulada hasta el limite inferior_ 
+]
 
 $
 F_Q(q) = cases(
@@ -437,7 +438,7 @@ Nosotros queremos que la ecuacion sea mayor a cero, como la funcion es continua,
 
 $ 0 - 0 - 3 >=0 => "absurdo!" $
 
-$ 10 - 5 - 3 = 2 >= 0 $
+$ 10 - 5 - 3 = 2 >= 0 => "Lo que queremos esta 'en el medio'" $
 
 $ 20 - 20 - 3 > 0 => "absurdo!" $
 
@@ -450,36 +451,17 @@ $ P(B >= 3) = F_Q(1.6324555) - F_Q(0.3645444)  = 0.93224555 - 0.06644 = 0.866 $
 
 2. Calcular el valor esperado de B.
 
-$ mu _B = integral _(-infinity)^(infinity) b f_B(b) $
+$ E[B] = E[10 Q - 5 Q^2] = 10 E[Q] - 5 E[Q^2] = 10 integral_(-infinity)^(infinity) q f_Q d q - 5 integral_(-infinity)^(+infinity) q^2 f_Q d q $
 
-Entonces necesitamos saber la funcion de densidad de B para calcular la esperanza, la cual se puede deducir de lo anteriormente desarrollado
+$ => E[B] = 10 (integral_(0)^(1) q^2 d q + integral_(1)^(2) (2 - q) q d q) - 5 (integral_(1)^(2) (2 - q) q^2 d q + integral_(0)^(1) q^3)  $
 
-- Usamos el mismo procedimiento que en ejercicios anteriores:
-
-1. Escribis la VAC(Densidad conocida) = g(VAC(Densidad *no* conocida)) - _Hallas la inversa_
-En este caso la Densidad conocida es la de $Q$
-
-$ P(B = b) = f_B(b) = P(10Q - 5 Q^2 = b) = P(10Q - 5 Q^2 - b = 0) $
-
-$ Q = (-10 plus.minus sqrt(100 - 20b))/(-10) $
-
-2. Derivas esa funcion (VAC(Dc)) respecto de la VAC(Dnc)
-
-En este caso como tenemos dos Qs:
-
-$Q_1$:
-
-$ f_B(b) = ()/() $
-
-3. Obtenes el parametro a usar para la funcion de densidad conocida
-4. Evaluas con ese parametro a la densidad conocida y multplicas la funcion evaluada por la derivada encontrada
-
-3. Obtener la funcion de distribucion de B
-
+#align(center)[#table()[$ E[B] = 10 (1/3 + [q^2 - 1/3 q^3]_1^2) - 5 (1/4 + [2/3 q^3 - 1/4 q^4]_(1)^(2)) = 4.166 $]]
 
 == Ejercicio 7
 
-El costo $C$ para producir una cantidad $X$ de un producto viene dado por $C(X) = (X - 4)(X - 8) + 10$ (en miles de pesos). Suponga que $X$ es una VAC con distribucion Uniforme (4, 8)
+El costo $C$ para producir una cantidad $X$ de un producto viene dado por 
+$C(X) = (X - 4)(X - 8) + 10$ (en miles de pesos). Suponga que $X$ es una VAC 
+con distribucion Uniforme (4, 8)
 
 _Calcular:_
 - $P(C > 9)$
@@ -493,6 +475,47 @@ Notemos que es el mismo caso de siempre:
 1. Tenemos una VAC con distribucion conocida
 2. Tenemos la relacion entre esa VAC y una VAC que queremos conocer
 
+// ===========================================================================
+// Solucion alternativa
+#tip[
+  *Solucion alternativa*
+- $P(C > 9)$
+
+$ P(C > 9) = P((X - 4)(X - 8) + 10 > 9) = P(X^2 - 12 X + 33 > 0) $
+
+Esto quiere decir que necesitamos encontrar las raices de esta ecuacion para
+saber que valores nos interesan (los positivos)
+
+$ X = cases(
+  x_1 = (12 + sqrt(144 - 132))/2 = 4.2679,
+  x_2 = (12 - sqrt(144 - 132))/2 = 7.7321
+) $
+
+Llamo $"aux" = X^2 - 12 X + 33$
+- $"aux"(0) > 0$
+- $"aux"(5) = -2 < 0$
+- $"aux"(8) = 1 > 0$
+
+Como estamos buscando que $"aux" > 0$, tomamos los intervalos exteriores
+
+$ P(X^2 - 12 X + 33 > 0) = P(X <= 4.2679 or X >= 7.7321) underbrace(=, "me") $
+$ P(X <= 4.2679) + P(X >= 7.7321) = F_X (4.2679) + (1 - F_X (7.7321)) =  $
+$ = "UnifCDF"(4.2679) + (1 - "UnifCDF"(7.7321)) = 0.066975 + (1 - 0.933024) $
+#align(center)[#table()[
+$ P(X^2 - 12 X + 33 > 0) = 0.1339 $
+]]
+
+- Para el valor esperado de C, nos sirven las propiedades de la esperanza
+
+$ E[C] = E[(X - 4)(X - 8) + 10] = E[X^2 - 12 X + 42] = E[X^2] - 12 E[X] + 42 $
+_Luego se puede usar la formula de la esperanza de la uniforme o hacer la 
+integral_
+
+- La funcion de distribucion de C, alcanza con evaluar en la uniforme con lo
+  que corresponde
+
+]
+// ===========================================================================
 Entonces vamos a proceder como siempre
 
 1. Busco los limites de la variable desconocida
