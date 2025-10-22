@@ -161,6 +161,9 @@
     1 " if " u >= 1
   ) $
 
+  $ mu_X = (a + b)/2 $
+  $ V[X] = ((b - a)^2)/12 $
+
 ]
 
 #importante[
@@ -170,6 +173,67 @@
     0 " si " x < 0
   ) $
 
+  $ mu_X = 1/lambda $
+  $ V[X] = 1/(lambda^2) $
+
 ]
 
+#importante[
+  *Poisson*
+  $ F_X (x) = e^(-lambda) . sum_0^k (lambda^i)/(i!) $
+
+  $ mu_X = lambda $
+  $ V[X] = lambda $
+]
+
+#importante[
+  *Binomial*:
+  - $n = "Trials"$
+  - $k = x$
+  - $p = "Probabilidad de exito"$
+
+  $ F_X (n, x) = sum_(i = 0)^x binom(n, i) p^i . (1 - p)^(n - i) $
+
+  $ mu_X = p times n $
+  $ V[X] = p n (1 - p) $
+]
+
+#importante[
+  *Geometrica*
+  - $p$: probabilidad de éxito en cada intento  
+  - $x$: número de intentos hasta el primer éxito (variable discreta)
+
+  $ P(X = x) = (1 - p)^{x - 1} p, x = 1, 2, 3, ...$
+
+  $ F_X (x) = 1 - (1 - p)^x $
+
+  $ mu_X = 1/p $  
+  $ V[X] = (1 - p)/p^2 $
+]
+
+#importante[
+  *Hipergeometrica*
+  - $N$: tamaño total de la población  
+  - $K$: cantidad total de éxitos en la población  
+  - $n$: tamaño de la muestra (sin reemplazo)  
+  - $x$: número de éxitos en la muestra
+
+  $ P(X = x) = (binom(K, x) binom(N - K, n - x))/binom(N,n) $
+
+  $ mu_X = n (K / N) $  
+  $ V[X] = n (K / N) (1 - K / N) ((N - n) / (N - 1)) $
+]
+
+#importante[
+  *Comparación entre Geométrica, Binomial e Hipergeométrica*
+
+  - La Geometrica cuenta cuando aparece el primer exito (exactamente igual a 
+    hacer una binomial con x = 1).
+
+  - La Binomial cuenta cuantos exitos hay en $n$ intentos independientes.
+
+  - La Hipergeometrica cuenta cuantos exitos hay en una muestra sin reemplazo,
+    donde los ensayos no son independientes.
+
+]
 
