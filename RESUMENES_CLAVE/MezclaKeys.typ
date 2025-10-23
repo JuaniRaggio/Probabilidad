@@ -153,6 +153,12 @@
 #v(1em)
 
 #importante[
+  *Probabilidad total*
+
+  $ P(X = x) = sum_(y in R_Y) P(x | y).P(y) $
+]
+
+#importante[
   Como la normal es simentrica (en caso de estar normalizada), podemos
   hacer:
   $ "Normalcdf"(-x) = Phi(-x) = 1 - Phi(x) $

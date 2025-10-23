@@ -1,5 +1,5 @@
 #set document(
-  title: "Tips - Funciones de variables aleatorias",
+  title: "Tips, ecuaciones y formulas importantes - Probabilidad y estadistica",
   author: "Juan Ignacio Raggio",
 )
 
@@ -20,7 +20,7 @@
       columns: (1fr, 1fr, 1fr),
       align: (left, center, right),
       [Juan Ignacio Raggio],
-      [ITBA - Probabilidad y Estadistica],
+      [],
       [#datetime.today().display("[day]/[month]/[year]")]
     )
     #line(length: 100%, stroke: 0.5pt + gray)
@@ -84,6 +84,7 @@
 // FUNCIONES UTILES
 // ====================================
 
+// Funcion para crear una caja de nota/observacion
 #let nota(contenido) = {
   block(
     fill: rgb("#E3F2FD"),
@@ -96,6 +97,7 @@
   ]
 }
 
+// Funcion para crear una caja de advertencia
 #let importante(contenido) = {
   block(
     fill: rgb("#FFF3E0"),
@@ -108,6 +110,7 @@
   ]
 }
 
+// Funcion para crear una caja de error comun
 #let error(contenido) = {
   block(
     fill: rgb("#FFEBEE"),
@@ -120,6 +123,7 @@
   ]
 }
 
+// Funcion para crear una caja de tip
 #let tip(contenido) = {
   block(
     fill: rgb("#E8F5E9"),
@@ -138,12 +142,12 @@
 
 #align(center)[
   #v(1em)
-  #text(size: 24pt, weight: "bold")[Funciones de variables aleatorias]
+  #text(size: 24pt, weight: "bold")[Probabilidad y estadistica]
   #v(0.5em)
-  #text(size: 18pt)[Tips y Formulas Clave]
+  #text(size: 18pt)[Tips y Ecuaciones importantes]
   #v(0.5em)
   #text(size: 12pt, fill: gray)[
-    Probabilidad y Estadistica\
+    Parcial unico \
     #datetime.today().display("[day]/[month]/[year]")
   ]
   #v(1em)
@@ -152,88 +156,48 @@
 #line(length: 100%, stroke: 1pt)
 #v(1em)
 
+= Distribuciones conjuntas
 
-#importante[
-  *Uniforme*
-  $ U tilde "Unif"(a, b) -> F_U (u) = cases(
-    0 " if " u <= a,
-    (u - a)/(b - a) " if " 0 <= u <= 1,
-    1 " if " u >= 1
-  ) $
+#error[
+  - Es importante tener en cuenta que la covarianza es una relacion lineal, pero
+    que sea 0 solo dice que no hay correlacion lineal perfecta. *Lo que no dice
+    que no haya una relacion*
 
-  $ mu_X = (a + b)/2 $
-  $ V[X] = ((b - a)^2)/12 $
+  $ X, Y " Independientes" => "Cov"[X, Y] = 0 $
 
+  _Pero no vale la vuelta_
 ]
 
 #importante[
-  *Exponencial*
-  $ F_X (x) = cases(
-    1 - e ^(-lambda x) " si " x >= 0,
-    0 " si " x < 0
-  ) $
+  - Las densidades de probabilidades condicionales:
+  $ p_(X | Y) (X|Y) = P(X = x|Y = y) $
 
-  $ mu_X = 1/lambda $
-  $ V[X] = 1/(lambda^2) $
+  - Ojo porque si son continuas:
+  $ p_(X | Y) (X|Y) = f_(X|Y) (X = x, Y = y) $
 
-]
-
-#importante[
-  *Poisson*
-  $ F_X (x) = e^(-lambda) . sum_0^k (lambda^i)/(i!) $
-
-  $ mu_X = lambda $
-  $ V[X] = lambda $
-]
-
-#importante[
-  *Binomial*:
-  - $n = "Trials"$
-  - $k = x$
-  - $p = "Probabilidad de exito"$
-
-  $ F_X (n, x) = sum_(i = 0)^x binom(n, i) p^i . (1 - p)^(n - i) $
-
-  $ mu_X = p times n $
-  $ V[X] = p n (1 - p) $
-]
-
-#importante[
-  *Geometrica*
-  - $p$: probabilidad de éxito en cada intento  
-  - $x$: número de intentos hasta el primer éxito (variable discreta)
-
-  $ P(X = x) = (1 - p)^{x - 1} p, x = 1, 2, 3, ...$
-
-  $ F_X (x) = 1 - (1 - p)^x $
-
-  $ mu_X = 1/p $  
-  $ V[X] = (1 - p)/p^2 $
-]
-
-#importante[
-  *Hipergeometrica*
-  - $N$: tamaño total de la población  
-  - $K$: cantidad total de éxitos en la población  
-  - $n$: tamaño de la muestra (sin reemplazo)  
-  - $x$: número de éxitos en la muestra
-
-  $ P(X = x) = (binom(K, x) binom(N - K, n - x))/binom(N,n) $
-
-  $ mu_X = n (K / N) $  
-  $ V[X] = n (K / N) (1 - K / N) ((N - n) / (N - 1)) $
 ]
 
 #tip[
-  *Comparación entre Geométrica, Binomial e Hipergeométrica*
+  - Si tengo probabilidades *conjuntas condicionales discretas*, se puede hacer:
+  $ p_(X, Y) (x, y) = P(X = x | Y = y)/P(Y = y) $
 
-  - La Geometrica cuenta cuando aparece el primer exito (exactamente igual a 
-    hacer una binomial con x = 1).
+  \
 
-  - La Binomial cuenta cuantos exitos hay en $n$ intentos independientes.
+  - _En el caso de continuas:_
+  $ p_(X, Y) (x, y) = (f_(X|Y) (x, y))/f_Y (y) $
 
-  - La Hipergeometrica cuenta cuantos exitos hay en una muestra sin reemplazo,
-    donde los ensayos no son independientes.
+  \
+
+  - _Los podemos dar vuelta por conveniencia_
+  $ p_(X, Y) (x, y) = p_(Y, X) (y, x) = P(Y = y | X = x) . P(X = x) $
+]
+
+
+#importante[*Recordar*:
+]
+
+
+#importante[
 
 ]
 

@@ -514,6 +514,21 @@ integral_
 - La funcion de distribucion de C, alcanza con evaluar en la uniforme con lo
   que corresponde
 
+  $ F_C (c) = P(C <= c) = P((X - 4)(X - 8) + 10 <= c) = 
+  P(X^2 - 12 X + 42 - c <= 0) $
+
+  $ cases(
+    x_1 = (12 + sqrt(144 - 168 + 4 c))/2 = 6 + sqrt(4 c - 24)/2,
+    x_2 = (12 - sqrt(144 - 168 + 4 c))/2 = 6 - sqrt(4 c - 24)/2
+  ) $
+
+  Como buscamos los que estan entre medio de las raices ya que se pide $<= 0$
+  $ F_C (c) = P(|X| <= 6 + sqrt(4 c - 24)/2) = 
+  P(X <= 6 + sqrt(4 c - 24)/2) - P(X <= 6 - sqrt(4 c - 24)/2) $
+
+  _Ya tenemos $X$ en funcion de c, por lo que faltaria reemplazar en la ecu. de
+  la uniforme_
+
 ]
 // ===========================================================================
 Entonces vamos a proceder como siempre
@@ -836,6 +851,99 @@ $P(X = x_i|Y = y_j) = P(X = x_i, Y = y_j)/P(Y = y_j) -> "Todas las condicionales
 
 4. La covarianza $"Cov"[X, Y]$
 
+== Ejercicio 15
+Dada la VABidimensional:
+
+$ (X, Y) = {(-2, 4), (-1, 1), (1, 1), (2, 4)} $
+
+tal que todos los pares tienen probabilidad $1/4$
+
+1. Distribuciones marginales
+
+#table(columns: 5)[$Y$ \\ $X$][$-2$][$-1$][$1$][$2$][$1$][$0$][$1/4$][$1/4$][$0$][$4$][$1/4$][$0$][$0$][$1/4$]
+
+_Recordar que es fijar uno y "sumar toda la fila/columna"_
+#align(center)[#table()[$ P(X = x) = 1/4, forall x in R_X $]]
+#align(center)[#table()[$ P(Y = y) = 2/4 = 1/2, forall y in R_Y $]]
+
+2. Las esperanzas
+
+#align(center)[#table()[$ E[X] = -2/4 - 1/4 + 1/4 + 2/4 = 0 $]]
+#align(center)[#table()[$ E[Y] = 1/2 + 2 = 5/2 $]]
+$ E[X . Y] = "Todas las multiplicaciones posibles que no te dan cero" $
+
+Por ejemplo el 4 se puede formar con $4 times 1$ pero la probabilidad da 0 por
+lo que no tiene sentido analizar esos casos
+#align(center)[#table()[$ => E[X . Y] = -8 times 1/4 - 1 times 1/4 + 1 times 1/4 + 8 times 1/4 = 0 $]]
+
+3. Ver la relacion entre $X$ e $Y$
+
+$ "Cov"[X, Y] = E[X . Y] - E[X] . E[Y] = 0 - 0 times 5/2 = 0 $
+No entiendo porque hay una relacion si la covarianza es 0, entiendo que 
+$Y = x^2$ pero no tiene mucho sentido que la covarianza sea 0
+
+#error[
+  - Es importante tener en cuenta que la covarianza es una relacion lineal, pero
+    que sea 0 solo dice que no hay correlacion lineal perfecta. *Lo que no dice
+    que no haya una relacion*
+
+  $ X, Y " Independientes" => "Cov"[X, Y] = 0 $
+
+  _Pero no vale la vuelta_
+]
+
+#align(center)[#table()[La relacion en este caso esta en que $Y = X^2$ 
+siempre]]
+
+== Ejercicio 16
+
+_Urna con_
+- 10 bolitas blancas
+- 5 bolitas negras
+
+_Se tira una moneda_
+- Cara $=>$ +5 bolitas negras
+- Ceca $=>$ +10 bolitas blancas
+
+_Se saca una bolita al azar y se observa el color_
+
+Definimos:
+$ X = {"0 si sale ceca, 1 si sale cara"} $
+$ Y = {"0 si se extrae negra, 1 si blanca"} $
+
+1. Distribucion condicional $p_(Y|X) (y|x)$
+
+- $X = 0$:
+$ p_(Y|X) (Y = 0|X = 0) = 5/25  = 0.2 $
+$ p_(Y|X) (Y = 1|X = 0) = 15/25 = 0.8 $
+
+- $X = 1$:
+$ p_(Y|X) (Y = 0|X = 1) = 10/20 = 0.5 $
+$ p_(Y|X) (Y = 1|X = 1) = 10/20 = 0.5 $
+
+2. Masa de probabilidad conjunta $p_(X, Y) (x, y)$
+
+#importante[*Recordar*:
+$ p_(X, Y) (x, y) = p_(Y, X) (y, x) = P(Y = y | X = x) . P(X = x) $
+_Los damos vuelta por conveniencia_
+]
+
+- $X = 0$:
+$ p_(X|Y) (Y = 0, X = 0) = P(Y = 0 | X = 0) . P(X = 0) = 0.5 times 0.2 = 0.1 $
+$ p_(X|Y) (Y = 1, X = 0) = P(Y = 1 | X = 0) . P(X = 0) = 0.5 times 0.8 = 0.4 $
+
+- $X = 1$:
+$ p_(X|Y) (Y = 0, X = 1) = P(Y = 0 | X = 1) . P(X = 1) = 0.5 times 0.5 = 0.25 $
+$ p_(X|Y) (Y = 1, X = 1) = P(Y = 1 | X = 1) . P(X = 1) = 0.5 times 0.5 = 0.25 $
+
+3. Las funciones de masa de probabilidad marginales $p_X (x), p_Y (y)$
+
+- $p_X (x)$:
+$  $
+
+4. La covarianza $"Cov"[X, Y]$
+
+$ "Cov"[X, Y] = E[X Y] - E[X] E[Y] = $
 
 == Ejercicio 19
 
