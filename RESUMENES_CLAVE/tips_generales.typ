@@ -169,7 +169,7 @@
 ]
 
 #importante[
-  - Las densidades de probabilidades condicionales:
+  - Las densidades de probabilidades condicionales _discretas_:
   $ p_(X | Y) (X|Y) = P(X = x|Y = y) $
 
   - Ojo porque si son continuas:
@@ -198,6 +198,67 @@
 
 
 #importante[
+  *Valor esperado de probabilidades conjuntas*
+
+  - El valor esperado de una funcion que depende de dos variables aleatorias 
+    $X, Y$
+
+  $ h(X, Y): RR^2 -> RR $
+  $ E[h(X, Y)] =
+  sum_(alpha in R_X) sum_(beta in R_Y) h(alpha, beta) p_(X, Y) (alpha, beta) $
+
+  - Si tenemos dos funciones
+  $ k(X), m(Y) : RR -> RR $
+  $ E[k(X) m(Y)] = E[k(X)] . E[m(Y)] $
+]
+
+#importante[
+  *Covarianza y Correlacion*
+
+  $ "Cov"[X, Y] = E[X.Y] - E[X].E[Y] $
+
+  $ rho = "Correlacion" = "Cov"[X, Y]/sqrt("Var"[X] . "Var"[Y]) $
+
+  *Propiedad util*
+  $ rho = plus.minus 1 <=> exists a, b in RR slash.big P(X = a Y + b) = 1 $
+  _Hay probabilidad 1 de que haya relacion lineal sii 
+  $mod("Cov"[X, Y]) = mod(sqrt("Var"[X] "Var"[Y]))$_
+]
+
+#importante[
+  $ "Var"[X + Y] = "Var"[X] + 2 "Cov"[X, Y] + "Var"[Y] $
+]
+
+#tip[
+  Solo si $X$ e $Y$ son independientes, podemos hacer:
+
+  - Discretas:
+  $ P(X + Y = z) = sum_(x in R_X) p_X (x) . p_Y (z - x) = sum_(y in R_Y) p_X (z - y) . p_Y (y) $
+
+  - Continuas
+
+  $ f_(X + Y) (z) = integral_RR f_X (x) . f_Y (z - x) d x =
+  integral_RR f_X (z - y) . f_Y (y) d y $
 
 ]
+
+== Continuas
+#tip[
+  Es todo exactamente igual pero en vez de sumar, se integra
+]
+
+
+== Mixtas
+
+=== Continua condicionada a discreta
+
+- *Acumulada condicional*
+
+$ F_(X|Y) (x|y) = P(X <= x | Y = y), forall x in RR, y in R_Y $
+
+- Luego la *densidad condicional* es la integral respecto de la continua
+
+$ f_(X|Y) (x | y) = (d F_(X|Y) (x|y))/(d x) $
+
+- 
 
