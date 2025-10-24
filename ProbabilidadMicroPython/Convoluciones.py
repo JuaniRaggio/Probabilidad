@@ -63,6 +63,8 @@ def mostrar(dist, nombre):
     print("Distribución de", nombre)
     for k in sorted(dist.keys()):
         print("X =", k, "-> P =", round(dist[k], 4))
+        if not k % 7:
+            input("Presione enter para seguir")
     print("")
 
 mostrar(Xn, "X{n}")
