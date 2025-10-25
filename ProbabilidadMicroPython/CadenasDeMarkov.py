@@ -102,17 +102,21 @@ Pn = matpow(P, n)
 print("La potencia", n, "-esima de la matriz dada:")
 for fila in Pn:
     print(fila)
+input("Enter continuar...")
 
 p_n = vect_matmul(p0, Pn)
 print("Distribucion al paso", n, ":", p_n)
+input("Enter continuar...")
 
 pi = estacionario_manual(P)
 print("Estado estacionario:", pi)
+input("Enter continuar...")
 
 C = comunicabilidad(P)
 print("Matriz de comunicabilidad:")
 for fila in C:
     print(fila)
+input("Enter continuar...")
 
 if es_irreducible(C):
     print("La cadena es irreducible")
@@ -122,3 +126,4 @@ else:
 for i in range(len(P)):
     d = calcular_periodo(P, i)
     print("Periodo del estado", i, ":", d)
+input("Enter continuar...")
