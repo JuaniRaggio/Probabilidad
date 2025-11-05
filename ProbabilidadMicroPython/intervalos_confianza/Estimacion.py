@@ -13,10 +13,10 @@ def IC_proporcion(p_hat, n, z):
     return (p_hat - margen, p_hat + margen)
 
 # Sigma conocida:
-def n_media(sigma, E):
+def n_media(z, sigma, E):
     return ( (z * sigma / E) ** 2 )
 
-def n_proporcion(E, z):
+def n_proporcion(z, E):
     return ( (z * 0.5 / E) ** 2 )
 
 # gl son los grados de libertad y son:
@@ -30,6 +30,7 @@ z = 1.64485 # invNorm(1 - alfa/2, 0, 1)
 # sigma = 15
 # n = 300
 # alfa = 0.1
+# err = 3
 # print("IC media sigma conocida:", IC_media_sigma_conocida(X_barra, sigma, n, z))
 
 # Ejemplo 2: intervalo media sigma desconocida
@@ -45,7 +46,7 @@ alfa3 = 0.1
 print("IC proporcion:", IC_proporcion(p_hat, n_p, z))
 
 # Ejemplo 4: tamaño muestra media
-# print("n media:", n_media(sigma, 2))
+# print("n media:", n_media(z, sigma, err))
 
 # Ejemplo 5: tamaño muestra proporcion
-# print("n proporcion:", n_proporcion(0.03, z))
+# print("n proporcion:", n_proporcion(z, err))
