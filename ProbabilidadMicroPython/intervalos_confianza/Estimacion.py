@@ -12,6 +12,36 @@ def IC_proporcion(p_hat, n, z):
     margen = z * sqrt( (p_hat * (1 - p_hat)) / n )
     return (p_hat - margen, p_hat + margen)
 
+def IC_media_sigma_conocida_unilateral_izq(X_barra, sigma, n, z_alfa):
+    # z_alfa corresponde al valor z para una cola, ej: z para alfa
+    lim_sup = X_barra + z_alfa * sigma / sqrt(n)
+    return ('-inf', lim_sup)
+
+def IC_media_sigma_conocida_unilateral_der(X_barra, sigma, n, z_alfa):
+    # z_alfa corresponde al valor z para una cola, ej: z para alfa
+    lim_inf = X_barra - z_alfa * sigma / sqrt(n)
+    return (lim_inf, 'inf')
+
+def IC_media_sigma_desconocida_unilateral_izq(X_barra, S, n, t_alfa):
+    # t_alfa corresponde al valor t para una cola, ej: t para alfa
+    lim_sup = X_barra + t_alfa * S / sqrt(n)
+    return ('-inf', lim_sup)
+
+def IC_media_sigma_desconocida_unilateral_der(X_barra, S, n, t_alfa):
+    # t_alfa corresponde al valor t para una cola, ej: t para alfa
+    lim_inf = X_barra - t_alfa * S / sqrt(n)
+    return (lim_inf, 'inf')
+
+def IC_proporcion_unilateral_izq(p_hat, n, z_alfa):
+    # z_alfa corresponde al valor z para una cola, ej: z para alfa
+    lim_sup = p_hat + z_alfa * sqrt( (p_hat * (1 - p_hat)) / n )
+    return (0, lim_sup)
+
+def IC_proporcion_unilateral_der(p_hat, n, z_alfa):
+    # z_alfa corresponde al valor z para una cola, ej: z para alfa
+    lim_inf = p_hat - z_alfa * sqrt( (p_hat * (1 - p_hat)) / n )
+    return (lim_inf, 1)
+
 # Sigma conocida:
 def n_media(z, sigma, E):
     return ( (z * sigma / E) ** 2 )
@@ -22,7 +52,8 @@ def n_proporcion(z, E):
 # gl son los grados de libertad y son:
 # n - 1
 
-# t = # invT(1 - alfa/2, gl)
+# Bilat: t = # invT(1 - alfa/2, gl)
+# Unilat: t = invT(1 - alfa, gl)
 z = 1.64485 # invNorm(1 - alfa/2, 0, 1)
 
 # Ejemplo 1: intervalo media sigma conocida
@@ -40,13 +71,24 @@ z = 1.64485 # invNorm(1 - alfa/2, 0, 1)
 # print("IC media sigma desconocida:", IC_media_sigma_desconocida(X_barra, S, n2, t))
 
 # Ejemplo 3: intervalo para proporcion
-p_hat = 0.06 # La proporcion de los datos (18 D => 18/n_p)
 n_p = 300 # Tamaño de la muestra
+p_hat = 300/150 # La proporcion de los datos (18 D => 18/n_p)
 alfa3 = 0.1
 print("IC proporcion:", IC_proporcion(p_hat, n_p, z))
 
 # Ejemplo 4: tamaño muestra media
 # print("n media:", n_media(z, sigma, err))
+# print("n media")
 
 # Ejemplo 5: tamaño muestra proporcion
 # print("n proporcion:", n_proporcion(z, err))
+
+
+# z_alpha != z de arriba
+# IC_media_sigma_conocida_unilateral_izq(X_barra, sigma, n, z_alfa)
+# IC_media_sigma_conocida_unilateral_der(X_barra, sigma, n, z_alfa)
+# IC_media_sigma_desconocida_unilateral_izq(X_barra, S, n, t_alfa)
+# IC_media_sigma_desconocida_unilateral_der(X_barra, S, n, t_alfa)
+# IC_proporcion_unilateral_izq(p_hat, n, z_alfa)
+# IC_proporcion_unilateral_der(p_hat, n, z_alfa)
+

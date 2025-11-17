@@ -97,8 +97,6 @@ def IC_diferencia_pareada(diferencias, t):
     margen = t * S_D / sqrt(n)
     return (D_barra - margen, D_barra + margen)
 
-# === Ejemplos de uso ===
-
 # Ejemplo 1: Varianzas conocidas (TP8 - Ej 22)
 # X1_barra = 42.1
 # X2_barra = 40.5

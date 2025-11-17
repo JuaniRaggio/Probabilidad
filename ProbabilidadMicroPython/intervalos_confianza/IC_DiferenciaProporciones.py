@@ -1,7 +1,5 @@
 from math import sqrt
 
-# Intervalo de confianza para diferencia de proporciones
-
 def IC_diferencia_proporciones(p1_hat, p2_hat, n1, n2, z):
     """
     IC para p1 - p2 (diferencia de proporciones poblacionales)
@@ -33,8 +31,6 @@ def IC_diferencia_proporciones_desde_exitos(x1, x2, n1, n2, z):
     p1_hat = x1 / n1
     p2_hat = x2 / n2
     return IC_diferencia_proporciones(p1_hat, p2_hat, n1, n2, z)
-
-# === Ejemplos de uso ===
 
 # Ejemplo 1: Con proporciones directas (TP8 - Ej 25)
 # Grupo 1: 45 exitos de 200 => p1_hat = 0.225
