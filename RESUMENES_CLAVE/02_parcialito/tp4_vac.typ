@@ -340,13 +340,3 @@ El diametro de contacto de la rosca de una union se distribuye normalmente con m
 
 2. Suponiendo que el diametro de contacto este centrado en el valor nominal de la especificacion ($10 m m$), cual es la maxima desviacion estandar del diametro aceptable que permitira no mas de una defectuosa entre mil producidas?
 
-
-
-
-
-
-
-
-
-
-
