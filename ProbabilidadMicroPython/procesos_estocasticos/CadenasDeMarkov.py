@@ -7,6 +7,7 @@ P = [
 # Evolucion / Paso
 p0 = [1/3, 1/3, 1/3]
 
+DIGITS = 4
 
 def matmul(A, B):
     filas = len(A)
@@ -18,7 +19,7 @@ def matmul(A, B):
         for j in range(cols):
             suma = 0
             for k in range(comun):
-                suma += A[i][k] * B[k][j]
+                suma += round(A[i][k] * B[k][j], DIGITS)
             fila.append(suma)
         resultado.append(fila)
     return resultado
@@ -34,7 +35,7 @@ def vect_matmul(v, M):
     for j in range(len(M[0])):
         suma = 0
         for i in range(len(v)):
-            suma += v[i] * M[i][j]
+            suma += round(v[i] * M[i][j], DIGITS)
         resultado.append(suma)
     return resultado
 
@@ -93,8 +94,8 @@ suma = 0
 for fila in P:
     for col in fila:
         suma += col
-    if suma != 1:
-        print("Ojo gordo, la suma de la fila", fila, "no es 1, es", sum, "modificala desde el codigo")
+    if abs(suma - 1) > 0.00000001:
+        print("Ojo gordo, la suma de la fila", fila, "no es 1, es", suma, "modificala desde el codigo")
 
 n = int(input("Ingrese la cantidad de pasos (n): "))
 
