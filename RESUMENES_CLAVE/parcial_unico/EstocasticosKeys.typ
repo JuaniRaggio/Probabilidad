@@ -300,12 +300,24 @@ Cumple con:
 == Distribucion
 
 #importante[
-$ P(N(t) = k) = (lambda t)^k/k! e^(- lambda t) $
-$ N(t) tilde.op "Pois"(lambda t) $
+  $ P(N(t) = k) = (lambda t)^k/k! e^(- lambda t) $
+  $ P(N(t) <= k) = sum_(k = 0)^x e^(- lambda) lambda^k /k! $
+  $ N(t) tilde.op "Pois"(lambda t) $
 ]
 
 #nota[
 Los tiempos entre eventos son exponenciales con parametro $lambda$.
+]
+
+#tip[
+  Eventos en cierto intervalo $(S, K]$:
+  $ N(K) - N(S) $
+]
+
+#tip[
+  Tiempo hasta que transcurran $X$ eventos sea menor a un tiempo $T$.
+
+  #align(center)[Nos estan diciendo que *ocurren mas de $X$ eventos en $T$*]
 ]
 
 = Tiempo hasta absorcion
