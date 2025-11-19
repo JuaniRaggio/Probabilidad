@@ -92,9 +92,10 @@ def calcular_periodo(P, estado, max_pasos=20):
 suma = 0
 
 for fila in P:
+    suma = 0
     for col in fila:
         suma += col
-    if abs(suma - 1) > 0.00000001:
+    if suma != 1:
         print("Ojo gordo, la suma de la fila", fila, "no es 1, es", suma, "modificala desde el codigo")
 
 n = int(input("Ingrese la cantidad de pasos (n): "))
