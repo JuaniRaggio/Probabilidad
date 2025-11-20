@@ -215,7 +215,7 @@ $ "Cov"[X, Y] = E[X.Y] - E[X].E[Y] $
   4. Suma de expo es gama, sean $X_1, X_2, ..., X_n tilde "exp"(lambda)$
 
   $ sum_(k = 1)^n X_k tilde Gamma(n, lambda) $
-  $ f_Gamma(n, lambda) (x) = ((lambda x)^n-1)/((n - 1)!) lambda e^(-lambda x),
+  $ f_Gamma(n, lambda) (x) = ((lambda x)^(n-1))/((n - 1)!) lambda e^(-lambda x),
   x > 0 $
 
   5. Suma de los cuadrados de normales es chi-cuadrado, sean $X_1, X_2, ..., 
