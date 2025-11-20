@@ -26,7 +26,7 @@ def gamma_cdf(x, n, lam):
     # CDF: 1 - sum_{k=0}^{n-1} [(lambda*x)^k * e^(-lambda*x)] / k!
     suma = 0.0
     for k in range(n):
-        suma += ((lam * x)**k * math.exp(-lam * x)) / math.factorial(k)
+        suma += ((lam * x)**k * math.exp(-lam * x)) / fact(k)
     return 1 - suma
 
 x = float(input("Ingrese x: "))
