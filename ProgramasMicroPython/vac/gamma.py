@@ -1,5 +1,12 @@
 import math
 
+def fact(n):
+    res = 1
+    while n > 0:
+        res = res * n
+        n -= 1
+    return res
+
 def gamma_pdf(x, n, lam):
     if x < 0:
         return 0
@@ -7,7 +14,7 @@ def gamma_pdf(x, n, lam):
         return 0
 
     # PDF: (lambda^n * x^(n-1) * e^(-lambda*x)) / (n-1)!
-    factorial_n_minus_1 = math.factorial(n - 1)
+    factorial_n_minus_1 = fact(n - 1)
     return (lam**n * x**(n - 1) * math.exp(-lam * x)) / factorial_n_minus_1
 
 def gamma_cdf(x, n, lam):
