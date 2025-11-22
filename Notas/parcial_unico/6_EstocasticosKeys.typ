@@ -218,7 +218,7 @@ $ arrow(p)(n) = arrow(p)(0) . P^n $
 === Estado estacionario
 
 #importante[
-Existe un estado estacionario si:
+Si el estado estacionario existe es $pi$ y satisface la siguiente ecuacion:
 $ pi = pi P $
 ]
 
