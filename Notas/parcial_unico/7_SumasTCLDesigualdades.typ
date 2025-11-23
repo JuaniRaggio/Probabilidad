@@ -257,6 +257,16 @@ $ P(|X - E(X)| >= epsilon) <= (V(X))/(epsilon^2) $
 
 === Cuando usar cada una?
 
+En realidad formalmente (creo que no se ve en la materia) pero para
+saber cual nos conviene usar, tenemos que analizar esta relacion:
+
+$ (sigma^2)/(a - mu)^2 < mu/a $
+
+_En caso de que se cumpla esta relacion, entonces Chebyshev nos va a dar
+una mejor cota_. Pero tambien tenemos que tener cuidado con como 
+despejamos porque no siempre podemos encontrar una relacion entre lo que
+queremos acotar y la forma de la desigualdad del Chaval
+
 #tip[
 - Si solo nos interesa un lado de las cotas $=>$ *Markov*
 - Ambas sos sirven para poner una cota y no necesitamos obtener el valor exacto
