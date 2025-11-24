@@ -182,7 +182,100 @@ la cual viene descripta por una funcion que incluye otras variables?
     funcion
 ]
 
+= Mezcla de variables aleatorias
 
+Una *mezcla* ocurre cuando la distribución de una variable aleatoria depende de otra variable aleatoria. 
 
+Ejemplo típico: elegir al azar una distribución y luego generar un valor de ella.
+
+*Definición general:*
+Si $X | Y = y$ tiene densidad $f_(X\|Y) lr((x bar.v y))$ y $Y$ tiene densidad/distribución $f_Y(y)$, entonces la densidad marginal de $X$ es:
+
+$ f_X(x) = integral f_(X\|Y) lr((x bar.v y)) f_Y(y) thin d y $
+
+Para el caso discreto:
+
+$ P(X = x) = sum_y P(X = x | Y = y) P(Y = y) $
+
+== Teorema de la probabilidad total (formas)
+
+*Discreto:*
+$ P(X=x) = sum_i P(X=x|Y=y_i)P(Y=y_i) $
+
+*Continuo:*
+$ f_X(x) = integral f_(X\|Y) lr((x bar.v y)) f_Y(y) thin d y $
+
+*Mixto:*
+Usa suma sobre las partes discretas y integral sobre las partes continuas.
+
+== Esperanza condicional
+
+La *esperanza condicional* cuantifica el valor esperado de $X$ cuando sabemos el valor de otra variable $Y=y$.
+
+*Definición (discreta):*
+$ E[X|Y=y] = sum_x x dot P(X=x | Y=y) $
+
+*Definición (continua):*
+$ E[X|Y=y] = integral x thin f_(X\|Y) lr((x bar.v y)) thin d x $
+
+*Variable aleatoria condicional:*
+$E[X|Y]$ es en sí misma una variable aleatoria.
+
+== Ley de la esperanza total
+
+$ E[X] = E(E[X|Y]) $
+
+Interpretación: "primero condiciono, después promedio".
+
+== Ley de varianza total
+
+$ op("Var")(X) = E(op("Var")(X|Y)) + op("Var")(E[X|Y]) $
+
+== Independencia y condicionales
+
+Si $X$ y $Y$ son independientes:
+
+- $f_(X\|Y) lr((x bar.v y)) = f_X(x)$
+- $E[X|Y] = E[X]$
+- $P(X=x|Y=y) = P(X=x)$
+
+== Cómo resolver ejercicios típicos
+
+=== 1. Te dan una mezcla con parámetros aleatorios
+Usar probabilidad total (discreto o continuo según corresponda).
+
+=== 2. Te dan densidades condicionales y una distribución para Y
+Aplicar:
+$ f_X(x) = integral f_(X\|Y) lr((x bar.v y))f_Y(y) d y $
+
+=== 3. Te piden esperanza condicional
+Usar fórmula según discreto/continuo.
+
+=== 4. Te piden esperanza total
+Calcular primero $E[X|Y]$ y luego promediar:
+$ E[X] = E(E[X|Y]) $
+
+== Notas útiles
+
+#nota[
+Recordá que *las mezclas suavizan distribuciones*: si las condicionales son simples pero la distribución de $Y$ es amplia, la marginal puede ser más compleja.
+]
+
+== Ejemplo general
+
+Supongamos:
+- $Y tilde "Bernoulli"(p)$
+- Condicionalmente, $X | Y=0 tilde N(0,1)$
+- $X | Y=1 tilde N(3,1)$
+
+Entonces:
+$ f_X(x) = (1-p) phi(x) + p phi(x-3) $
+
+Y la esperanza condicional:
+- $E[X|Y=0]=0$
+- $E[X|Y=1]=3$
+
+Esperanza total:
+$ E[X] = (1-p) dot 0 + p dot 3 = 3p $
 
 
