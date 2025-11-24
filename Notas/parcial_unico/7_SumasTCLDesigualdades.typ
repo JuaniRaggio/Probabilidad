@@ -200,19 +200,38 @@ $ "Cov"[X, Y] = E[X.Y] - E[X].E[Y] $
 
   1. Suma de Binomiales es Binomial con $n = a + b$, siendo a y b el n de las va
 
+  #importante[
+    *Si* necesitamos que esten identicamente distribuidas (veamos que p es
+    igual en todas las X, en caso de que haya X con p distintas, tendriamos
+    que si o si hacer la suma por casos o ver de alguna forma en la que nos
+    quede p igual)
+  ]
+
   $ N_1 tilde "Bino"(n, p), N_2 tilde "Bino"(m, p) => N_1 + N_2 tilde "Bino"(m + n, p) $
 
   2. Suma de Poisson es Poisson con $lambda = lambda_1 + lambda_2$
+
+  #importante[
+    *No* necesitamos que esten identicamente distribuidas.
+  ]
 
   $ N_1 tilde "Pois"(lambda_1), N_2 tilde "Pois"(lambda_2) => N_1 + N_2 tilde 
   "Pois"(lambda_1 + lambda_2) $
 
   3. Suma de Norm es Norm
+  
+  #importante[
+    *No* necesitamos que esten identicamente distribuidas.
+  ]
 
   $ X_1 tilde N(mu_1, sigma_1), X_2 tilde N(mu_2, sigma_2) $
   $ X_1 + X_2 tilde N(mu_1 + mu_2, sqrt((sigma_1)^2 + (sigma_2)^2)) $
 
   4. Suma de expo es gama, sean $X_1, X_2, ..., X_n tilde "exp"(lambda)$
+
+  #importante[
+    *Si* necesitamos que esten identicamente distribuidos
+  ]
 
   $ sum_(k = 1)^n X_k tilde Gamma(n, lambda) $
   $ f_Gamma(n, lambda) (x) = ((lambda x)^(n-1))/((n - 1)!) lambda e^(-lambda x),
@@ -263,9 +282,9 @@ saber cual nos conviene usar, tenemos que analizar esta relacion:
 $ (sigma^2)/(a - mu)^2 < mu/a $
 
 _En caso de que se cumpla esta relacion, entonces Chebyshev nos va a dar
-una mejor cota_. Pero tambien tenemos que tener cuidado con como 
-despejamos porque no siempre podemos encontrar una relacion entre lo que
-queremos acotar y la forma de la desigualdad del Chaval
+una mejor cota_. Siempre y cuando los valores de X sean positivos, vamos
+a poder aplicar la desigualdad de Chebyshev ya que notemos que la cota
+que nos agregaria el modulo se nos va porque seria 0.
 
 #tip[
 - Si solo nos interesa un lado de las cotas $=>$ *Markov*
