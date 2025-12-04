@@ -185,7 +185,7 @@ $ "sesgo"(hat(theta)) = E[hat(theta)] - theta $
 
 == Metodos de Estimacion
 
-=== Maxima Verosimilitud (MLE)
+=== Maximum Likelihood Estimation (MLE)
 
 #definicion("Verosimilitud")[
   La funcion de verosimilitud es $f(x_1, ..., x_n; theta)$, la densidad conjunta vista como funcion de $theta$.
