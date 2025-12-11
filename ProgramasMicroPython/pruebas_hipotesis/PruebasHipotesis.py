@@ -62,10 +62,10 @@ def decision_t_menor(t_calc, t_critico):
 # H0: mu = 100
 # H1: mu != 100
 # X_barra = 103
+# mu0 = ...
 # sigma = 15
 # n = 50
 # alfa = 0.05
-# mu0 = ...
 # z_critico = 1.96  # invNorm(1 - alpha/2, 0, 1)
 # z_calc = z_test_media_sigma_conocida(X_barra, mu0, sigma, n)
 # print("Z calculado:", z_calc)
@@ -77,10 +77,10 @@ def decision_t_menor(t_calc, t_critico):
 # H0: mu = 18
 # H1: mu < 18
 # X_barra = 17.5
+# mu0 = ...
 # sigma = 2  # sqrt(varianza) = sqrt(4)
 # n = 16
 # alfa = 0.05
-# mu0 = ...
 # z_critico = -1.645  # invNorm(0.05, 0, 1) -> NEGATIVO
 # z_calc = z_test_media_sigma_conocida(X_barra, mu0, sigma, n)
 # print("Z calculado:", z_calc)  # -1.0
@@ -93,10 +93,10 @@ def decision_t_menor(t_calc, t_critico):
 # H0: mu = 50
 # H1: mu > 50
 # X_barra = 53
+# mu0 = ...
 # sigma = 10
 # n = 36
 # alfa = 0.05
-# mu0 = ...
 # z_critico = 1.645  # invNorm(0.95, 0, 1) -> POSITIVO
 # z_calc = z_test_media_sigma_conocida(X_barra, mu0, sigma, n)
 # print("Z calculado:", z_calc)  # 1.8
@@ -112,11 +112,11 @@ def decision_t_menor(t_calc, t_critico):
 # H0: mu = 100
 # H1: mu != 100
 X_barra = 274.4
+mu0 = 250
 S = 11.2  # desviacion estandar MUESTRAL
 n = 35
-gl = n - 1  # 19
+gl = n - 1
 alfa = 0.05
-mu0 = 250
 t_critico = 2.032244455  # invT(1 - alpha/2, gl)
 t_calc = t_test_media_sigma_desconocida(X_barra, mu0, S, n)
 print("t calculado:", t_calc)
@@ -129,11 +129,11 @@ print(decision_t_bilateral(t_calc, t_critico))
 # H0: mu = 80
 # H1: mu < 80
 # X_barra = 76
+# mu0 = ...
 # S = 10
 # n = 25
 # gl = n - 1  # 24
 # alfa = 0.05
-# mu0 = ...
 # t_critico = -1.711  # invT(0.05, 24) -> NEGATIVO
 # t_calc = t_test_media_sigma_desconocida(X_barra, mu0, S, n)
 # print("t calculado:", t_calc)  # -2.0
@@ -146,11 +146,11 @@ print(decision_t_bilateral(t_calc, t_critico))
 # H0: mu = 50
 # H1: mu > 50
 # X_barra = 52.5
+# mu0 = ...
 # S = 8
 # n = 25
 # gl = n - 1  # 24
 # alfa = 0.05
-# mu0 = ...
 # t_critico = 1.711  # invT(1 - alpha, 24) -> POSITIVO
 # t_calc = t_test_media_sigma_desconocida(X_barra, mu0, S, n)
 # print("t calculado:", t_calc)  # 1.5625

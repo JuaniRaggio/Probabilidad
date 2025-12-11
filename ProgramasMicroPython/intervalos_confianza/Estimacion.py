@@ -36,21 +36,21 @@ def n_proporcion(z, E):
 
 # Bilat: t = # invT(1 - alfa/2, gl)
 # Unilat: t = invT(1 - alfa, gl)
-t = 2.000995317
+t = 1.761310111
 z = 1.959963986 # invNorm(1 - alfa/2, 0, 1)
 
-# == intervalo media sigma conocida ==
-X_barra = 11.09
-sigma = 0.73
-n = 60
-alfa = 0.05
+# == intervalo pa media cc sigma conocida ==
+X_barra = 63
+# sigma = 0.73
+n = 15
+alfa = 0.1
 err = 0.002
-print("IC media sigma conocida:", IC_media_sigma_conocida(X_barra, sigma, n, z))
+# print("IC media sigma conocida:", IC_media_sigma_conocida(X_barra, sigma, n, z))
 
 # == inter pa media cc sigma desconocida ==
-S = 0.73
-n2 = 60
-alfa2 = 0.05
+S = 12.5
+n2 = 15
+alfa2 = 0.1
 print("IC media sigma desconocida:", IC_media_sigma_desconocida(X_barra, S, n2, t))
 
 # == inter pa proporcion ==
@@ -60,7 +60,7 @@ print("IC media sigma desconocida:", IC_media_sigma_desconocida(X_barra, S, n2, 
 # print("IC proporcion:", IC_proporcion(p_hat, n_p, z))
 
 # == tamaño muestra media ==
-print("n media:", n_media(z, sigma, err))
+# print("n media:", n_media(z, sigma, err))
 
 # Ejemplo 5: tamaño muestra proporcion
 print("n proporcion:", n_proporcion(z, err))

@@ -3,12 +3,13 @@ from math import sqrt
 # Este es el programa adaptado para datos muestrales (no agrupados)
 
 # Datos del ejercicio:
-datos = [9.8, 10.2, 10.4, 9.8, 10.0, 10.2, 9.6]
+datos = [8.24, 8.23, 8.20, 8.21, 8.20, 8.28, 8.23, 8.26, 8.24, 8.24, 8.25, 8.29, 8.25, 8.26, 8.23]
+
 n = len(datos)
 gl = n - 1
 alfa = 0.05
 # t es tInv(1 - alfa/2, gl = n - 1)
-t = 2.447
+t = 2.144786681
 
 def media(datos):
     return sum(datos) / len(datos)
