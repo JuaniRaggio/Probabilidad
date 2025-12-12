@@ -99,7 +99,7 @@
 #line(length: 100%, stroke: 1pt)
 #v(1em)
 
-#// ====================================
+// ====================================
 // FUNCIONES UTILES
 // ====================================
 
@@ -179,6 +179,9 @@
 
 = Estadistica Descriptiva
 
+== 04/08
+
+===
 Un componente eléctrico es fundamental para el funcionamiento de un 
 sistema. El mismo se puede conseguir con 2 proveedores distintos. Se 
 tomó una muestra de componentes de cada
@@ -186,12 +189,40 @@ proveedor у se midió la duración en horas, obteniendo los siguientes
 resultados:
 
 - Proveedor A:
-#table(rows: 1)[46.31][38.47][46.65][42.07][32.3][35.36][38.97][52.02][43.82]
+#table(columns: 9)[46.31][38.47][46.65][42.07][32.3][35.36][38.97][52.02][43.82]
 
 - Proveedor B:
-#table(rows: 1)[44.31][36.37][44.64][44.36][40.07][30.30][33.36][36.53][37.97][50.02][41.82][20.00]
+#table(columns: 12)[44.31][36.37][44.64][44.36][40.07][30.30][33.36][36.53][37.97][50.02][41.82][20.00]
 
 Para cada muestra, calcular la media, que proveedor elegiria?
+
+
+$ mu_A = sum_A x_i / n_A, n_A = 9 => mu_A = 41.7744 $
+
+$ mu_B = sum_B x_i / n_B, n_B = 12 => mu_B = 38.3125 $
+
+===
+
+Un componente eléctrico es fundamental para el funcionamiento de un 
+sistema. El mismo
+se puede conseguir con 2 proveedores distintos. Se tomó una muestra de 
+12 componentes de
+cada proveedor y se midió la duración en horas:
+
+- Proveedor A:
+#table(columns: 11)[35.8][46.92][33.72][40.35][48.56][36.99][37.64][36.82][38.57][40.69][46.14]
+
+- Proveedor B:
+#table(columns: 11)[38.75][40.37][38.33][43.19][40.66][38.36][40.97][41.48][41.15][39.39][43.02]
+
+Para cada muestra, calcular la media y el desvio
+
+$ mu_A = sum_A x_i / n_A, n_A = 11 => mu_A =  $
+
+
+
+
+
 
 
 
