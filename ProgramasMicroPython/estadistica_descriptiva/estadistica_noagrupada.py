@@ -9,10 +9,10 @@ def normalize(data):
     return normalized
 
 def most_popular(data):
-    views = 0
+    views = list(data.keys())[0]
     normalized = normalize(data)
     for key in normalized.keys():
-        views = normalized[key] if normalized[key] > views else views
+        views = key if normalized[key] > normalized[views] else views
     return views
 
 def overline(data):
