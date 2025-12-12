@@ -1,86 +1,88 @@
 Plan de repaso para el final
-============================
+=============================
 
 Objetivos generales
--------------------
+--------------------
 La idea es rehacer todos los ejercicios hechos en clase y asi abarcar todos los
 temas a evaluar. Los ultimos dos temas son los que mas flojo tengo porque no
 entraron en el parcial, asique darle mucha bola a eso porque lo van a evaluar
 100%. 
-Por otro lado hay temas como Poisson, Suma de variables aleatorias, Cadenas de 
-Markov, etc. que tengo muy claros, por lo que voy a darle menos prioridad a 
-esos ejercicios.
 
-- [ ] Ejs propuestos 04/08 - Estadistica Descriptiva (Datos no Agrupados)
+Temas fundamentales a repasar
+----------------------------
+
+- Funciones de variables aleatorias concidas (Suelen pedir Hipergeometrica y 
+  saberse la media/desvio es util, te la regalo hacer la integral esa en el 
+  examen)
+  === Nivel de Entendimiento del tema: Con saberse HG alcanza asique bien ===
+
+- tp 1 - Estadistica Descriptiva (Entra esto y te la ponen porque no te 
+  acordas nada)
   === Nivel de Entendimiento del tema:  ===
 
-- [ ] Ejs propuestos 06/08 - Estadistica Descriptiva (Datos Agrupados)
+- tp 5 - Mezclas, Funciones y Conjuntas (El tema mas dificil, suelen tomar un
+  ejercicio en el que te dan una integral y te dicen que esa es la densidad)
   === Nivel de Entendimiento del tema:  ===
 
-- [ ] Ejs propuestos 11/08 - Axiomas
+- tp 6 - Procesos de Poisson y Markov. **Lo unico que puede ser jodido es 
+  calcular la media hasta la primer aparicion de un evento** -> Repasar eso
   === Nivel de Entendimiento del tema:  ===
 
-- [ ] Ejs propuestos 13/08 - Laplace
+- tp 8 - Estimacion de Parametros (Tema que tengo flojo)
   === Nivel de Entendimiento del tema:  ===
 
-- [ ] Ejs propuestos 18/08 - Independencia y Probabilidad Condicional
+- tp 9 - Tests de Hipotesis (Tema que tengo flojo)
   === Nivel de Entendimiento del tema:  ===
 
-- [ ] Ejs propuestos 20/08 - Probabilidad Total y Bayes
+- Una paranoia mia es que pueden tomar demostraciones de Axiomas y ahi a danzar
   === Nivel de Entendimiento del tema:  ===
 
-- [ ] Ejs propuestos 25/08 - VAD Generales
-  === Nivel de Entendimiento del tema:  ===
+Objetivos concretos
+--------------------
 
-- [ ] Ejs propuestos 27/08 - VAD Notables
-  === Nivel de Entendimiento del tema:  ===
+- [ ] Ejercicios resueltos de todas las guias, por lo menos releerlos y pensar 
+  bien la solucion
 
-- [ ] Ejs propuestos 01/09 - VAC Generales
-  === Nivel de Entendimiento del tema:  ===
++ tp 1:
+  - [ ] Ejs propuestos 04/08 - Estadistica Descriptiva (Datos no Agrupados)
+  - [ ] Ejs propuestos 06/08 - Estadistica Descriptiva (Datos Agrupados)
 
-- [ ] Ejs propuestos 08/09 - VAC Notables
-  === Nivel de Entendimiento del tema:  ===
++ tp 2
+  - [ ] Ejs propuestos 11/08 - Axiomas
+  - [ ] Ejs propuestos 13/08 - Laplace
+  - [ ] Ejs propuestos 18/08 - Independencia y Probabilidad Condicional
+  - [ ] Ejs propuestos 20/08 - Probabilidad Total y Bayes
 
-- [ ] Ejs propuestos 10/09 - VAD Bidimensionales
-  === Nivel de Entendimiento del tema:  ===
++ tp 3
+  - [ ] Ejs propuestos 25/08 - VAD Generales
+  - [ ] Ejs propuestos 27/08 - VAD Notables
 
-- [ ] Ejs propuestos 15/09 - VAC Bidimensionales
-  === Nivel de Entendimiento del tema:  ===
++ tp 4
+  - [ ] Ejs propuestos 01/09 - VAC Generales
+  - [ ] Ejs propuestos 08/09 - VAC Notables
 
-- [ ] Ejs propuestos 17/09 - Esperanza condicional (Conceptualmente Bayes)
-  === Nivel de Entendimiento del tema:  ===
++ tp 5
+  - [ ] Ejs propuestos 10/09 - VAD Bidimensionales
+  - [ ] Ejs propuestos 15/09 - VAC Bidimensionales
+  - [ ] Ejs propuestos 17/09 - Esperanza condicional (Conceptualmente Bayes)
 
-- [ ] Ejs propuestos 22/09 - Procesos Estocasticos
-  === Nivel de Entendimiento del tema:  ===
++ tp 6
+  - [ ] Ejs propuestos 22/09 - Procesos Estocasticos
+  - [ ] Ejs propuestos 24/09 - Procesos de Poisson
+  - [ ] Ejs propuestos 29/09 - Cadenas de Markov
+  - [ ] Ejs propuestos 01/10 - Cadenas de Markov (No Regulares)
 
-- [ ] Ejs propuestos 24/09 - Procesos de Poisson
-  === Nivel de Entendimiento del tema:  ===
++ tp 7
+  - [ ] Ejs propuestos 06/10 - Suma de VA y Desigualdades de Markov / Chebyshev
+  - [ ] Ejs propuestos 08/10 - Teorema Central del Limite
 
-- [ ] Ejs propuestos 29/09 - Cadenas de Markov
-  === Nivel de Entendimiento del tema:  ===
++ tp 8
+  - [ ] Ejs propuestos 13/10 - **Estimacion Puntual**
+  - [ ] Ejs propuestos 15/10 - Intervalos de confianza
+  - [ ] Ejs propuestos 20/10 - Intervalos de confianza (desvio desconocido)
 
-- [ ] Ejs propuestos 01/10 - Cadenas de Markov (No Regulares)
-  === Nivel de Entendimiento del tema:  ===
-
-- [ ] Ejs propuestos 06/10 - Suma de VA y Desigualdades de Markov / Chebyshev
-  === Nivel de Entendimiento del tema:  ===
-
-- [ ] Ejs propuestos 08/10 - Teorema Central del Limite
-  === Nivel de Entendimiento del tema:  ===
-
-- [ ] Ejs propuestos 13/10 - **Estimacion Puntual**
-  === Nivel de Entendimiento del tema:  ===
-
-- [ ] Ejs propuestos 15/10 - Intervalos de confianza
-  === Nivel de Entendimiento del tema:  ===
-
-- [ ] Ejs propuestos 20/10 - Intervalos de confianza (desvio desconocido)
-  === Nivel de Entendimiento del tema:  ===
-
-- [ ] Ejs propuestos 27/10 - **Tests de Hipotesis**
-  === Nivel de Entendimiento del tema:  ===
-
-- [ ] Ejs propuestos 29/10 - **Tests de Hipotesis (Desvio desconocido)**
-  === Nivel de Entendimiento del tema:  ===
++ tp 9
+  - [ ] Ejs propuestos 27/10 - **Tests de Hipotesis**
+  - [ ] Ejs propuestos 29/10 - **Tests de Hipotesis (Desvio desconocido)**
 
 
