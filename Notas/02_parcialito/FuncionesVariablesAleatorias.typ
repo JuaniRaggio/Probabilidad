@@ -199,19 +199,6 @@
 ]
 
 #importante[
-  *Geometrica*
-  - $p$: probabilidad de éxito en cada intento  
-  - $x$: número de intentos hasta el primer éxito (variable discreta)
-
-  $ P(X = x) = (1 - p)^{x - 1} p, x = 1, 2, 3, ...$
-
-  $ F_X (x) = 1 - (1 - p)^x $
-
-  $ mu_X = 1/p $  
-  $ V[X] = (1 - p)/p^2 $
-]
-
-#importante[
   *Hipergeometrica*
   - $N$: tamaño total de la población  
   - $K$: cantidad total de éxitos en la población  
@@ -226,14 +213,13 @@
 
 #tip[
   *Comparación entre Geométrica, Binomial e Hipergeométrica*
+  - La geometrica es completamente useless, nisiquiera la pongo porque
+    realmente no tiene sentido, es una Binomial con exitos = 1
 
-  - La Geometrica cuenta cuando aparece el primer exito (exactamente igual a 
-    hacer una binomial con x = 1).
+  - La Binomial cuenta cuantos exitos hay en $n$ intentos independientes
 
-  - La Binomial cuenta cuantos exitos hay en $n$ intentos independientes.
-
-  - La Hipergeometrica cuenta cuantos exitos hay en una muestra sin reemplazo,
-    donde los ensayos no son independientes.
+  - La Hipergeometrica cuenta cuantos exitos hay en una muestra sin 
+    reemplazo, donde los ensayos no son independientes.
 
 ]
 
