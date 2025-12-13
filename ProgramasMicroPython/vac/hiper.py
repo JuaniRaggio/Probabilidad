@@ -1,9 +1,9 @@
 import math
 
-size_poblacion = 20   # tamaño de la población
-exitos_en_pob = 7    # número de éxitos en la población
-extracciones = 5    # número de extracciones
-exitos_deseados = 3    # número de éxitos a evaluar
+size_poblacion = 80   # tamaño de la población
+exitos_en_pob = 60    # número de éxitos en la población
+extracciones = 9    # número de extracciones
+exitos_deseados = 5    # número de éxitos a evaluar
 
 def hypergeom_pdf(size_poblacion, exitos_en_pob, extracciones, k):
     if k < 0 or k > extracciones or k > exitos_en_pob or extracciones - k > size_poblacion - exitos_en_pob:

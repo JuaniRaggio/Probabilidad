@@ -2,7 +2,7 @@ import math
 
 # {marca de clase (centro del intervalo) : frecuencia}
 # Ojo porque el size de los intervalos tiene que ser el mismo
-data = {0.2: 1, 0.4: 1, 0.6: 5}
+data = {2.5: 2, 7.5: 4, 12.5: 1, 17.5: 1, 22.5: 2}
 
 def total_elements(data):
     total = 0

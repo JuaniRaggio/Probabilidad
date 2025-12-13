@@ -240,8 +240,6 @@ $ kappa = 1/(n s^4) sum_(i = 1)^n (x_i - overline(x))^4 - 3 $
   Es todo lo mismo pero usando marcas de clase
 ]
 
-
-
 = Funciones de Variables Aleatorias - Notables
 
 #tip[
@@ -323,5 +321,40 @@ $ kappa = 1/(n s^4) sum_(i = 1)^n (x_i - overline(x))^4 - 3 $
 ]
 
 
+= Estimacion de Parametros
+
+#importante[
+  *Estimador de maxima verosimilitud*
+  Dada una muestra, el estimador de maxima verosimilitud esta dado por:
+  $ hat(theta) = "arg max"_theta f(X_1, ..., X_n; theta) $
+]
+
+
+= Tests de Hipotesis
+
+Una hipotesis estadistica es una afirmacion sobre parametros de una
+poblacion. Una _prueba de hipotesis_ consiste en una forma de contrastar
+varias hipotesis entre si, evaluando su veracidad
+
+Nunca se puede tener una certeza total, por lo que se pueden cometer
+errores al hacer tests de hipotesis
+
+#table(columns: 3)[][$H_0 "verdadera"$][$H_0 "falsa"$][Se acepta $H_0$][OK][Error Tipo II][Se rechaza $H_0$][Error Tipo I][OK]
+
+#importante[
+  _El nivel de significacion de la prueba_ es la maxima probabilidad
+  admisible de cometer un *Error Tipo I*. Se define una region critica
+  $ alpha $
+]
+
+== Prueba de Hipotesis para la media
+
+Sea $X$ una variable aleatoria con media $mu$. Existen tres tipos de
+pruebas de hipotesis
+
+1. De dos colas:
+  - Prueba:
+    $ H_0: mu = mu_0 $
+    $ H_1: mu != mu_0 $
 
 

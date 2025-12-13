@@ -1,6 +1,6 @@
 import math
 
-data = [1, 2, 1, 1, 1, 3, 2]
+data = [1.11, 0.29, 5.9, 6.59, 9.38, 21.22, 14.73, 6.56, 18.79, 24.33]
 
 def normalize(data):
     normalized = {}
@@ -9,8 +9,8 @@ def normalize(data):
     return normalized
 
 def most_popular(data):
-    views = list(data.keys())[0]
     normalized = normalize(data)
+    views = list(normalized.keys())[0]
     for key in normalized.keys():
         views = key if normalized[key] > normalized[views] else views
     return views
