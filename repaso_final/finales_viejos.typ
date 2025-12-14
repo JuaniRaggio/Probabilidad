@@ -421,7 +421,9 @@ $ P(X >= 6) = 1 - P(X <= 5) = 1 - "Hipercdf"(80, 60, 9, 5) = 1 - 0.1530 $
 
 #align(center)[#table()[$P(X >= 6) = 0.8470$]]
 
-Luego en el item 2 es hacer memoria mas que otra cosa:
+#importante[
+  Recordar la forma de la esperanza y varianza de la Hipergeometrica
+]
 
 Redefinimos $ X tilde "Hiper"(80, 60, 6) $
 
@@ -454,6 +456,32 @@ engripadas es 18%
 === (1 punto)
 Si observa un porcentaje de 29% de personas engripadas, calcular el p-valor,
 que concluye?
+
+_Solucion_
+
+#importante[
+  Los puntos criticos me dicen donde esta la region critica, que seria donde
+  rechazamos y donde aceptamos la Hipotesis, por lo que es *FUNDAMENTAL*
+  recordar esas formulas y son muy similares entre media y proporcion, asique
+  no hay excusa
+]
+
+$ H_0: p = p_0 = 0.25 $
+$ H_1: p != 0.25 $
+
+Para el calculo de los valores criticos para la proporcion, hacemos:
+
+$ p_c_1 = 0.25 - 1.8808 sqrt((p * (1 - p))/n) = 0.25 - 1.8808 
+sqrt(0.25 0.75 / 400) = 0.2093 $
+$ p_c_2 = 0.25 + 1.8808 sqrt((p * (1 - p))/n) = 0.25 + 1.8808 
+sqrt(0.25 0.75 / 400) = 0.2907 $
+
+$ "Nivel de significacion" = 0.06 = alpha $
+
+$ P("error tipo II") = P(p_c_1 <= p <= p_c_2 | p = 0.18) =
+Phi((p_c_2 - 0.18)/sqrt(0.18 0.82/400)) - Phi((p_c_1 - 0.18)/sqrt(0.18 0.82/400)) $
+
+#align(center)[#table()[$P("error tipo II") = Phi((0.2907 - 0.18)/sqrt(0.18 0.82/400)) - Phi((0.2093 - 0.18)/sqrt(0.18 0.82/400))$]]
 
 
 == Variables Aleatorias Bidimensionales

@@ -54,13 +54,12 @@ def decision_t_menor(t_calc, t_critico):
     else:
         return "No rechazamos H0 (" + str(round(t_calc, 4)) + " >= " + str(t_critico) + ")"
 
-# ============================================================
-# TEST Z PARA MEDIA (sigma conocida)
-# ============================================================
+# ===== TEST Z PARA MEDIA (sigma conocida) =====
 
-# Test Z BILATERAL para media
-# H0: mu = 100
-# H1: mu != 100
+# ===== Test Z BILATERAL para media =====
+# overline(X_c_1) = mu_0 - z_critico sigma/sqrt(n)
+# overline(X_c_2) = mu_0 + z_critico sigma/sqrt(n)
+# H0: mu = 100; H1: mu != 100
 # X_barra = 103
 # mu0 = ...
 # sigma = 15
@@ -73,9 +72,8 @@ def decision_t_menor(t_calc, t_critico):
 # print(decision_z_bilateral(z_calc, z_critico))
 # Valor P: 2 * normalcdf(-1E99, -|z_calc|, 0, 1)
 
-# Test Z UNILATERAL IZQUIERDO para media
-# H0: mu = 18
-# H1: mu < 18
+# ===== Test Z UNILATERAL IZQUIERDO para media =====
+# H0: mu = 18; H1: mu < 18
 # X_barra = 17.5
 # mu0 = ...
 # sigma = 2  # sqrt(varianza) = sqrt(4)
@@ -89,9 +87,7 @@ def decision_t_menor(t_calc, t_critico):
 # Valor P: normalcdf(-1E99, z_calc, 0, 1)
 
 # Test Z UNILATERAL DERECHO para media
-# Ejemplo: verificar si peso medio es SUPERIOR al especificado
-# H0: mu = 50
-# H1: mu > 50
+# H0: mu = 50; H1: mu > 50
 # X_barra = 53
 # mu0 = ...
 # sigma = 10
@@ -104,30 +100,25 @@ def decision_t_menor(t_calc, t_critico):
 # print(decision_z_mayor(z_calc, z_critico))
 # Valor P: normalcdf(z_calc, 1E99, 0, 1)
 
-# ============================================================
-# TEST t PARA MEDIA (sigma desconocida)
-# ============================================================
+# ===== TEST t PARA MEDIA (sigma desconocida) =====
 
-# Test t BILATERAL para media
-# H0: mu = 100
-# H1: mu != 100
-X_barra = 274.4
-mu0 = 250
-S = 11.2  # desviacion estandar MUESTRAL
-n = 35
-gl = n - 1
-alfa = 0.05
-t_critico = 2.032244455  # invT(1 - alpha/2, gl)
-t_calc = t_test_media_sigma_desconocida(X_barra, mu0, S, n)
-print("t calculado:", t_calc)
-print(region_critica_bilateral_t(alfa, gl))
-print(decision_t_bilateral(t_calc, t_critico))
+# ===== Test t BILATERAL para media =====
+# H0: mu = 100 H1: mu != 100
+# X_barra = 274.4
+# mu0 = 250
+# S = 11.2  # desviacion estandar MUESTRAL
+# n = 35
+# gl = n - 1
+# alfa = 0.05
+# t_critico = 2.032244455  # invT(1 - alpha/2, gl)
+# t_calc = t_test_media_sigma_desconocida(X_barra, mu0, S, n)
+# print("t calculado:", t_calc)
+# print(region_critica_bilateral_t(alfa, gl))
+# print(decision_t_bilateral(t_calc, t_critico))
 # Valor P: 2 * tcdf(-1E99, -|t_calc|, gl)
 
-# Test t UNILATERAL IZQUIERDO para media
-# Ejemplo: verificar si rendimiento es INFERIOR al esperado
-# H0: mu = 80
-# H1: mu < 80
+# ===== Test t UNILATERAL IZQUIERDO para media =====
+# H0: mu = 80; H1: mu < 80
 # X_barra = 76
 # mu0 = ...
 # S = 10
@@ -141,10 +132,8 @@ print(decision_t_bilateral(t_calc, t_critico))
 # print(decision_t_menor(t_calc, t_critico))
 # Valor P: tcdf(-1E99, t_calc, gl)
 
-# Test t UNILATERAL DERECHO para media
-# Ejemplo: verificar si rendimiento es SUPERIOR al esperado
-# H0: mu = 50
-# H1: mu > 50
+# ===== Test t UNILATERAL DERECHO para media =====
+# H0: mu = 50; H1: mu > 50
 # X_barra = 52.5
 # mu0 = ...
 # S = 8
@@ -158,28 +147,23 @@ print(decision_t_bilateral(t_calc, t_critico))
 # print(decision_t_mayor(t_calc, t_critico))
 # Valor P: tcdf(t_calc, 1E99, gl)
 
-# ============================================================
-# TEST Z PARA PROPORCION
-# ============================================================
+# ===== TEST Z PARA PROPORCION ======
 
-# Test Z BILATERAL para proporcion
-# H0: p = 0.5
-# H1: p != 0.5
-# x = 60  # exitos
-# n = 100
-# alfa = 0.05
-# p_0 = 0.5
-# z_critico = 1.96  # invNorm(0.975, 0, 1)
-# z_calc = z_test_proporcion_desde_exitos(x, p_0, n)
-# print("Z calculado:", z_calc)  # 2.0
-# print(region_critica_bilateral_z(alfa))
-# print(decision_z_bilateral(z_calc, z_critico))
+# H0: p = 0.5; H1: p != 0.5
+# p_c_1 = p_0 - z_critico * sqrt(p_0 (1 - p_0)/n)
+# p_c_2 = p_0 + z_critico * sqrt(p_0 (1 - p_0)/n)
+x = 400*0.18  # exitos
+n = 400
+alfa = 0.06
+p_0 = 0.25
+z_critico = 1.8808 # invNorm(1 - alpha/2, 0, 1)
+z_calc = z_test_proporcion_desde_exitos(x, p_0, n)
+print("Z calculado:", z_calc)  # 2.0
+print(region_critica_bilateral_z(alfa))
+print(decision_z_bilateral(z_calc, z_critico))
 # Valor P: 2 * normalcdf(-1E99, -|z_calc|, 0, 1)
 
-# Test Z UNILATERAL IZQUIERDO para proporcion
-# Ejemplo: verificar si proporcion de defectos es MENOR al limite
-# H0: p = 0.3
-# H1: p < 0.3
+# H0: p = 0.3; H1: p < 0.3
 # x = 25  # exitos
 # n = 100
 # alfa = 0.05
@@ -191,10 +175,7 @@ print(decision_t_bilateral(t_calc, t_critico))
 # print(decision_z_menor(z_calc, z_critico))
 # Valor P: normalcdf(-1E99, z_calc, 0, 1)
 
-# Test Z UNILATERAL DERECHO para proporcion
-# Ejemplo: verificar si proporcion de aprobados es MAYOR al esperado
-# H0: p = 0.6
-# H1: p > 0.6
+# H0: p = 0.6 H1: p > 0.6
 # x = 70  # exitos
 # n = 100
 # alfa = 0.05
