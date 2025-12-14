@@ -152,7 +152,7 @@ def decision_t_menor(t_calc, t_critico):
 # H0: p = 0.5; H1: p != 0.5
 # p_c_1 = p_0 - z_critico * sqrt(p_0 (1 - p_0)/n)
 # p_c_2 = p_0 + z_critico * sqrt(p_0 (1 - p_0)/n)
-x = 400*0.18  # exitos
+x = 400*0.29  # exitos
 n = 400
 alfa = 0.06
 p_0 = 0.25

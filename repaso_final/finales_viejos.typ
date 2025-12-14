@@ -474,15 +474,24 @@ Para el calculo de los valores criticos para la proporcion, hacemos:
 $ "Nivel de significacion" = 0.06 = alpha $
 $ Phi^(-1) (1 - alpha/2) = 1.8808 $
 
-$ p_c_1 = p_0 - Phi^(-1) (1-alpha/2) sqrt((p * (1 - p))/n) = 0.25 - 1.8808 
+$ p_c_1 = p_0 - Phi^(-1) (1-alpha/2) sqrt((p_0 * (1 - p_0))/n) = 0.25 - 1.8808 
 sqrt(0.25 0.75 / 400) = 0.2093 $
-$ p_c_2 = 0.25 + 1.8808 sqrt((p * (1 - p))/n) = 0.25 + 1.8808 
+$ p_c_2 = 0.25 + 1.8808 sqrt((p_0 * (1 - p_0))/n) = 0.25 + 1.8808 
 sqrt(0.25 0.75 / 400) = 0.2907 $
 
 $ P("error tipo II") = P(p_c_1 <= p <= p_c_2 | p = 0.18) =
 Phi((p_c_2 - 0.18)/sqrt(0.18 0.82/400)) - Phi((p_c_1 - 0.18)/sqrt(0.18 0.82/400)) $
 
 #align(center)[#table()[$P("error tipo II") = Phi((0.2907 - 0.18)/sqrt(0.18 0.82/400)) - Phi((0.2093 - 0.18)/sqrt(0.18 0.82/400))$]]
+
+Si se observa un 29% de las personas engripadas, calcular el p-valor
+
+$ Z "calculado" = 1.8475 $
+$ "Rechazamos" H_0 "si" 1.8475 > 1.8808 => "No hay suficiente evidencia para rechazar" $
+
+#align(center)[#table()[
+  $ "p-valor" = 2 times Phi(-1.8475) = 0.0646 $
+]]
 
 
 == Variables Aleatorias Bidimensionales
