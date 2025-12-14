@@ -264,6 +264,64 @@ es de $lambda = 1/12 . 1/"min"$ y vuelve a monitorear sus toses
 Cuantos minutos debera monitorear para que la probabilidad de toser por lo 
 menos 50 veces sea mayor que 0.9?
 
+_Solucion:_
+
+Sabemos que como los tiempos de espera son exponenciales de parametro $lambda$,
+entonces la cantidad de eventos en un intervalo de longitud $i$ sera definido
+de la siguiente forma:
+$ lambda = 1/12 => X_i = "Toses en un intervalo de longitud i (en minutos)" $
+
+$ X_i tilde "Poisson"(lambda) $
+
+$ P(X_20 = 1 | X_40 = 4) = P(X_20 = 1 and X_40 = 4)/P(X_40 = 4) =
+ P(X_20 = 1 and X_40 - X_20 = 4 - 1)/P(X_40 = 4) $
+$ (P(X_20 = 1) P(X_20 = 3))/P(X_40 = 4) = ("poisPDF"(20/12, 1) "poisPDF"(20/12, 3))/"poisPDF"(40/12, 4) = 1/4 $
+
+Luego para que la quinta tos sea antes de los 45 minutos, quiere decir que en
+45 minutos va a haber mas de 5 toses
+
+$ P(X_45 > 5) = 1 - P(X_45 <= 5) = 1 - "poisCDF"(45/12, 5) = 0.3224 $
+
+
+Para el segundo item, piden cantidad de minutos a monitorear para que la
+probabilidad de toser por lo menos 50 veces sea mayor que 0.9, eso quiere
+decir que me piden el tiempo $t$ tal que:
+
+$ P(X_t > 50) > 0.9 $
+
+Como N es muy grande ($> 20$), vamos a poder usar TCL para aproximar:
+
+#error[
+  Probablemente en el examen me olvide de ponerle sqrt al $lambda$, lo cual
+  cambia muchisimo el resultado
+]
+
+$ X_t tilde "Normal"(mu = lambda t, sigma = sqrt(lambda t)) $
+
+$ => P(X_t >= 50) > 0.9 => 1 - P(X_t < 50) = 1 - P(X_t <= 49) > 0.9 $
+
+#error[
+  Cuando hacemos el pasaje de $X_t$, hay que tener *MUCHISIMO CUIDADO* con
+  el $<=$, ya que al ser una *VADiscreta*, no podemos sacar o poner el $=$ 
+  libremente como si nada, de hecho es muy probable que haya cometido ese 
+  error en el parcial porque es algo de lo que me acabo de dar cuenta.
+]
+
+#importante[
+  Es correcto entonces que al limite *superior se le suma* .5 y al limite 
+  *inferior se le resta*. Esto tiene sentido porque queremos siempre *INCLUIR
+  el valor discreto*, es decir si tenemos $X <= x$, queremos que $X$ pueda 
+  tomar el valor $x$, entonces hacemos $x + .5$
+]
+
+Luego reemplazamos con $lambda = 1/12$:
+
+$ 1 - Phi((49.5 - t/12)/sqrt(t/12)) > 0.9 $
+$ Phi^(-1) (0.1) > (49.5 - t/12)/sqrt(t/12) $
+
+Luego resolviendo la ecuacion, obtenemos:
+
+$ t = 712.5 $
 
 == Funciones de variables aleatorias
 
