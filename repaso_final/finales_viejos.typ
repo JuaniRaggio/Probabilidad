@@ -471,12 +471,13 @@ $ H_1: p != 0.25 $
 
 Para el calculo de los valores criticos para la proporcion, hacemos:
 
-$ p_c_1 = 0.25 - 1.8808 sqrt((p * (1 - p))/n) = 0.25 - 1.8808 
+$ "Nivel de significacion" = 0.06 = alpha $
+$ Phi^(-1) (1 - alpha/2) = 1.8808 $
+
+$ p_c_1 = p_0 - Phi^(-1) (1-alpha/2) sqrt((p * (1 - p))/n) = 0.25 - 1.8808 
 sqrt(0.25 0.75 / 400) = 0.2093 $
 $ p_c_2 = 0.25 + 1.8808 sqrt((p * (1 - p))/n) = 0.25 + 1.8808 
 sqrt(0.25 0.75 / 400) = 0.2907 $
-
-$ "Nivel de significacion" = 0.06 = alpha $
 
 $ P("error tipo II") = P(p_c_1 <= p <= p_c_2 | p = 0.18) =
 Phi((p_c_2 - 0.18)/sqrt(0.18 0.82/400)) - Phi((p_c_1 - 0.18)/sqrt(0.18 0.82/400)) $
